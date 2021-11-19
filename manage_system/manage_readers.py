@@ -9,6 +9,8 @@ def add_user():
 
 	data = read_file("books")
 
+	# Entrée utilisateur
+
 	username, already_exist = "", True
 	while ((len(username) <= 0 or len(username) > 16) and (already_exist is True)):
 		username = str(input("Saisir votre pseudonyme \nMinimum 3 caractères \nMaximum 16 caractères \nVotre saisie : "))
