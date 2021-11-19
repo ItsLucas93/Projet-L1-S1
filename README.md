@@ -3,12 +3,15 @@
 ## Structure du projet
 
 
-./Ressources/Sujet Projet.pdf
-./Ressources/books.txt
+```
+./Ressources/
+      Sujet Projet.pdf
+      books.txt
 
-./data/books.txt
-./data/booksread.txt
-./data/readers.txt
+./data/
+      books.txt
+      booksread.txt
+      readers.txt
 
 ./Plan.md
 ./Rapport.pdf
@@ -18,6 +21,7 @@
 ./managereaders.py
 ./managebooks.py
 ./suggestions.py
+```
 
 ## Calendrier / Deadlines
 
