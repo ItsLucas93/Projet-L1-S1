@@ -53,7 +53,13 @@
 		3. Supprimer son compte
 		4. Ajouter un compte
 	2. Visiter le dépôt des livres
+		1. Afficher tous les livres
+		2. Ajouter un livre
+		3. Modifier un livre
+		4. Supprimer un livre
 	3. Recommandation
+		1. Noter un livre
+		2. Suggérer un livre
 	4. Sortir du programme
 - Ne se ferme pas tant que exit n'est pas appelé 
 
