@@ -3,29 +3,22 @@
 ## Structure du projet
 
 ```
-./Ressources (Sujet)/
-		Sujet Projet.pdf
-		books.txt
-
-./data/
-		books.txt
-		booksread.txt
-		readers.txt
-
-./users/
-		manage.py
-
-./books/
-		manage.py
-
-./suggestions/
-		suggestsystem.py
-
-./main.py
-
-./Plan.md
-./Rapport.pdf
-./ReadMe.txt
+├── Plan.md
+├── README.txt
+├── Ressources\ (Sujet)
+│		├── Sujet\ Projet.pdf
+│		└── books.txt
+├── data
+│		├── books.txt
+│		├── booksread.txt
+│		└── readers.txt
+├── main.py
+├── manage_system
+│		├── manage_book.py
+│		├── manage_files.py
+│		└── manage_readers.py
+└── suggestions
+    	└── suggestsystem.py
 ```
 
 ## Calendrier / Deadlines
@@ -52,6 +45,13 @@
 		2. Modifier son compte / profil
 		3. Supprimer son compte
 		4. Ajouter un compte
+			1. Pseudonyme
+			2. Genre
+			3. Âge
+			4. Style de lecture
+				1. Plusieurs ?
+				2. Un seul
+			5. Livres lu selons livres dans `books.txt`
 	2. Visiter le dépôt des livres
 		1. Afficher tous les livres
 		2. Ajouter un livre
@@ -77,6 +77,7 @@
 
 - Ajouter des livres
 - Afficher des livres
+	1. Afficher par liste de 10, navigation par input(gauche droite)/listening keyboard left or right arrow
 - Modifier un livre
 - Supprimer un livre
 
