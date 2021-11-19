@@ -3,7 +3,7 @@
 ## Structure du projet
 
 ```
-./ressources/
+./Ressources (Sujet)/
 		Sujet Projet.pdf
 		books.txt
 
