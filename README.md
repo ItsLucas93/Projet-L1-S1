@@ -38,10 +38,25 @@
 | 22/11 | Faire la partie 1 (*Profil des lecteurs*)				|
 | 29/11 | Faire la partie 2 (*Visiter le dépôt des livres*)		|
 | 06/12 | Faire la partie 3 (*Système de recommendations*)		|
-| 13/12 | Finaliser et paufiner									|
+| 13/12 | Finaliser et paufiner	le menu							|
 
 
 ## Détails des parties
+
+#### Menu 
+
+- Choix (à l'ouverture du fichier):
+(rajouter un système de login à l'ouverture du fichier)
+	1. Profils des lecteurs
+		1. Afficher un autre lecteur / soi-même
+		2. Modifier son compte / profil
+		3. Supprimer son compte
+		4. Ajouter un compte
+	2. Visiter le dépôt des livres
+	3. Recommandation
+	4. Sortir du programme
+- Ne se ferme pas tant que exit n'est pas appelé 
+
 
 #### Partie 1 - Profil des lecteurs / Gestion des lecteurs
 
