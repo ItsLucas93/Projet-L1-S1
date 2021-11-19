@@ -2,25 +2,30 @@
 
 ## Structure du projet
 
-
 ```
-./Ressources/
-      Sujet Projet.pdf
-      books.txt
+./ressources/
+		Sujet Projet.pdf
+		books.txt
 
 ./data/
-      books.txt
-      booksread.txt
-      readers.txt
+		books.txt
+		booksread.txt
+		readers.txt
+
+./users/
+		manage.py
+
+./books/
+		manage.py
+
+./suggestions/
+		suggestsystem.py
+
+./main.py
 
 ./Plan.md
 ./Rapport.pdf
 ./ReadMe.txt
-
-./main.py
-./managereaders.py
-./managebooks.py
-./suggestions.py
 ```
 
 ## Calendrier / Deadlines
@@ -38,7 +43,26 @@
 
 ## Détails des parties
 
-#### Partie 1
+#### Partie 1 - Profil des lecteurs / Gestion des lecteurs
 
-- Profil du lecteur dans `./data/readers.txt`
-- 
+- Ajouter un lecteur
+- Afficher un lecteur
+- Modifier un lecteur
+- Supprimer un lecteur
+- Système de Login
+- Vérifier si le lecteur existe
+
+#### Partie 2 - Visiter le dépôt des livres / Gestion des livres
+
+- Ajouter des livres
+- Afficher des livres
+- Modifier un livre
+- Supprimer un livre
+
+#### Partie 3 - Système de recommendations
+
+- Suggérer des livres
+- Notes des livres
+
+
+
