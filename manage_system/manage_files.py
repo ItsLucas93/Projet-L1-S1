@@ -56,3 +56,9 @@ def write_file(path, liste):
 		path = path_booksread
 	elif path == "readers":
 		path = path_readers
+
+
+def regenerate_file():
+	"""
+	à utiliser seulement en cas de reset, très explosif
+	"""
