@@ -41,10 +41,7 @@
 - Choix (à l'ouverture du fichier):
 (rajouter un système de login à l'ouverture du fichier)
 	1. Profils des lecteurs
-		1. Afficher un autre lecteur / soi-même
-		2. Modifier son compte / profil
-		3. Supprimer son compte
-		4. Ajouter un compte
+		1. Ajouter un compte
 			1. Pseudonyme
 			2. Genre
 			3. Âge
@@ -52,6 +49,10 @@
 				1. Plusieurs ?
 				2. Un seul
 			5. Livres lu selons livres dans `books.txt`
+		2. Afficher un autre lecteur / soi-même
+		2. Modifier son compte / profil
+		3. Supprimer son compte
+		4. 
 	2. Visiter le dépôt des livres
 		1. Afficher tous les livres
 		2. Ajouter un livre
