@@ -17,7 +17,7 @@ def book_exist():
 	"""
 	Vérifier l'existence d'un livre dans /data/books.txt
 	"""
-	pass
+	return True
 
 
 def modify_book():

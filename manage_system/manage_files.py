@@ -22,6 +22,8 @@ def read_file(path):
 
 		with open(path, 'r') as f:
 			data = f.readlines()
+			for i in range(0, len(data)):
+				data[i] = antislashn(data[i])
 
 	elif path == "booksread":
 		path = path_booksread
@@ -29,6 +31,7 @@ def read_file(path):
 		with open(path, 'r') as f:
 			data = f.readlines()
 			for i in range(0, len(data)):
+				data[i] = antislashn(data[i])
 				data[i] = data[i].split(',')
 
 	elif path == "readers":
@@ -37,6 +40,7 @@ def read_file(path):
 		with open(path, 'r') as f:
 			data = f.readlines()
 			for i in range(0, len(data)):
+				data[i] = antislashn(data[i])
 				data[i] = data[i].split(',')
 
 	return data
@@ -71,6 +75,8 @@ def write_file(path, liste):
 
 
 
+def antislashn(charactere):
+	return 
 
 
 def regenerate_file():
