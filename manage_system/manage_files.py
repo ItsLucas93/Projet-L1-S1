@@ -50,7 +50,14 @@ def write_file(path, liste):
 	Ecriture du fichier
 	"""
 
-	if path == "books":
+	if path == "books_add":
+		path = path_books
+
+		with open(path,'a') as f:
+			f.write("\n" + liste) # à valider
+
+
+	elif path == "books":
 		path = path_books
 
 		with open(path,'w') as f:
