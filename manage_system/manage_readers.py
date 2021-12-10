@@ -77,6 +77,7 @@ def user_exist(username):
 				cond = True
 	return cond
 
+
 def show_users():
 	"""
 	Affiche la liste des utilisateurs présents dans ./data/users
@@ -112,3 +113,12 @@ def show_users():
 				print("0 : " + str(commandes[0]) + " ; 1 : " + str(commandes[1]) + " ; 2 : " + str(commande[2]))
 			command = int(input("Votre entrée :"))
 
+
+def modify_user(username):
+	"""
+	Modifier un utlisateur dans le fichier ./data/readers.txt
+	"""
+
+	data = read_file("readers")
+
+	

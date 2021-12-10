@@ -1,6 +1,8 @@
 path_books = "../data/books.txt"
 path_booksread = "../data/booksread.txt"
 path_readers = "../data/readers.txt"
+# Implémenter une fonction qui permet de modifier le path depuis la console 
+
 
 def read_file(path):
 	"""
@@ -19,7 +21,7 @@ def read_file(path):
 		path = path_books
 
 		with open(path, 'r') as f:
-		data = f.readlines()
+			data = f.readlines()
 
 	elif path == "booksread":
 		path = path_booksread
@@ -54,8 +56,21 @@ def write_file(path, liste):
 
 	elif path == "booksread":
 		path = path_booksread
+
+		with open(path,'w') as f:
+			for i in range(0, len(liste)):
+				f.write(liste[i])		
+
+
 	elif path == "readers":
 		path = path_readers
+
+		with open(path,'w') as f:
+			for i in range(0, len(liste)):
+				f.write(liste[i])
+
+
+
 
 
 def regenerate_file():
