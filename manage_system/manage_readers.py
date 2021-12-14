@@ -19,8 +19,9 @@ def add_user():
 
 	username, genre, age, preferences, livres_lu = username(), genre(), age(), preferences(), livres_lu()
 
-	data.append(username, genre, age, preferences, livres_lu)
-	write_file("readers", data)
+	data.append(username, genre, age, preferences)
+	### livres_lu ???
+	# write_file("readers", data)
 	
 	return True
 
@@ -177,4 +178,5 @@ def position(data, username):
 	if (i > len(data)):
 		pass
 	else: 
-		index = i
+		return index
+
