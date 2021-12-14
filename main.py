@@ -1,5 +1,4 @@
 from manage_system.manage_files import read_file
-import os
 
-data = read_file("readers")
+data = read_file("books")
 print(data)

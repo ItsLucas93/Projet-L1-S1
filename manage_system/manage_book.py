@@ -6,19 +6,29 @@ def add_book(new_book):
 	"""
 	if book_exist(new_book) == False:
 		write_file("books_add",new_book)
+	# penser à faire un booléen pour dire si existe déjà
 	pass
 
 
-def delete_book():
-	pass
+def delete_book(less_book):
 	"""
 	Supprimer un livre dans /data/books.txt
 	"""
+	if book_exist(less_book) == False:
+		book_liste = read_file("books")
+		for i in range(len(book_liste)):
+			if less_book == book_liste[i]:
+				marque = i
+		del book_liste[marque]
+		write_file("books",book_liste)
+
+	# penser à faire un boléen pour dire si effectuer ou non
+
 
 def book_exist(verif_book):
 	"""
 	Vérifier l'existence d'un livre dans /data/books.txt
-	Retourne un Booléan
+	Retourne un Booléen
 	"""
 	books = read_file("books")
 	for i in books:

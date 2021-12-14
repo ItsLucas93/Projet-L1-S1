@@ -1,7 +1,7 @@
 path_books = "data/books.txt"
 path_booksread = "data/booksread.txt"
 path_readers = "data/readers.txt"
-# Implémenter une fonction qui permet de modifier le path depuis la console 
+# Implémenter une fonction qui permet de modifier le path depuis la console
 
 
 def read_file(path):
@@ -36,7 +36,7 @@ def read_file(path):
 				data[i] = antislashn(data[i])
 			for i in range(0, len(data)):
 				data[i] = data[i].split(',')
-			
+
 
 
 	elif path == "readers":
@@ -61,7 +61,7 @@ def write_file(path, liste):
 		path = path_books
 
 		with open(path,'a', encoding="UTF-8") as f:
-			f.write("\n" + liste) # à valider
+			f.write("\n" + str(len(liste)+1) + " - " + liste)
 
 
 	elif path == "books":
@@ -69,7 +69,7 @@ def write_file(path, liste):
 
 		with open(path,'w', encoding="UTF-8") as f:
 			for i in range(0, len(liste)):
-				f.write(liste[i])
+				f.write(str(i+1) + " - " + liste[i] + "\n")
 
 
 	elif path == "booksread":
@@ -77,7 +77,7 @@ def write_file(path, liste):
 
 		with open(path,'w', encoding="UTF-8") as f:
 			for i in range(0, len(liste)):
-				f.write(liste[i])		
+				f.write(liste[i])
 
 
 	elif path == "readers":
