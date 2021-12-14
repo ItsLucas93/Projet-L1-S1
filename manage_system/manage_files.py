@@ -24,7 +24,7 @@ def read_file(path):
 		with open(path, 'r', encoding="UTF-8") as f:
 			data = f.readlines()
 			for i in range(0, len(data)):
-				data[i] = antislashn(data[i])
+				data[i] = remove_antislashn(data[i])
 
 
 	elif path == "booksread":
@@ -33,7 +33,7 @@ def read_file(path):
 		with open(path, 'r', encoding="UTF-8") as f:
 			data = f.readlines()
 			for i in range(0, len(data)):
-				data[i] = antislashn(data[i])
+				data[i] = remove_antislashn(data[i])
 			for i in range(0, len(data)):
 				data[i] = data[i].split(',')
 			
@@ -45,7 +45,7 @@ def read_file(path):
 		with open(path, 'r', encoding="UTF-8") as f:
 			data = f.readlines()
 			for i in range(0, len(data)):
-				data[i] = antislashn(data[i])
+				data[i] = remove_antislashn(data[i])
 			for i in range(0, len(data)):
 				data[i] = data[i].split(',')
 
@@ -61,7 +61,7 @@ def write_file(path, liste):
 		path = path_books
 
 		with open(path,'a', encoding="UTF-8") as f:
-			f.write(slashn(liste))
+			f.write(add_antislashn(liste))
 
 
 	elif path == "books":
@@ -77,7 +77,7 @@ def write_file(path, liste):
 
 		with open(path,'w', encoding="UTF-8") as f:
 			for i in range(0, len(liste)):
-				liste[i] = slashn(liste[i])			
+				liste[i] = add_antislashn(liste[i])			
 			for i in range(0, len(liste)):
 				f.write(liste[i])		
 
@@ -87,13 +87,13 @@ def write_file(path, liste):
 
 		with open(path,'w', encoding="UTF-8") as f:
 			for i in range(0, len(liste)):
-				liste[i] = slashn(liste[i])	
+				liste[i] = add_antislashn(liste[i])	
 			for i in range(0, len(liste)):
 				f.write(liste[i])
 
 
 
-def antislashn(charactere):
+def remove_antislashn(charactere):
 	"""
 	Retire l'antislash n de la chaîne de caractère
 	"""
@@ -102,7 +102,7 @@ def antislashn(charactere):
 		return charactere
 
 
-def slashn(charactere):
+def add_antislashn(charactere):
 	"""
 	Ajoute l'antislash n dans la chaîne de caractère
 	"""
