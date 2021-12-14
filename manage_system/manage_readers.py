@@ -1,4 +1,4 @@
-from manage_files import read_file, write_file
+from manage_system.manage_files import read_file, write_file
 
 """
 Les fonctions retournent des bool pour déclarer si les opérations se sont déroulés avec succès.
@@ -19,9 +19,9 @@ def add_user():
 
 	username, genre, age, preferences, livres_lu = username(), genre(), age(), preferences(), livres_lu()
 
-	### Implémenter la partie 'Quels livres avez vous lu ?
-	### Implémenter les valeurs dans data
-	### IMPLEMENTER write_file("readers", data)
+	data.append(username, genre, age, preferences, livres_lu)
+	write_file("readers", data)
+	
 	return True
 
 
@@ -94,11 +94,11 @@ def show_users():
 			commandes = {0: "Page précédente", 1: "Page suivante", 2: "Exit"}
 			print("Liste des commandes : ", end=" ")
 			if (page == 0):
-				print("1 : " + str(commandes[1]) + " ; 2 : " + str(commande[2])) # à voir comment print la valeur de la clé associé en vue d'une implémentation future
+				print("1 : " + str(commandes[1]) + " ; 2 : " + str(command[2])) # à voir comment print la valeur de la clé associé en vue d'une implémentation future
 			if (page == pages):
-				print("0 : " + str(commandes[0]) + " ; 2 : " + str(commande[2]))
+				print("0 : " + str(commandes[0]) + " ; 2 : " + str(command[2]))
 			else:
-				print("0 : " + str(commandes[0]) + " ; 1 : " + str(commandes[1]) + " ; 2 : " + str(commande[2]))
+				print("0 : " + str(commandes[0]) + " ; 1 : " + str(commandes[1]) + " ; 2 : " + str(command[2]))
 			command = int(input("Votre entrée :"))
 	return True
 
@@ -126,14 +126,15 @@ def modify_user(username):
 
 
 	commandes = {1: "Pseudo", 2: "Genre", 3: "Âge", 4: "Préférences", 5: "Livres que vous avez lu", 6: "Exit"}
+	command = "-1"
 
-	while (commande != 6):
-		commande = int(input("Votre entrée : "))
+	while (command != 6):
+		command = int(input("Votre entrée : "))
 
-		if commande not in commandes:
+		if command not in commandes:
 			pass
-		elif commande == 1:
-			data[index][0] = pseudo()
+		elif command == 1:
+			data[index][0] = username()
 
 	return True
 
@@ -154,14 +155,19 @@ def genre(genre=0):
 def age(age=0):
 	while ((age < 0) or (age > 3)):
 		age = int(input("Saisir votre âge : \n1. <= 18 ans\n2. Entre 18 et 25 ans\n3. > 25 ans\nVotre saisie : "))
-	pass
+	return age
 
 def preferences(preferences=0):
 	while ((preferences < 0) or (preferences > 7)):
 		preferences = int(input("Saisir votre style de lecture : \n1. Sciences fiction\n2. Biographie\n3. Horreur\n4. Romance\n5. Fable \n6. Histoire \n7. Comédie \nVotre saisie :"))
+	return preferences
 
-def livres_lu():
-	pass
+def livres_lu(livres_lu=""):
+	temp = []
+	while ((livres_lu == "") or (livres_lu not in ["exit()", "Exit()"])):
+		livres_lu = int(input("Saisissez vos livres lu. Lorsque vous aurez terminé, veuillez saisir 'Exit()'. \nVotre saisie : "))
+		temp.append(livres_lu)
+	return livres_lu
 
 def position(data, username):
 	i = 0
