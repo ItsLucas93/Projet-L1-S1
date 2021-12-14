@@ -20,7 +20,7 @@ def add_user():
 	username, genre, age, preferences, livres_lu = username(), genre(), age(), preferences(), livres_lu()
 
 	data.append(username, genre, age, preferences)
-	### livres_lu ???
+	### livres_lu à implémenter avec manage_booksread
 	# write_file("readers", data)
 	
 	return True
@@ -100,7 +100,7 @@ def show_users():
 				print("0 : " + str(commandes[0]) + " ; 2 : " + str(command[2]))
 			else:
 				print("0 : " + str(commandes[0]) + " ; 1 : " + str(commandes[1]) + " ; 2 : " + str(command[2]))
-			command = int(input("Votre entrée :"))
+			command = int(input("Your input : "))
 	return True
 
 
