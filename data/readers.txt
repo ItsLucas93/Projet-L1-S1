@@ -1,1 +1,5 @@
-Pseudo, numérogenre, numéroage, numérostylelecture
+Pseudo,numérogenre,numéroage,numérostylelecture
+Pseudo,numérogenre,numéroage,numérostylelecture
+Pseudo,numérogenre,numéroage,numérostylelecture
+Pseudo,numérogenre,numéroage,numérostylelecture
+Pseudo,numérogenre,numéroage,numérostylelecture

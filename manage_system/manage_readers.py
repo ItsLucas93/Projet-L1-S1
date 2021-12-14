@@ -172,4 +172,3 @@ def position(data, username):
 		pass
 	else: 
 		index = i
-

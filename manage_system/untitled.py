@@ -1,4 +1,4 @@
-path = "../data/books.txt"
+path = "../data/readers.txt"
 
 with open(path, "r") as f:
 	data = f.readlines()
