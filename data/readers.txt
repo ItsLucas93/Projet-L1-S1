@@ -1,5 +1,5 @@
-Pseudo,numérogenre,numéroage,numérostylelecture
-Pseudo,numérogenre,numéroage,numérostylelecture
-Pseudo,numérogenre,numéroage,numérostylelecture
-Pseudo,numérogenre,numéroage,numérostylelecture
-Pseudo,numérogenre,numéroage,numérostylelecture
+1 - Pseudo,numérogenre,numéroage,numérostylelecture
+2 - Pseudo,numérogenre,numéroage,numérostylelecture
+3 - Pseudo,numérogenre,numéroage,numérostylelecture
+4 - Pseudo,numérogenre,numéroage,numérostylelecture
+5 - Pseudo,numérogenre,numéroage,numérostylelecture

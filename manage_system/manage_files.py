@@ -69,7 +69,15 @@ def write_file(path, liste):
 
 		with open(path,'w', encoding="UTF-8") as f:
 			for i in range(0, len(liste)):
-				f.write(str(i+1) + " - " + liste[i] + "\n")
+				liste[i] = supr_num(liste[i])
+				f.write(str(i+1) + liste[i] + "\n")
+
+
+	elif path == "booksread_add":
+		path = path_booksread
+
+		with open(path,"a", encoding="UTF-8") as f:
+			f.write("\n" + str(len(liste) + 1) + " - " + liste)
 
 
 	elif path == "booksread":
@@ -77,7 +85,15 @@ def write_file(path, liste):
 
 		with open(path,'w', encoding="UTF-8") as f:
 			for i in range(0, len(liste)):
-				f.write(liste[i])
+				liste[i] = supr_num(liste[i])
+				f.write(str(i + 1) + liste[i] + "\n")
+
+
+	elif path == "readers_add":
+		path = path_readers
+
+		with open(path,'a', encoding="UTF-8") as f:
+			f.write("\n" + str(len(liste) + 1) + " - " + liste)
 
 
 	elif path == "readers":
@@ -85,7 +101,8 @@ def write_file(path, liste):
 
 		with open(path,'w', encoding="UTF-8") as f:
 			for i in range(0, len(liste)):
-				f.write(liste[i])
+				liste[i] = supr_num(liste[i])
+				f.write(str(i + 1) + liste[i] + "\n")
 
 
 
@@ -95,6 +112,9 @@ def antislashn(charactere):
 		return charactere
 
 
+def supr_num(charactere):
+	charactere = charactere[1:]
+	return charactere
 
 
 def regenerate_file():
