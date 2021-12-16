@@ -78,7 +78,7 @@ def write_file(path, liste):
 
 		with open(path,'w', encoding="UTF-8") as f:
 			for i in range(0, len(liste)):
-				liste[i] = add_antislashn(liste[i])			
+				liste[i] = add_antislashn(liste[i])
 			for i in range(0, len(liste)):
 				f.write(liste[i])		
 
