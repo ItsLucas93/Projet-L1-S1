@@ -39,7 +39,9 @@ def welcome():
 
 def command_center(command=0):
 	"""
-	----- Main Menu -----
+	+-------------------+
+	|---- Main Menu ----|
+	+-------------------+
 
 	1. Manage Users
 	2. Manage Books
@@ -47,28 +49,34 @@ def command_center(command=0):
 	4. Exit program
 	"""
 	while command != 4:
-		commandes = {1: "Manage Users", 2: "Manage Books", 3: "Manage Books Readers", 4: "Exit Program"}
+		commandes = {1: "Manage Users", 2: "Manage Books", 3: "Manage Books Readers", 4: "Exit Program" 5: "Settings"}
 		print("------------COMMAND CENTER------------"
-		  "Please select your choice : "
-		  "1. Manage Users"
-		  "2. Manage Books"
-		  "3. Manage Books Readers"
-		  "4. Exit program")
+			  "Please select your choice : "
+			  "1. Manage Users"
+			  "2. Manage Books"
+			  "3. Manage Books Readers"
+			  "4. Exit program")
 		print("------------COMMAND CENTER------------")
 
 		command = int(input("Your input : "))
 		# Commands to implant
 
 		if command not in commandes:
-			pass # Does nothing, just relaunch the command_center()
+			pass  # Does nothing, just relaunch the command_center()
 		elif command == 1:
-			pass
+			if command_manage_reader():
+				pass
 		elif command == 2:
-			pass
+			if command_manage_book():
+				pass
 		elif command == 3:
-			pass
-		elif command == 4
+			if command_maange_bookreaders():
+				pass
+		elif command == 4:
 			print("Exiting program...")
+		elif command == 5:
+			if command_settings():
+				pass
 
 	return True
 
@@ -82,15 +90,58 @@ def command_settings():
 	return True
 
 
-def command_manage_user():
+def command_manage_reader():
 	"""
 	1. Add User
 	2. Show User list
 	3. Delete User
 	4. Modify User
-	5. Show profil
+	5. Show your profil
 	6. Back to main menu
 	"""
+	while command != 6:
+		commandes = {1: "Add user", 2: "Show user list", 3: "Delete user", 4: "Modify user", 5: "Show your profil", 6: "Back to main menu"}
+		print("------------COMMAND MANAGE READER------------"
+			  "\nPlease select your choice : "
+			  "\n1. Add User"
+			  "\n2. Show User list"
+			  "\n3. Delete User"
+			  "\n4. Modify User"
+			  "\n5. Show your profil"
+			  "\n6. Back to main menu")
+		print("------------COMMAND MANAGE READER------------")
+
+		command = int(input("Your input : "))
+		# Commands to implant
+
+		if command not in commandes:
+			pass  # Does nothing, just relaunch the command_center()
+		elif command == 1:
+			if add_user():
+				pass
+		elif command == 2:
+			if show_users():
+				pass
+		elif command == 3:
+			print("-=-=-=-=-=- WARNING -=-=-=-=-=-"
+				  "\nYou're gonna delete yourself in data"
+				  "\nDo you want to proceed ?"
+				  "\n If yes, the program will exit itself")
+			confirm = str(input("Your input (Yes/No): "))
+			if confirm in ["Yes", "yes", "y", "Y"]:
+				if remove_user() == True:
+					quit()  # Built-in function to exit the program
+			elif confirm in ["No", "no", "n", "N"]:
+				print("Command aborted. Back to Manage Reader")
+		elif command == 4:
+			if modify_user() == True:
+				pass
+		elif command == 5:
+			if show_user() == True:
+				pass
+		elif command == 6:
+			print("Exiting program...")
+
 	return True
 
 
@@ -101,6 +152,15 @@ def command_manage_book():
 	3. Rename book
 	4. Book exist ?
 	5. Back to main menu
+	"""
+	return True
+
+
+def command_maange_bookreaders():
+	"""
+	1. ???
+	2. ???
+	3. Back to main menu
 	"""
 	return True
 
@@ -128,6 +188,6 @@ def login():
 
 if __name__ == '__main__':
 	if login() == True:
-		while command_center() == True:
+		if command_center() == True:
 			pass
 	print("Good bye !")
