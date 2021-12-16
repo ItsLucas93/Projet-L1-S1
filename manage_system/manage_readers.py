@@ -21,6 +21,7 @@ def add_user():
 
 	data.append(username, genre, age, preferences)
 	### livres_lu à implémenter avec manage_booksread
+	# Implémenter
 	# write_file("readers", data)
 	
 	return True
@@ -140,7 +141,11 @@ def modify_user(username):
 	return True
 
 
-
+def show_user(username):
+	"""
+	Show profil of logged user
+	"""
+	pass
 #########################
 
 def username(username=""):
