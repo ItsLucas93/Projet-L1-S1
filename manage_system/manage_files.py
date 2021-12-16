@@ -48,6 +48,7 @@ def read_file(path):
 				data[i] = remove_antislashn(data[i])
 			for i in range(0, len(data)):
 				data[i] = data[i].split(',')
+			print(data)
 
 
 	return data
@@ -99,7 +100,7 @@ def remove_antislashn(charactere):
 	"""
 	if charactere[-1] == "\n":
 		charactere = charactere[:-1]
-		return charactere
+	return charactere
 
 
 def add_antislashn(charactere):
@@ -108,7 +109,7 @@ def add_antislashn(charactere):
 	"""
 	if charactere[-1] != "\n":
 		charactere = charactere + "\n"
-		return charactere
+	return charactere
 
 
 def regenerate_file():
