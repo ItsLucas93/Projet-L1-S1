@@ -47,7 +47,7 @@ def command_center(command=0):
 	4. Exit program
 	"""
 	while command != 4:
-		commandes = {1: "Manage Users", 2: "Manage Books", 3: "", 4: ""}
+		commandes = {1: "Manage Users", 2: "Manage Books", 3: "Manage Books Readers", 4: "Exit Program"}
 		print("------------COMMAND CENTER------------"
 		  "Please select your choice : "
 		  "1. Manage Users"
@@ -60,7 +60,7 @@ def command_center(command=0):
 		# Commands to implant
 
 		if command not in commandes:
-			pass # Il ne se passera rien, on retourne la commande
+			pass # Does nothing, just relaunch the command_center()
 		elif command == 1:
 			pass
 		elif command == 2:
@@ -79,7 +79,7 @@ def command_settings():
 	2. Factory Reset (*secret implement*)
 	3. Back to main menu
 	"""
-	pass
+	return True
 
 
 def command_manage_user():
@@ -91,7 +91,7 @@ def command_manage_user():
 	5. Show profil
 	6. Back to main menu
 	"""
-	pass
+	return True
 
 
 def command_manage_book():
@@ -102,7 +102,7 @@ def command_manage_book():
 	4. Book exist ?
 	5. Back to main menu
 	"""
-	pass
+	return True
 
 
 def login():
