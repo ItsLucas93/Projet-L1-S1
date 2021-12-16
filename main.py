@@ -140,7 +140,7 @@ def command_manage_reader():
 			if show_user() == True:
 				pass
 		elif command == 6:
-			print("Exiting program...")
+			print("Exiting manage reader...")
 
 	return True
 
@@ -153,6 +153,34 @@ def command_manage_book():
 	4. Book exist ?
 	5. Back to main menu
 	"""
+	while command != 4:
+		commandes = {1: "Add Book", 2: "Delete book", 3: "Rename book", 4: "Book Exist", 5: "Back to main menu"}
+		print("------------COMMAND MANAGE BOOK------------"
+			  "\nPlease select your choice : "
+			  "\n1. Add Book"
+			  "\n2. Delete book"
+			  "\n3. Rename book"
+			  "\n4. Book Exist"
+			  "\n5. Back to main menu")
+		print("------------COMMAND MANAGE BOOK------------")
+
+		command = int(input("Your input : "))
+		# Commands to implant
+
+		# if command not in commandes:
+		# 	pass  # Does nothing, just relaunch the command_center()
+		# elif command == 1:
+		# 	if command_manage_reader():
+		# 		pass
+		# elif command == 2:
+		# 	if command_manage_book():
+		# 		pass
+		# elif command == 3:
+		# 	if command_maange_bookreaders():
+		# 		pass
+		# elif command == 4:
+		# 	print("Exiting program...")
+
 	return True
 
 
