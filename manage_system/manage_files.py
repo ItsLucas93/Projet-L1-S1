@@ -113,7 +113,13 @@ def antislashn(charactere):
 
 
 def supr_num(charactere):
-	charactere = charactere[1:]
+	place = 0
+	for i in charactere:
+		place += 1
+		if i == "-":
+			break
+	p = place-2
+	charactere = charactere[p:]
 	return charactere
 
 
