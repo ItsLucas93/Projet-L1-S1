@@ -10,10 +10,10 @@
 
 ######### MODULES / IMPORT #############
 
-# from manage_system.manage_files import *
-# from manage_system.manage_bookreaders import *
+from manage_system.manage_files import *
+from manage_system.manage_bookreaders import *
 from manage_system.manage_readers import *
-# from manage_system.manage_book import *
+from manage_system.manage_book import *
 
 import os
 from time import sleep
@@ -24,17 +24,17 @@ from time import sleep
 ######### FONCTIONS #############
 
 def welcome():
-    """
+	"""
 	Message de bienvenue
 	"""
-    print("#####################################################################################################")
-    print("# ██████╗░░█████╗░░█████╗░██╗░░██╗░░░░███╗░░░███╗░█████╗░███╗░░██╗░█████╗░░██████╗░███████╗██████╗░ #")
-    print("# ██╔══██╗██╔══██╗██╔══██╗██║░██╔╝░░░░████╗░████║██╔══██╗████╗░██║██╔══██╗██╔════╝░██╔════╝██╔══██╗ #")
-    print("# ██████╦╝██║░░██║██║░░██║█████═╝░░░░░██╔████╔██║███████║██╔██╗██║███████║██║░░██╗░█████╗░░██████╔╝ #")
-    print("# ██╔══██╗██║░░██║██║░░██║██╔═██╗░░░░░██║╚██╔╝██║██╔══██║██║╚████║██╔══██║██║░░╚██╗██╔══╝░░██╔══██╗ #")
-    print("# ██████╦╝╚█████╔╝╚█████╔╝██║░╚██╗░░░░██║░╚═╝░██║██║░░██║██║░╚███║██║░░██║╚██████╔╝███████╗██║░░██║ #")
-    print("# ╚═════╝░░╚════╝░░╚════╝░╚═╝░░╚═╝░░░░╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝░╚═════╝░╚══════╝╚═╝░░╚═╝ #")
-    print("#######################################################################################.from 1991####")
+	print("#####################################################################################################")
+	print("# ██████╗░░█████╗░░█████╗░██╗░░██╗░░░░███╗░░░███╗░█████╗░███╗░░██╗░█████╗░░██████╗░███████╗██████╗░ #")
+	print("# ██╔══██╗██╔══██╗██╔══██╗██║░██╔╝░░░░████╗░████║██╔══██╗████╗░██║██╔══██╗██╔════╝░██╔════╝██╔══██╗ #")
+	print("# ██████╦╝██║░░██║██║░░██║█████═╝░░░░░██╔████╔██║███████║██╔██╗██║███████║██║░░██╗░█████╗░░██████╔╝ #")
+	print("# ██╔══██╗██║░░██║██║░░██║██╔═██╗░░░░░██║╚██╔╝██║██╔══██║██║╚████║██╔══██║██║░░╚██╗██╔══╝░░██╔══██╗ #")
+	print("# ██████╦╝╚█████╔╝╚█████╔╝██║░╚██╗░░░░██║░╚═╝░██║██║░░██║██║░╚███║██║░░██║╚██████╔╝███████╗██║░░██║ #")
+	print("# ╚═════╝░░╚════╝░░╚════╝░╚═╝░░╚═╝░░░░╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝░╚═════╝░╚══════╝╚═╝░░╚═╝ #")
+	print("#######################################################################################.from 1991####")
 
 
 def command_center(command=0):
@@ -46,18 +46,31 @@ def command_center(command=0):
 	3. Manage Books Readers
 	4. Exit program
 	"""
-	while (command <= 0) or (command > 4):
-    commandes = {1: "", 2: "", 3: "", 4: ""}
-    print("------------COMMAND CENTER------------"
-          "Please select your choice : "
-          "1. Manage Users"
-      	  "2. Manage Books"
-      	  "3. Manage Books Readers")
-    print("------------COMMAND CENTER------------")
+	while command != 4:
+		commandes = {1: "Manage Users", 2: "Manage Books", 3: "", 4: ""}
+		print("------------COMMAND CENTER------------"
+		  "Please select your choice : "
+		  "1. Manage Users"
+		  "2. Manage Books"
+		  "3. Manage Books Readers"
+		  "4. Exit program")
+		print("------------COMMAND CENTER------------")
 
-    command = int(input("Your input : "))
+		command = int(input("Your input : "))
+		# Commands to implant
 
-    # Commands to implant
+		if command not in commandes:
+			pass # Il ne se passera rien, on retourne la commande
+		elif command == 1:
+			pass
+		elif command == 2:
+			pass
+		elif command == 3:
+			pass
+		elif command == 4
+			print("Exiting program...")
+
+	return True
 
 
 def command_settings():
@@ -67,7 +80,6 @@ def command_settings():
 	3. Back to main menu
 	"""
 	pass
-
 
 
 def command_manage_user():
@@ -90,7 +102,7 @@ def command_manage_book():
 	4. Book exist ?
 	5. Back to main menu
 	"""
-
+	pass
 
 
 def login():
@@ -99,19 +111,23 @@ def login():
 	If new user : Type "new"
 	"""
 	global logged_username
+	logged_username = ""
 	while (user_exist(logged_username) == False) or (logged_username == "new"):
 		logged_username = str(input("Username : "))
 
 	if logged_username == "new":
-		if (add_user() == True):
+		if add_user() == True:
 			return True
 	else:
 		return True
-	# Sinon recommencer
+
+
+# Sinon recommencer
 
 ######### FONCTIONS #############
 
 if __name__ == '__main__':
-	if (login() == True):
-		command_center()
-
+	if login() == True:
+		while command_center() == True:
+			pass
+	print("Good bye !")
