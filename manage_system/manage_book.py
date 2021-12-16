@@ -32,6 +32,13 @@ def book_exist(verif_book):
 	"""
 	books = read_file("books")
 	for i in books:
+		place = 0
+		for j in i:    # permet de comparer sans les indices
+			place += 1
+			if j == "-":
+				break
+		p = place+1
+		i = i[p:]
 		if verif_book == i:
 			return True
 	return False
