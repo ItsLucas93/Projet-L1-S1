@@ -23,15 +23,12 @@ def delete_book(less_book):
 		write_file("books",book_liste)
 		bookread = read_file("booksread")
 		marque += 1
-		# bookread = assemble_liste(bookread)
-		# bookread_v2 = []
-		# chara = ""
 		for i in range(len(bookread)):
 			for j in range(len(bookread[i])):
 				if marque == bookread[i][j]:
 					del bookread[i][j]
 					break
-		
+		write_file("booksread", bookread)
 
 	# penser à faire un boléen pour dire si effectuer ou non
 
