@@ -73,7 +73,7 @@ def write_file(path, liste):
 				liste[i] = supr_num(liste[i])
 				f.write(str(i+1) + liste[i] + "\n")
 
-#  penser changer la fonction si besoin car particuier pour booksread
+	#  penser changer la fonction si besoin car particuier pour booksread
 	elif path == "booksread_add":
 		path = path_booksread
 
