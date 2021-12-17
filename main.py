@@ -58,7 +58,10 @@ def command_center(command=0):
 			  "\n4. Exit program")
 		print("------------COMMAND CENTER------------")
 
-		command = int(input("Your input : "))
+		try:
+			command = int(input("Your input : "))
+		except ValueError:
+			pass
 		# Commands to implant
 
 		if command not in commandes:
@@ -73,7 +76,7 @@ def command_center(command=0):
 			if command_maange_bookreaders():
 				pass
 		elif command == 4:
-			print("Exiting program...")
+			print("Exiting command center...")
 		elif command == 5:
 			if command_settings():
 				pass
@@ -111,7 +114,10 @@ def command_manage_reader(command=0):
 			  "\n6. Back to main menu")
 		print("------------COMMAND MANAGE READER------------")
 
-		command = int(input("Your input : "))
+		try:
+			command = int(input("Your input : "))
+		except ValueError:
+			pass
 		# Commands to implant
 
 		if command not in commandes:
@@ -164,7 +170,10 @@ def command_manage_book(command=0):
 			  "\n5. Back to main menu")
 		print("------------COMMAND MANAGE BOOK------------")
 
-		command = int(input("Your input : "))
+		try:
+			command = int(input("Your input : "))
+		except ValueError:
+			pass
 		# Commands to implant
 
 		if command not in commandes:
@@ -223,6 +232,6 @@ if __name__ == '__main__':
 	if login():
 		print("Welcome " + str(logged_username))
 		if command_center():
-			print("Exiting command center...")
+			print("Exiting program...")
 	print("Good bye !")
 	quit()

@@ -107,7 +107,10 @@ def show_users(command=0):
                       "\n2. Page suivante"
                       "\n3. Exit")
                 print("------------COMMANDS------------")
-            command = int(input("Your input : "))
+            try:
+                command = int(input("Your input : "))
+            except ValueError:
+                pass
 
             if command not in commandes:
                 pass
@@ -215,8 +218,7 @@ def ask_username(username=""):
     Ask user to set an username
     """
     while ((len(username) <= 0 or len(username) > 16) and (user_exist(username) is True)):
-        username = str(
-            input("Saisir votre pseudonyme \nMinimum 3 caractères \nMaximum 16 caractères \nVotre saisie : "))
+        username = str(input("Saisir votre pseudonyme \nMinimum 3 caractères \nMaximum 16 caractères \nVotre saisie : "))
     return username
 
 
@@ -225,7 +227,10 @@ def ask_gender(gender=0):
     Ask the gender of the user
     """
     while ((gender < 0) or (gender > 3)):
-        gender = int(input("Saisir votre gender : \n1. HOMME\n2. FEMME\n3.PEU IMPORTE\nVotre saisie : "))
+        try:
+            gender = int(input("Saisir votre gender : \n1. HOMME\n2. FEMME\n3.PEU IMPORTE\nVotre saisie : "))
+        except ValueError:
+            pass
     return gender
 
 
@@ -234,7 +239,10 @@ def ask_age(age=0):
     Ask the age of the user
     """
     while ((age < 0) or (age > 3)):
-        age = int(input("Saisir votre âge : \n1. <= 18 ans\n2. Entre 18 et 25 ans\n3. > 25 ans\nVotre saisie : "))
+        try:
+            age = int(input("Saisir votre âge : \n1. <= 18 ans\n2. Entre 18 et 25 ans\n3. > 25 ans\nVotre saisie : "))
+        except ValueError:
+            pass
     return age
 
 
@@ -243,21 +251,23 @@ def ask_preferences(preferences=0):
     Ask the type of book the user wants to read
     """
     while ((preferences < 0) or (preferences > 7)):
-        preferences = int(input(
-            "Saisir votre style de lecture : \n1. Sciences fiction\n2. Biographie\n3. Horreur\n4. Romance\n5. Fable \n6. Histoire \n7. Comédie \nVotre saisie :"))
+        try:
+            preferences = int(input("Saisir votre style de lecture : \n1. Sciences fiction\n2. Biographie\n3. Horreur\n4. Romance\n5. Fable \n6. Histoire \n7. Comédie \nVotre saisie :"))
+        except ValueError:
+            pass
     return preferences
 
 
-def ask_livres_lu(livres_lu=""):
-    """
-    Ask the user which book he readed
-    """
-    temp = []
-    while ((livres_lu == "") or (livres_lu not in ["exit()", "Exit()"])):
-        livres_lu = int(
-            input("Saisissez vos livres lu. Lorsque vous aurez terminé, veuillez saisir 'Exit()'. \nVotre saisie : "))
-        temp.append(livres_lu)
-    return livres_lu
+# def ask_livres_lu(livres_lu=""):
+#     """
+#     Ask the user which book he readed
+#     """
+#     temp = []
+#     while ((livres_lu == "") or (livres_lu not in ["exit()", "Exit()"])):
+#         livres_lu = int(
+#             input("Saisissez vos livres lu. Lorsque vous aurez terminé, veuillez saisir 'Exit()'. \nVotre saisie : "))
+#         temp.append(livres_lu)
+#     return livres_lu
 
 
 def position(data, username):
