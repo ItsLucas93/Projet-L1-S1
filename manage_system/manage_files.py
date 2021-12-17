@@ -83,6 +83,7 @@ def write_file(path, liste):
 	elif path == "booksread":
 		path = path_booksread
 
+		liste = assemble_liste(liste)
 		with open(path,'w', encoding="UTF-8") as f:
 			for i in range(0, len(liste)):
 				f.write(liste[i] + "\n")
