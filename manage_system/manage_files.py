@@ -74,7 +74,7 @@ def write_file(path, liste):
 				f.write(str(i+1) + liste[i] + "\n")
 
 	#  penser changer la fonction si besoin car particuier pour booksread
-	elif path == "booksread_add":
+	elif path == "booksreader_add":
 		path = path_booksread
 
 		with open(path,"a", encoding="UTF-8") as f:
