@@ -34,24 +34,36 @@ def book_exist(verif_book):
 	Retourne un Booléen
 	"""
 	books = read_file("books")
+	books = del_indice(books)
 	for i in books:
-		place = 0
-		for j in i:    # permet de comparer sans les indices
-			place += 1
-			if j == "-":
-				break
-		p = place+1
-		i = i[p:]
 		if verif_book == i:
 			return True
 	return False
 
 
-def modify_book():
+def modify_book(update_book):
 	"""
 	Modifier un livre dans /data/books.txt
 	"""
+	if book_exist(update_book) == False:
+		books = read_file("books")
+
 	pass
+
+def del_indice(books):
+	k = 0
+	for i in books:
+		place = 0
+		for j in i:  # permet de comparer sans les indices
+			place += 1
+			if j == "-":
+				break
+		p = place + 1
+		chara = i
+		chara = chara[p:]
+		books[k] = chara
+		k += 1
+	return books
 
 
 def review_book():
