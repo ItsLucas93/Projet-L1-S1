@@ -53,7 +53,8 @@ def modify_book(old_book,update_book):
 			if books[i] == old_book:
 				books[i] = update_book
 				break
-		# penser a reecrire et voir si supr_num dans manage_file ne pose pas probleme
+		write_file("books",books)
+
 
 def del_indice(books):
 	"""
