@@ -70,7 +70,7 @@ def show_users(command=0):
 
     nbdanspages = 15
 
-    if data < nbdanspages:
+    if len(data) <= nbdanspages:
         print("------------USERS LIST------------")
         for i in range(len(data)):
             print(data[i][0])
@@ -81,23 +81,28 @@ def show_users(command=0):
 
         while command != 3:
 
-            print("------------USERS LIST (Page " + str(page) + "/" + str(pages) + ")------------")
-            for i in range(page * nbdanspages, (page + 1) * nbdanspages):  # vérifier la relation entre page actuel et
+            if (page + 1) * nbdanspages > len(data):
+                borne_a, borne_b = page * nbdanspages, len(data)
+            else:
+                borne_a, borne_b = page * nbdanspages, (page + 1) * nbdanspages
+
+            print("------------USERS LIST (Page " + str(page + 1) + "/" + str(pages + 1) + ")------------")
+            for i in range(borne_a, borne_b):  # vérifier la relation entre page actuel et
                 print(data[i][0])
-            print("------------USERS LIST (Page " + str(page) + "/" + str(pages) + ")------------")
+            print("------------USERS LIST (Page " + str(page + 1) + "/" + str(pages + 1) + ")------------")
 
             if page == 0:
-                commandes = {1: "Page suivante", 3: "Exit"}
-                print("------------COMMANDS------------"
-                      "\nPlease select your choice : "
-                      "\n1. Page suivante"
-                      "\n3. Exit")
-                print("------------COMMANDS------------")
-            if page == pages:
                 commandes = {2: "Page suivante", 3: "Exit"}
                 print("------------COMMANDS------------"
                       "\nPlease select your choice : "
-                      "\n2. Page précédente"
+                      "\n2. Page suivante"
+                      "\n3. Exit")
+                print("------------COMMANDS------------")
+            elif page == pages:
+                commandes = {1: "Page précédente", 3: "Exit"}
+                print("------------COMMANDS------------"
+                      "\nPlease select your choice : "
+                      "\n1. Page précédente"
                       "\n3. Exit")
                 print("------------COMMANDS------------")
             else:
