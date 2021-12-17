@@ -28,8 +28,6 @@ def remove_user(username):
 	Supprime un utilisateur dans le fichier ./data/readers.txt
 	"""
 
-	assert user_exist(username) == True, "Cet utilisateur n'existe pas"
-
 	# Import de la liste data
 	data = read_file("readers")
 
@@ -43,7 +41,7 @@ def remove_user(username):
 	# Cas où l'utilisateur figure dans la base
 	else:
 		del data[i]
-		### IMPLEMENTER write_file("readers", data)
+		write_file("readers", data)
 		return True
 
 
@@ -101,7 +99,7 @@ def show_users():
 	return True
 
 
-def modify_user(username):
+def modify_user(username, command=0):
 	"""
 	Modifier un utlisateur dans le fichier ./data/readers.txt
 	"""
@@ -123,7 +121,6 @@ def modify_user(username):
 	index = position(data, username)
 
 	commandes = {1: "Pseudo", 2: "gender", 3: "Âge", 4: "Préférences", 5: "Livres que vous avez lu", 6: "Exit"}
-	command = "-1"
 
 	while (command != 6):
 		command = int(input("Votre entrée : "))

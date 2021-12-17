@@ -54,7 +54,7 @@ def command_center(command=0):
 			  "Please select your choice : "
 			  "1. Manage Users"
 			  "2. Manage Books"
-			  "3. Manage Books Readers"
+			  "3. Manage Books Readers / Suggested books"
 			  "4. Exit program")
 		print("------------COMMAND CENTER------------")
 
@@ -186,9 +186,10 @@ def command_manage_book():
 
 def command_maange_bookreaders():
 	"""
-	1. ???
-	2. ???
-	3. Back to main menu
+	1. Add readed book
+	2. Remove readed book # à voir pcq il est pas censé mentir
+	3. Add note review
+	4. Suggested book
 	"""
 	return True
 
