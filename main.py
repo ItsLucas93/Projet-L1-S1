@@ -129,18 +129,10 @@ def command_manage_reader(command=0):
 			if show_users():
 				pass
 		elif command == 3:
-			print("-=-=-=-=-=- WARNING -=-=-=-=-=-"
-				 "\nYou're gonna delete yourself in data"
-				 "\nDo you want to proceed ?"
-				 "\n If yes, the program will exit itself")
-			confirm = str(input("Your input (Yes/No): "))
-			if confirm in ["Yes", "yes", "y", "Y"]:
-				if remove_user(logged_username):
-					quit()  # Built-in function to exit the program
-			elif confirm in ["No", "no", "n", "N"]:
-				print("Command aborted. Back to Manage Reader")
+			if remove_user() is False:
+				print("Something went wrong or the command has been aborted. Please try again later.")
 		elif command == 4:
-			if modify_user(logged_username):
+			if modify_user():
 				pass
 		elif command == 5:
 			if show_user():

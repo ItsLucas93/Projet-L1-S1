@@ -26,7 +26,7 @@ def add_user():
     return True
 
 
-def remove_user(username):
+def remove_user(username=""):
     """
     Supprime un utilisateur dans le fichier ./data/readers.txt
     """
@@ -34,19 +34,32 @@ def remove_user(username):
     # Import de la liste data
     data = read_file("readers")
 
-    i = 0
-    while (i < len(data)) and (data[i][0] != username):
-        i += 1
+    while user_exist(username) is False:
+        username = str(input("Enter a username : "))
 
-    # Cas où l'utilisateur ne figure pas dans la base car i > len(data)
-    if i > len(data):
-        return False
-    # Cas où l'utilisateur figure dans la base
-    else:
-        data.pop(i) # or del data[i]
-        write_file("readers", data)
-        remove_bookreader(username)
-        return True
+    print("-=-=-=-=-=- WARNING -=-=-=-=-=-"
+         "\nYou're gonna delete a profile in data"
+         "\nDo you want to proceed ?"
+         "\n If yes, you will have to relaunch the program")        
+
+    confirm = str(input("Your input (Yes/No): "))
+    if confirm in ["Yes", "yes", "y", "Y"]:
+        i = 0
+        while (i < len(data)) and (data[i][0] != username):
+            i += 1
+
+        # Cas où l'utilisateur ne figure pas dans la base car i > len(data)
+        if i > len(data):
+            return False
+        # Cas où l'utilisateur figure dans la base
+        else:
+            data.pop(i) # or del data[i]
+            write_file("readers", data)
+            remove_bookreader(username)
+            quit()  # Built-in function to exit the program
+    elif confirm in ["No", "no", "n", "N"]:
+        print("Command aborted. Back to Manage Reader")
+    return False
 
 
 def user_exist(username):
@@ -131,7 +144,7 @@ def show_users(command=0):
     return True
 
 
-def modify_user(username, command=0):
+def modify_user(username="", command=0):
     """
     Modifier un utlisateur dans le fichier ./data/readers.txt
     """
@@ -147,6 +160,9 @@ def modify_user(username, command=0):
     5. Livres que vous avez lu ?
     6. Exit
     """
+    print(username, user_exist(username))
+    while user_exist(username) is False:
+        username = str(input("Enter a username : "))
 
     # Index user in data
 
@@ -157,13 +173,16 @@ def modify_user(username, command=0):
     while command != 4:
         print("------------COMMAND MODIFY USER------------"
               "\nPlease select your choice : "
-              "\nYou can't change your username, please delete your account to proceed."
+              "\nYou can't change the username, please delete the account to proceed."
               "\n1. Modify Gender"
               "\n2. Modify Age"
               "\n3. Modify Preferences"
               "\n4. Back to main menu")
         print("------------COMMAND MODIFY USER------------")
-        command = int(input("Votre entrée : "))
+        try:
+            command = int(input("Votre entrée : "))
+        except ValueError:
+            pass
 
         if command not in commandes:
             pass
