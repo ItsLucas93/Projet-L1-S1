@@ -217,18 +217,15 @@ def login():
 	while True:
 		while (user_exist(logged_username) is False) and (logged_username != 'new'):
 			logged_username = str(input("Username : "))
-			print(logged_username, user_exist(logged_username), logged_username != "new")
 			if logged_username in ["exit()", "Exit()", "exit", "Exit"]:
 				quit()
 
 		if logged_username == "new":
-			if add_user():
-				logged_username = ""
+			add_user()
+			logged_username = ""
 		else:
 			return True
 
-
-# Sinon recommencer
 
 ######### FONCTIONS #############
 
