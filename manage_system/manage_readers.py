@@ -11,18 +11,14 @@ def add_user():
 	Ajoute un utilisateur dans le fichier ./data/readers.txt
 	"""
 
-	# Import de la liste data
-
-	data = read_file("readers")
-
 	# Entrée utilisateur
 
 	username, gender, age, preferences, livres_lu = ask_username(), ask_gender(), ask_age(), ask_preferences(), ask_livres_lu()
-
-	data.append(username, gender, age, preferences)
+	temp = []
+	temp.append(username, gender, age, preferences)
 	### livres_lu à implémenter avec manage_booksread
 	# Implémenter
-	# write_file("readers", data)
+	write_file("readers_add", data)
 
 	return True
 

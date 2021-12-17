@@ -216,6 +216,8 @@ def login():
 
 if __name__ == '__main__':
 	if login():
+		print("Welcome " + str(logged_username))
 		if command_center():
 			pass
 	print("Good bye !")
+	quit()
