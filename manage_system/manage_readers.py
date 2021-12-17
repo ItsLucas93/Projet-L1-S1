@@ -13,12 +13,12 @@ def add_user():
 
 	# Entrée utilisateur
 
-	username, gender, age, preferences, livres_lu = ask_username(), ask_gender(), ask_age(), ask_preferences(), ask_livres_lu()
+	username, gender, age, preferences, livres_lu = ask_username(), ask_gender(), ask_age(), ask_preferences()
 	temp = []
 	temp.append(username, gender, age, preferences)
-	### livres_lu à implémenter avec manage_booksread
+	add_bookreader(username)
 	# Implémenter
-	write_file("readers_add", data)
+	write_file("readers_add", temp)
 
 	return True
 
