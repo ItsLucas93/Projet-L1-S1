@@ -1,7 +1,7 @@
 path_books = "data/books.txt"
 path_booksread = "data/booksread.txt"
 path_readers = "data/readers.txt"
-# Implémenter une fonction qui permet de modifier le path depuis la console 
+# Implémenter une fonction qui permet de modifier le path depuis la console
 
 
 def read_file(path):
@@ -36,7 +36,7 @@ def read_file(path):
 				data[i] = remove_antislashn(data[i])
 			for i in range(0, len(data)):
 				data[i] = data[i].split(',')
-			
+
 
 
 	elif path == "readers":
@@ -62,7 +62,7 @@ def write_file(path, liste):
 		path = path_books
 
 		with open(path,'a', encoding="UTF-8") as f:
-			f.write(add_antislashn(liste))
+			f.write("\n" + str(len(liste)+1) + " - " + liste)
 
 
 	elif path == "books":
@@ -70,7 +70,15 @@ def write_file(path, liste):
 
 		with open(path,'w', encoding="UTF-8") as f:
 			for i in range(0, len(liste)):
-				f.write(liste[i])
+				liste[i] = supr_num(liste[i])
+				f.write(str(i+1) + liste[i] + "\n")
+
+
+	elif path == "booksread_add":
+		path = path_booksread
+
+		with open(path,"a", encoding="UTF-8") as f:
+			f.write("\n" + str(len(liste) + 1) + " - " + liste)
 
 
 	elif path == "booksread":
@@ -78,9 +86,15 @@ def write_file(path, liste):
 
 		with open(path,'w', encoding="UTF-8") as f:
 			for i in range(0, len(liste)):
-				liste[i] = add_antislashn(liste[i])
-			for i in range(0, len(liste)):
-				f.write(liste[i])		
+				liste[i] = supr_num(liste[i])
+				f.write(str(i + 1) + liste[i] + "\n")
+
+
+	elif path == "readers_add":
+		path = path_readers
+
+		with open(path,'a', encoding="UTF-8") as f:
+			f.write("\n" + str(len(liste) + 1) + " - " + liste)
 
 
 	elif path == "readers":
@@ -88,9 +102,8 @@ def write_file(path, liste):
 
 		with open(path,'w', encoding="UTF-8") as f:
 			for i in range(0, len(liste)):
-				liste[i] = add_antislashn(liste[i])	
-			for i in range(0, len(liste)):
-				f.write(liste[i])
+				liste[i] = supr_num(liste[i])
+				f.write(str(i + 1) + liste[i] + "\n")
 
 
 
@@ -103,12 +116,14 @@ def remove_antislashn(charactere):
 	return charactere
 
 
-def add_antislashn(charactere):
-	"""
-	Ajoute l'antislash n dans la chaîne de caractère
-	"""
-	if charactere[-1] != "\n":
-		charactere = charactere + "\n"
+def supr_num(charactere):
+	place = 0
+	for i in charactere:
+		place += 1
+		if i == "-":
+			break
+	p = place-2
+	charactere = charactere[p:]
 	return charactere
 
 
