@@ -216,9 +216,10 @@ def login():
 ######### FONCTIONS #############
 
 if __name__ == '__main__':
+	welcome()
 	if login():
 		print("Welcome " + str(logged_username))
 		if command_center():
-			pass
+			print("Exiting command center...")
 	print("Good bye !")
 	quit()
