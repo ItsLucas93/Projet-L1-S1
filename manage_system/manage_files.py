@@ -48,7 +48,6 @@ def read_file(path):
 				data[i] = remove_antislashn(data[i])
 			for i in range(0, len(data)):
 				data[i] = data[i].split(',')
-			print(data)
 
 
 	return data
@@ -100,9 +99,23 @@ def write_file(path, liste):
 		path = path_readers
 
 		with open(path,'w', encoding="UTF-8") as f:
+			liste = assemble_list(liste)
 			for i in range(0, len(liste)):
 				f.write(liste[i] + "\n")
 
+
+def assemble_liste(liste):
+	"""
+	Assemble lists in list before write_file
+	"""
+	temp = []
+	for i in range(0, len(liste)):
+		char = ""
+		for j in range(0, len(liste[i])-1):
+			char += liste[i][j] + ','
+		char += liste[i][-1]
+		temp.append(char)
+	return temp
 
 
 def remove_antislashn(charactere):

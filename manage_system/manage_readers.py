@@ -53,13 +53,12 @@ def user_exist(username):
 
 	# Import de la liste data
 	data = read_file("readers")
-	cond = False
 
 	for i in data:
 		for j in i:
 			if (j == username):
-				cond = True
-	return cond
+				return True
+	return False
 
 
 def show_users():
