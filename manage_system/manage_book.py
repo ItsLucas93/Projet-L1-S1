@@ -1,4 +1,5 @@
 from manage_system.manage_files import read_file, write_file, assemble_liste
+from manage_system.manage_bookreaders import remove_bookread
 
 def add_book(new_book):
 	"""
@@ -21,16 +22,10 @@ def delete_book(less_book):
 				marque = i
 		del book_liste[marque]
 		write_file("books",book_liste)
-		bookread = read_file("booksread")
-		marque += 1
-		for i in range(len(bookread)):
-			for j in range(len(bookread[i])):
-				if marque == bookread[i][j]:
-					del bookread[i][j]
-					break
-		write_file("booksread", bookread)
 
-	# penser à faire un boléen pour dire si effectuer ou non
+		remove_bookread(marque)
+
+	# penser à faire un boléen pour dire si effectuer ou non 
 
 
 def book_exist(verif_book):
