@@ -1,5 +1,6 @@
 from manage_system.manage_files import read_file, write_file
 from manage_system.manage_bookreaders import add_bookreader, remove_bookreader
+from manage_system.manage_book import del_indice
 
 """
 Les fonctions retournent des bool pour déclarer si les opérations se sont déroulés avec succès.
@@ -179,18 +180,24 @@ def modify_user(username, command=0):
     return True
 
 
-def show_user(username):
+def show_user(username=""):
     """
-    Show profil of logged user
+    Show profil of logged user # à modifier en username donné en input
+    # Ajouter la liste des livres lu
     """
 
-    data = read_file("readers")
+    data_readers = read_file("readers")
+    data_bookreaders = read_file("booksread")
+    data_book = read_file("books")
 
-    for i in data:
+    while user_exist(username) is False:
+        username = str(input("Enter a username : "))
+
+    for i in data_readers:
         for j in i:
             if username == j:
-                print("------------YOUR PROFILE------------"
-                      "\nUsername : " + str(i[0]))
+                print("------------YOUR PROFILE------------")
+                print("Username : " + str(i[0]))
                 if i[1] == '1':
                     print("Gender : H")
                 elif i[1] == '2':
@@ -217,7 +224,16 @@ def show_user(username):
                     print("Preferences : Histoire")
                 elif i[3] == '7':
                     print("Preferences : Comédie")
-                print("------------YOUR PROFILE------------")
+                print("Books readed : \n»»» ", end="")
+                temp = []
+                for i in data_bookreaders:
+                    if i[0] == username:
+                        for j in i[1:]:
+                            temp.append(j)
+                data_book = del_indice(data_book)
+                for i in temp:
+                    print(data_book[int(i)-1], end=" ; ")
+                print("\n------------YOUR PROFILE------------")
                 return True
     return False
 

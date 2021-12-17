@@ -73,7 +73,7 @@ def command_center(command=0):
 			if command_manage_book():
 				pass
 		elif command == 3:
-			if command_maange_bookreaders():
+			if command_mange_bookreaders():
 				pass
 		elif command == 4:
 			print("Exiting command center...")
@@ -143,7 +143,7 @@ def command_manage_reader(command=0):
 			if modify_user(logged_username):
 				pass
 		elif command == 5:
-			if show_user(logged_username):
+			if show_user():
 				pass
 		elif command == 6:
 			print("Exiting manage reader...")
@@ -196,7 +196,7 @@ def command_manage_book(command=0):
 	return True
 
 
-def command_maange_bookreaders(command=0):
+def command_mange_bookreaders(command=0):
 	"""
 	1. Add readed book
 	2. Remove readed book # à voir pcq il est pas censé mentir
@@ -220,7 +220,7 @@ def login():
 			if logged_username in ["exit()", "Exit()", "exit", "Exit"]:
 				quit()
 
-		if logged_username == "new":   # peut faire répertoire de new comme exit juste au-dessus
+		if logged_username == "new":
 			add_user()
 			logged_username = ""
 		else:

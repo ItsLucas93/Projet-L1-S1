@@ -83,4 +83,5 @@ def add_bookreaded(username, marque=-1):
 						data_bookreaders[i].append(str(marque))
 						write_file("booksread", data_bookreaders)
 						break
+						# Implant review_book(username, marque)
 	return True
