@@ -7,7 +7,6 @@ Haripoteur,3,5,8,9,10
 Lili,1,2,4,6,8,10
 ArchiBald_fx,7,9,10
 maniaque
-test
 test1
 aaa
 prout

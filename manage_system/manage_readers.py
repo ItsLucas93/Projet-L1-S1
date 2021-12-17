@@ -1,5 +1,5 @@
 from manage_system.manage_files import read_file, write_file
-from manage_system.manage_bookreaders import add_bookreader
+from manage_system.manage_bookreaders import add_bookreader, remove_bookreader
 
 """
 Les fonctions retournent des bool pour déclarer si les opérations se sont déroulés avec succès.
@@ -44,6 +44,7 @@ def remove_user(username):
     else:
         data.pop(i) # or del data[i]
         write_file("readers", data)
+        remove_bookreader(username)
         return True
 
 
@@ -191,26 +192,31 @@ def show_user(username):
             if username == j:
                 print("------------YOUR PROFILE------------"
                       "\nUsername : " + str(i[0]))
-                if i[1] == 1:
+                if i[1] == '1':
                     print("Gender : H")
-                elif i[1] == 2:
+                elif i[1] == '2':
                     print("Gender : F")
-                elif i[1] == 3:
+                elif i[1] == '3':
                     print("Gender : Peu importe")
-                print("Age : " + str(i[2]))
-                if i[3] == 1:
+                if i[2] == '1':
+                    print("Age : < 18")
+                elif i[2] == '2':
+                    print("Age : 18-25")
+                elif i[2] == '3':
+                    print("Age : > 25")
+                if i[3] == '1':
                     print("Preferences : Sciences Fiction")
-                elif i[3] == 2:
+                elif i[3] == '2':
                     print("Preferences : Biographie")
-                elif i[3] == 3:
+                elif i[3] == '3':
                     print("Preferences : Horreur")
-                elif i[3] == 4:
+                elif i[3] == '4':
                     print("Preferences : Romance")
-                elif i[3] == 5:
+                elif i[3] == '5':
                     print("Preferences : Fable")
-                elif i[3] == 6:
+                elif i[3] == '6':
                     print("Preferences : Histoire")
-                elif i[3] == 7:
+                elif i[3] == '7':
                     print("Preferences : Comédie")
                 print("------------YOUR PROFILE------------")
                 return True

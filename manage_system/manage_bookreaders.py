@@ -8,6 +8,24 @@ def add_bookreader(username):
 	write_file("booksreader_add", username)
 
 
+def remove_bookreader(username):
+	"""
+	Remove user in booksread
+	"""
+	data = read_file("booksread")
+
+	i = 0
+	while (i < len(data)) and (data[i][0] != username):
+		i += 1
+	# Cas où l'utilisateur ne figure pas dans la base car i > len(data)
+	if i > len(data):
+		return False
+	# Cas où l'utilisateur figure dans la base
+	else:
+		data.pop(i) # or del data[i]
+		write_file("booksread", data)
+		return True
+
 def remove_bookread(marque):
 	"""
 	Remove book id in data/bookread.txt
