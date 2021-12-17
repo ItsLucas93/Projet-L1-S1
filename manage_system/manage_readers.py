@@ -40,7 +40,7 @@ def remove_user(username):
         return False
     # Cas où l'utilisateur figure dans la base
     else:
-        del data[i]
+        data.pop(i) # or del data[i]
         write_file("readers", data)
         return True
 
