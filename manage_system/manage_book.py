@@ -17,6 +17,7 @@ def delete_book(less_book):
 	"""
 	if book_exist(less_book) == False:
 		book_liste = read_file("books")
+		book_liste = del_indice(book_liste)
 		for i in range(len(book_liste)):
 			if less_book == book_liste[i]:
 				marque = i
@@ -55,6 +56,9 @@ def modify_book(old_book,update_book):
 		# penser a reecrire et voir si supr_num dans manage_file ne pose pas probleme
 
 def del_indice(books):
+	"""
+	Permet d'avoir que les titres des livres sans les indices
+	"""
 	k = 0
 	for i in books:
 		place = 0
@@ -72,6 +76,6 @@ def del_indice(books):
 
 def review_book():
 	"""
-	Donenr une note au livre
+	Donner une note au livre
 	"""
 	pass

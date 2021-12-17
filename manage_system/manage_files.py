@@ -69,8 +69,7 @@ def write_file(path, liste):
 
 		with open(path,'w', encoding="UTF-8") as f:
 			for i in range(0, len(liste)):
-				liste[i] = supr_num(liste[i])
-				f.write(str(i+1) + liste[i] + "\n")
+				f.write(str(i+1) + " - " + liste[i] + "\n")
 
 
 	elif path == "booksreader_add":
@@ -125,17 +124,6 @@ def remove_antislashn(charactere):
 	"""
 	if charactere[-1] == "\n":
 		charactere = charactere[:-1]
-	return charactere
-
-
-def supr_num(charactere):
-	place = 0
-	for i in charactere:
-		place += 1
-		if i == "-":
-			break
-	p = place-2
-	charactere = charactere[p:]
 	return charactere
 
 

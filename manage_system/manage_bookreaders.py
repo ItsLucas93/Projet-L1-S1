@@ -11,12 +11,16 @@ def add_bookreader(username):
 def remove_bookread(marque):
 	"""
 	Remove book id in data/bookread.txt
+	Et baisse l'indice de tous les autres livres car un livre supprimé (indice mobile)
 	"""
 	bookread = read_file("booksread")
 	marque += 1
 	for i in range(0, len(bookread)):
 		for j in range(0, len(bookread[i])):
-			if marque == bookread[i][j]:
+			if (j > 0) and (marque == int(bookread[i][j])):
 				del bookread[i][j]
 				break
+		for j in range(len(bookread[i])):
+			if (j > 0) and (marque < int(bookread[i][j])):
+				bookread[i][j] = int(bookread[i][j]) - 1
 	write_file("booksread", bookread)
