@@ -17,6 +17,7 @@ def add_user():
     username, gender, age, preferences = ask_username(), ask_gender(), ask_age(), ask_preferences()
     temp = [username, gender, age, preferences]
     add_bookreader(username)
+
     # Implémenter
     write_file("readers_add", temp)
 

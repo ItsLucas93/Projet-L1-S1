@@ -51,19 +51,18 @@ def command_center(command=0):
 	while command != 4:
 		commandes = {1: "Manage Users", 2: "Manage Books", 3: "Manage Books Readers", 4: "Exit Program", 5: "Settings"}
 		print("------------COMMAND CENTER------------"
-			  "Please select your choice : "
-			  "1. Manage Users"
-			  "2. Manage Books"
-			  "3. Manage Books Readers / Suggested books"
-			  "4. Exit program")
+			  "\nPlease select your choice : "
+			  "\n1. Manage Users"
+			  "\n2. Manage Books"
+			  "\n3. Manage Books Readers / Suggested books"
+			  "\n4. Exit program")
 		print("------------COMMAND CENTER------------")
 
-		command = int(input("Your input : "))
+		while command not in commandes:
+			command = int(input("Your input : "))
 		# Commands to implant
 
-		if command not in commandes:
-			pass  # Does nothing, just relaunch the command_center()
-		elif command == 1:
+		if command == 1:
 			if command_manage_reader():
 				pass
 		elif command == 2:
@@ -201,14 +200,17 @@ def login():
 	"""
 	global logged_username
 	logged_username = ""
-	while (user_exist(logged_username) == False) or (logged_username == "new"):
-		logged_username = str(input("Username : "))
+	print("Please login.")
+	while True:
+		while (user_exist(logged_username) is False) and (logged_username != 'new'):
+			logged_username = str(input("Username : "))
+			print(logged_username, user_exist(logged_username), logged_username != "new")
 
-	if logged_username == "new":
-		if add_user():
+		if logged_username == "new":
+			if add_user():
+				pass
+		else:
 			return True
-	else:
-		return True
 
 
 # Sinon recommencer
