@@ -17,13 +17,13 @@ def add_user():
 
 	# Entrée utilisateur
 
-	username, gender, age, preferences, livres_lu = username(), gender(), age(), preferences(), livres_lu()
+	username, gender, age, preferences, livres_lu = ask_username(), ask_gender(), ask_age(), ask_preferences(), ask_livres_lu()
 
 	data.append(username, gender, age, preferences)
 	### livres_lu à implémenter avec manage_booksread
 	# Implémenter
 	# write_file("readers", data)
-	
+
 	return True
 
 
@@ -72,14 +72,14 @@ def show_users():
 	Affiche la liste des utilisateurs présents dans ./data/users
 	"""
 	data = read_file("readers")
-	
+
 	nbdanspages = 15
 
 	if (data < nbdanspages):
 		print("------------USERS LIST------------")
 		for i in range(len(data)):
 			print(data[i][0])
-		print("------------USERS LIST------------")	
+		print("------------USERS LIST------------")
 	else:
 		pages = len(data) // nbdanspages
 		page = 0
@@ -88,15 +88,15 @@ def show_users():
 		while (command != 2):
 
 			print("------------USERS LIST (Page " + str(page) + "/" + str(pages) + ")------------")
-			for i in range(page * nbdanspages, (page + 1) * nbdanspages): # vérifier la relation entre page actuel et 
+			for i in range(page * nbdanspages, (page + 1) * nbdanspages):  # vérifier la relation entre page actuel et
 				print(data[i][0])
 			print("------------USERS LIST (Page " + str(page) + "/" + str(pages) + ")------------")
-
 
 			commandes = {0: "Page précédente", 1: "Page suivante", 2: "Exit"}
 			print("Liste des commandes : ", end=" ")
 			if (page == 0):
-				print("1 : " + str(commandes[1]) + " ; 2 : " + str(command[2])) # à voir comment print la valeur de la clé associé en vue d'une implémentation future
+				print("1 : " + str(commandes[1]) + " ; 2 : " + str(
+					command[2]))  # à voir comment print la valeur de la clé associé en vue d'une implémentation future
 			if (page == pages):
 				print("0 : " + str(commandes[0]) + " ; 2 : " + str(command[2]))
 			else:
@@ -126,7 +126,6 @@ def modify_user(username):
 
 	index = position(data, username)
 
-
 	commandes = {1: "Pseudo", 2: "gender", 3: "Âge", 4: "Préférences", 5: "Livres que vous avez lu", 6: "Exit"}
 	command = "-1"
 
@@ -146,17 +145,21 @@ def show_user(username):
 	Show profil of logged user
 	"""
 	pass
+
+
 #########################
 
-def username(username=""):
+def ask_username(username=""):
 	"""
 	Ask user to set an username
 	"""
 	while ((len(username) <= 0 or len(username) > 16) and (user_exist(username) is True)):
-		username = str(input("Saisir votre pseudonyme \nMinimum 3 caractères \nMaximum 16 caractères \nVotre saisie : "))
+		username = str(
+			input("Saisir votre pseudonyme \nMinimum 3 caractères \nMaximum 16 caractères \nVotre saisie : "))
 	return username
 
-def gender(gender=0):
+
+def ask_gender(gender=0):
 	"""
 	Ask the gender of the user
 	"""
@@ -164,7 +167,8 @@ def gender(gender=0):
 		gender = int(input("Saisir votre gender : \n1. HOMME\n2. FEMME\n3.PEU IMPORTE\nVotre saisie : "))
 	return gender
 
-def age(age=0):
+
+def ask_age(age=0):
 	"""
 	Ask the age of the user
 	"""
@@ -172,31 +176,35 @@ def age(age=0):
 		age = int(input("Saisir votre âge : \n1. <= 18 ans\n2. Entre 18 et 25 ans\n3. > 25 ans\nVotre saisie : "))
 	return age
 
-def preferences(preferences=0):
+
+def ask_preferences(preferences=0):
 	"""
 	Ask the type of book the user wants to read
 	"""
 	while ((preferences < 0) or (preferences > 7)):
-		preferences = int(input("Saisir votre style de lecture : \n1. Sciences fiction\n2. Biographie\n3. Horreur\n4. Romance\n5. Fable \n6. Histoire \n7. Comédie \nVotre saisie :"))
+		preferences = int(input(
+			"Saisir votre style de lecture : \n1. Sciences fiction\n2. Biographie\n3. Horreur\n4. Romance\n5. Fable \n6. Histoire \n7. Comédie \nVotre saisie :"))
 	return preferences
 
-def livres_lu(livres_lu=""):
+
+def ask_livres_lu(livres_lu=""):
 	"""
 	Ask the user which book he readed
 	"""
 	temp = []
 	while ((livres_lu == "") or (livres_lu not in ["exit()", "Exit()"])):
-		livres_lu = int(input("Saisissez vos livres lu. Lorsque vous aurez terminé, veuillez saisir 'Exit()'. \nVotre saisie : "))
+		livres_lu = int(
+			input("Saisissez vos livres lu. Lorsque vous aurez terminé, veuillez saisir 'Exit()'. \nVotre saisie : "))
 		temp.append(livres_lu)
 	return livres_lu
 
+
 def position(data, username):
 	i = 0
-	while (i < len(data)) and ((username not in data[i])):
+	while (i < len(data)) and (username not in data[i]):
 		i += 1
 
-	if (i > len(data)):
+	if i > len(data):
 		pass
-	else: 
-		return index
-
+	else:
+		return i
