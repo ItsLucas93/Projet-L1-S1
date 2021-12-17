@@ -1,4 +1,5 @@
 from manage_system.manage_files import read_file, write_file
+from manage_system.manage_bookreaders import add_bookreader
 
 """
 Les fonctions retournent des bool pour déclarer si les opérations se sont déroulés avec succès.
