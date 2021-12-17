@@ -1,4 +1,4 @@
-from manage_system.manage_files import read_file, write_file
+from manage_system.manage_files import read_file, write_file, assemble_liste
 
 def add_book(new_book):
 	"""
@@ -21,6 +21,17 @@ def delete_book(less_book):
 				marque = i
 		del book_liste[marque]
 		write_file("books",book_liste)
+		bookread = read_file("booksread")
+		marque += 1
+		# bookread = assemble_liste(bookread)
+		# bookread_v2 = []
+		# chara = ""
+		for i in range(len(bookread)):
+			for j in range(len(bookread[i])):
+				if marque == bookread[i][j]:
+					del bookread[i][j]
+					break
+		
 
 	# penser à faire un boléen pour dire si effectuer ou non
 
