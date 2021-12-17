@@ -41,14 +41,17 @@ def book_exist(verif_book):
 	return False
 
 
-def modify_book(update_book):
+def modify_book(old_book,update_book):
 	"""
 	Modifier un livre dans /data/books.txt
 	"""
-	if book_exist(update_book) == False:
+	if book_exist(old_book) == False:
 		books = read_file("books")
-
-	pass
+		books = del_indice(books)
+		for i in range(len(books)):
+			if books[i] == old_book:
+				books[i] = update_book
+				break
 
 def del_indice(books):
 	k = 0
