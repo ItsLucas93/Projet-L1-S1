@@ -3,3 +3,7 @@
 
 def review_book():
 	return True
+
+
+def suggested_book():
+	return True

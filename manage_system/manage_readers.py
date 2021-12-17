@@ -311,18 +311,6 @@ def ask_preferences():
     return preferences
 
 
-# def ask_livres_lu(livres_lu=""):
-#     """
-#     Ask the user which book he readed
-#     """
-#     temp = []
-#     while ((livres_lu == "") or (livres_lu not in ["exit()", "Exit()"])):
-#         livres_lu = int(
-#             input("Saisissez vos livres lu. Lorsque vous aurez terminé, veuillez saisir 'Exit()'. \nVotre saisie : "))
-#         temp.append(livres_lu)
-#     return livres_lu
-
-
 def position(data, username):
     i = 0
     while (i < len(data)) and (username not in data[i]):

@@ -61,25 +61,25 @@ def command_center(command=0):
 		try:
 			command = int(input("Your input : "))
 		except ValueError:
-			pass
+			command = 0
 		# Commands to implant
 
 		if command not in commandes:
-			pass  # Does nothing, just relaunch the command_center()
+			command = 0  # Does nothing, just relaunch the command_center()
 		elif command == 1:
 			if command_manage_reader():
-				pass
+				command = 0
 		elif command == 2:
 			if command_manage_book():
-				pass
+				command = 0
 		elif command == 3:
-			if command_mange_bookreaders():
-				pass
+			if command_manage_bookreaders():
+				command = 0
 		elif command == 4:
 			print("Exiting command center...")
 		elif command == 5:
 			if command_settings():
-				pass
+				command = 0
 
 	return True
 
@@ -117,26 +117,26 @@ def command_manage_reader(command=0):
 		try:
 			command = int(input("Your input : "))
 		except ValueError:
-			pass
+			command = 0
 		# Commands to implant
 
 		if command not in commandes:
-			pass  # Does nothing, just relaunch the command_center()
+			command = 0  # Does nothing, just relaunch the command_center()
 		elif command == 1:
 			if add_user():
-				pass
+				command = 0
 		elif command == 2:
 			if show_users():
-				pass
+				command = 0
 		elif command == 3:
 			if remove_user() is False:
 				print("Something went wrong or the command has been aborted. Please try again later.")
 		elif command == 4:
 			if modify_user():
-				pass
+				command = 0
 		elif command == 5:
 			if show_user():
-				pass
+				command = 0
 		elif command == 6:
 			print("Exiting manage reader...")
 
@@ -165,36 +165,71 @@ def command_manage_book(command=0):
 		try:
 			command = int(input("Your input : "))
 		except ValueError:
-			pass
+			command = 0
 		# Commands to implant
 
 		if command not in commandes:
-			pass  # Does nothing, just relaunch the command
+			command = 0  # Does nothing, just relaunch the command
 		elif command == 1:
 			if add_book():
-				pass
+				print("Book added !")
+				command = 0
 		elif command == 2:
 			if delete_book():
-				pass
+				print("Book removed.")
+				command = 0
 		elif command == 3:
 			if modify_book():
-				pass
+				print("Book modified.")
+				command = 0
 		elif command == 4:
 			if show_books():
-				pass
+				command = 0
+			else:
+				print("Something went wrong...")
+				command = 0
 		elif command == 5:
 			print("Exiting program...")
 
 	return True
 
 
-def command_mange_bookreaders(command=0):
+def command_manage_bookreaders(command=0):
 	"""
 	1. Add readed book
-	2. Remove readed book # à voir pcq il est pas censé mentir
-	3. Add note review
-	4. Suggested book
+	2. Add note review
+	3. Suggested book
+	4. Back to main menu
 	"""
+	while command != 4:
+		commandes = {1: "Add Readedbook", 2: "Add note review", 3: "Suggested book", 4: "Back to main menu"}
+		print("------------COMMAND MANAGE BOOKREADER------------"
+			  "\nPlease select your choice : "
+			  "\n1. Add Readedbook"
+			  "\n2. Add note review"
+			  "\n3. Suggested book"
+			  "\n4. Back to main menu")
+		print("------------COMMAND MANAGE BOOKREADER------------")
+
+		try:
+			command = int(input("Your input : "))
+		except ValueError:
+			command = 0
+		# Commands to implant
+
+		if command not in commandes:
+			command = 0  # Does nothing, just relaunch the command
+		elif command == 1:
+			if add_bookreaded():
+				command = 0
+		elif command == 2:
+			if review_book():
+				command = 0
+		elif command == 3:
+			if suggested_book():
+				command = 0
+		elif command == 4:
+			print("Exiting program...")
 	return True
 
 
