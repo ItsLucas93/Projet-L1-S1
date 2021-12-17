@@ -78,7 +78,7 @@ def write_file(path, liste):
 		path = path_booksread
 
 		with open(path,"a", encoding="UTF-8") as f:
-			f.write("\n" + str(len(liste) + 1) + " - " + liste)
+			f.write("\n" + liste)
 
 
 	elif path == "booksread":
@@ -86,15 +86,14 @@ def write_file(path, liste):
 
 		with open(path,'w', encoding="UTF-8") as f:
 			for i in range(0, len(liste)):
-				liste[i] = supr_num(liste[i])
-				f.write(str(i + 1) + liste[i] + "\n")
+				f.write(liste[i] + "\n")
 
 
 	elif path == "readers_add":
 		path = path_readers
 
 		with open(path,'a', encoding="UTF-8") as f:
-			f.write("\n" + str(len(liste) + 1) + " - " + liste)
+			f.write("\n" + liste)
 
 
 	elif path == "readers":
@@ -102,8 +101,7 @@ def write_file(path, liste):
 
 		with open(path,'w', encoding="UTF-8") as f:
 			for i in range(0, len(liste)):
-				liste[i] = supr_num(liste[i])
-				f.write(str(i + 1) + liste[i] + "\n")
+				f.write(liste[i] + "\n")
 
 
 
