@@ -1,6 +1,7 @@
 path_books = "data/books.txt"
 path_booksread = "data/booksread.txt"
 path_readers = "data/readers.txt"
+path_rating_matrix = "suggestions/rating_matrix.txt"
 
 
 # Implémenter une fonction qui permet de modifier le path depuis la console
@@ -8,17 +9,17 @@ path_readers = "data/readers.txt"
 
 def read_file(path):
     """
-	Lecture du fichier readers.txt
-	"""
+    Lecture du fichier readers.txt
+    """
 
     # Python 3.10 case/match instead of if/else
     # match(path):
-    # 	case "books":
-    # 		path = path_books
-    # 	case "booksread":
-    # 		path = path_booksread
-    # 	case "path_readers":
-    # 		path = path_readers
+    #     case "books":
+    #         path = path_books
+    #     case "booksread":
+    #         path = path_booksread
+    #     case "path_readers":
+    #         path = path_readers
 
     if path == "books":
         path = path_books
@@ -56,8 +57,8 @@ def read_file(path):
 
 def write_file(path, liste):
     """
-	Ecriture du fichier
-	"""
+    Ecriture du fichier
+    """
 
     if path == "books_add":
         path = path_books
@@ -109,11 +110,20 @@ def write_file(path, liste):
                 f.write(liste[i] + "\n")
             f.write(liste[-1])
 
+    elif path == "rating_matrix":
+        path = path_rating_matrix
+
+        with open(path, 'w', encoding="UTF-8") as f:
+            liste = assemble_liste_2d(liste, " ")
+            for i in range(0, len(liste) - 1):
+                f.write(liste[i] + "\n")
+            f.write(liste[-1])
+
 
 def assemble_liste_1d(liste):
     """
-	Assemble list in char before write_file
-	"""
+    Assemble list in char before write_file
+    """
     char = ""
     for i in range(0, len(liste) - 1):
         char += str(liste[i]) + ','
@@ -121,15 +131,15 @@ def assemble_liste_1d(liste):
     return char
 
 
-def assemble_liste_2d(liste):
+def assemble_liste_2d(liste, separateur=','):
     """
-	Assemble lists in list before write_file
-	"""
+    Assemble lists in list before write_file
+    """
     temp = []
     for i in range(0, len(liste)):
         char = ""
         for j in range(0, len(liste[i]) - 1):
-            char += str(liste[i][j]) + ','
+            char += str(liste[i][j]) + separateur
         char += str(liste[i][-1])
         temp.append(char)
     return temp
@@ -137,8 +147,8 @@ def assemble_liste_2d(liste):
 
 def remove_antislashn(charactere):
     """
-	Retire l'antislash n de la chaîne de caractère
-	"""
+    Retire l'antislash n de la chaîne de caractère
+    """
     if charactere[-1] == "\n":
         charactere = charactere[:-1]
     return charactere
@@ -146,9 +156,9 @@ def remove_antislashn(charactere):
 
 def regenerate_file():
     """
-	à utiliser seulement en cas de reset, très explosif
-	écrase tt
-	"""
+    à utiliser seulement en cas de reset, très explosif
+    écrase tt
+    """
     path = path_readers
     with open(path, 'w', encoding="UTF-8") as f:
         f.write(
