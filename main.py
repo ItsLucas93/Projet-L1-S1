@@ -100,14 +100,14 @@ def command_manage_reader():
 	6. Back to main menu
 	"""
 	while command != 6:
-		commandes = {1: "Add user", 2: "Show user list", 3: "Delete user", 4: "Modify user", 5: "Show your profil", 6: "Back to main menu"}
+		commandes = {1: "Add user", 2: "Show user list", 3: "Delete user", 4: "Modify your profile", 5: "Show your profile", 6: "Back to main menu"}
 		print("------------COMMAND MANAGE READER------------"
 			  "\nPlease select your choice : "
 			  "\n1. Add User"
 			  "\n2. Show User list"
 			  "\n3. Delete User"
-			  "\n4. Modify User"
-			  "\n5. Show your profil"
+			  "\n4. Modify your profile"
+			  "\n5. Show your profile"
 			  "\n6. Back to main menu")
 		print("------------COMMAND MANAGE READER------------")
 
@@ -124,20 +124,20 @@ def command_manage_reader():
 				pass
 		elif command == 3:
 			print("-=-=-=-=-=- WARNING -=-=-=-=-=-"
-				  "\nYou're gonna delete yourself in data"
-				  "\nDo you want to proceed ?"
-				  "\n If yes, the program will exit itself")
+				 "\nYou're gonna delete yourself in data"
+				 "\nDo you want to proceed ?"
+				 "\n If yes, the program will exit itself")
 			confirm = str(input("Your input (Yes/No): "))
 			if confirm in ["Yes", "yes", "y", "Y"]:
-				if remove_user() == True:
+				if remove_user(logged_username):
 					quit()  # Built-in function to exit the program
 			elif confirm in ["No", "no", "n", "N"]:
 				print("Command aborted. Back to Manage Reader")
 		elif command == 4:
-			if modify_user() == True:
+			if modify_user(logged_username):
 				pass
 		elif command == 5:
-			if show_user() == True:
+			if show_user(logged_username):
 				pass
 		elif command == 6:
 			print("Exiting manage reader...")
@@ -167,8 +167,8 @@ def command_manage_book():
 		command = int(input("Your input : "))
 		# Commands to implant
 
-		# if command not in commandes:
-		# 	pass  # Does nothing, just relaunch the command_center()
+		if command not in commandes:
+			pass  # Does nothing, just relaunch the command
 		# elif command == 1:
 		# 	if command_manage_reader():
 		# 		pass
@@ -204,7 +204,7 @@ def login():
 		logged_username = str(input("Username : "))
 
 	if logged_username == "new":
-		if add_user() == True:
+		if add_user():
 			return True
 	else:
 		return True
@@ -215,7 +215,7 @@ def login():
 ######### FONCTIONS #############
 
 if __name__ == '__main__':
-	if login() == True:
-		if command_center() == True:
+	if login():
+		if command_center():
 			pass
 	print("Good bye !")
