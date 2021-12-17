@@ -73,14 +73,14 @@ def write_file(path, liste):
 				liste[i] = supr_num(liste[i])
 				f.write(str(i+1) + liste[i] + "\n")
 
-	#  penser changer la fonction si besoin car particuier pour booksread
+
 	elif path == "booksreader_add":
 		path = path_booksread
 
 		with open(path,"a", encoding="UTF-8") as f:
 			f.write("\n" + liste)
 
-
+	# modifier pour ajouter derrière le username
 	elif path == "booksread":
 		path = path_booksread
 
