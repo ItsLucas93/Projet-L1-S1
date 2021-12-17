@@ -215,12 +215,12 @@ def login():
 	logged_username = ""
 	print("Please login. Type exit to exit")
 	while True:
-		while (user_exist(logged_username) is False) and (logged_username != 'new'):
+		while (user_exist(logged_username) is False) and (logged_username != 'new'):     # personne ne sait qu'il faut mettre new pour mettre un nouvel utilisateur
 			logged_username = str(input("Username : "))
 			if logged_username in ["exit()", "Exit()", "exit", "Exit"]:
 				quit()
 
-		if logged_username == "new":
+		if logged_username == "new":   # peut faire répertoire de new comme exit juste au-dessus
 			add_user()
 			logged_username = ""
 		else:

@@ -56,6 +56,12 @@ def user_exist(username):
     # Import de la liste data
     data = read_file("readers")
 
+    # j'aurai mis i[0] à la place de 2 boucles
+    # for i in data:
+    #     if i[0] == username:
+    #         return True
+    # return False
+
     for i in data:
         for j in i:
             if j == username:
