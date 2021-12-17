@@ -58,11 +58,12 @@ def command_center(command=0):
 			  "\n4. Exit program")
 		print("------------COMMAND CENTER------------")
 
-		while command not in commandes:
-			command = int(input("Your input : "))
+		command = int(input("Your input : "))
 		# Commands to implant
 
-		if command == 1:
+		if command not in commandes:
+			pass  # Does nothing, just relaunch the command_center()
+		elif command == 1:
 			if command_manage_reader():
 				pass
 		elif command == 2:
@@ -80,7 +81,7 @@ def command_center(command=0):
 	return True
 
 
-def command_settings():
+def command_settings(command=0):
 	"""
 	1. Language
 	2. Factory Reset (*secret implement*)
@@ -89,7 +90,7 @@ def command_settings():
 	return True
 
 
-def command_manage_reader():
+def command_manage_reader(command=0):
 	"""
 	1. Add User
 	2. Show User list
@@ -144,7 +145,7 @@ def command_manage_reader():
 	return True
 
 
-def command_manage_book():
+def command_manage_book(command=0):
 	"""
 	1. Add book
 	2. Delete book
@@ -152,7 +153,7 @@ def command_manage_book():
 	4. Book exist ?
 	5. Back to main menu
 	"""
-	while command != 4:
+	while command != 5:
 		commandes = {1: "Add Book", 2: "Delete book", 3: "Rename book", 4: "Book Exist", 5: "Back to main menu"}
 		print("------------COMMAND MANAGE BOOK------------"
 			  "\nPlease select your choice : "
@@ -183,7 +184,7 @@ def command_manage_book():
 	return True
 
 
-def command_maange_bookreaders():
+def command_maange_bookreaders(command=0):
 	"""
 	1. Add readed book
 	2. Remove readed book # à voir pcq il est pas censé mentir
