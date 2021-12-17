@@ -156,17 +156,17 @@ def command_manage_book(command=0):
 	1. Add book
 	2. Delete book
 	3. Rename book
-	4. Book exist ?
+	4. Lists books
 	5. Back to main menu
 	"""
 	while command != 5:
-		commandes = {1: "Add Book", 2: "Delete book", 3: "Rename book", 4: "Book Exist", 5: "Back to main menu"}
+		commandes = {1: "Add Book", 2: "Delete book", 3: "Rename book", 4: "List books", 5: "Back to main menu"}
 		print("------------COMMAND MANAGE BOOK------------"
 			  "\nPlease select your choice : "
 			  "\n1. Add Book"
 			  "\n2. Delete book"
 			  "\n3. Rename book"
-			  "\n4. Book Exist"
+			  "\n4. Lists books"
 			  "\n5. Back to main menu")
 		print("------------COMMAND MANAGE BOOK------------")
 
@@ -178,17 +178,20 @@ def command_manage_book(command=0):
 
 		if command not in commandes:
 			pass  # Does nothing, just relaunch the command
-		# elif command == 1:
-		# 	if command_manage_reader():
-		# 		pass
-		# elif command == 2:
-		# 	if command_manage_book():
-		# 		pass
-		# elif command == 3:
-		# 	if command_maange_bookreaders():
-		# 		pass
-		# elif command == 4:
-		# 	print("Exiting program...")
+		elif command == 1:
+			if add_book():
+				pass
+		elif command == 2:
+			if delete_book():
+				pass
+		elif command == 3:
+			if modify_book():
+				pass
+		elif command == 4:
+			if show_books():
+				pass
+		elif command == 5:
+			print("Exiting program...")
 
 	return True
 
@@ -210,15 +213,17 @@ def login():
 	"""
 	global logged_username
 	logged_username = ""
-	print("Please login.")
+	print("Please login. Type exit to exit")
 	while True:
 		while (user_exist(logged_username) is False) and (logged_username != 'new'):
 			logged_username = str(input("Username : "))
 			print(logged_username, user_exist(logged_username), logged_username != "new")
+			if logged_username in ["exit()", "Exit()", "exit", "Exit"]:
+				quit()
 
 		if logged_username == "new":
 			if add_user():
-				pass
+				logged_username = ""
 		else:
 			return True
 

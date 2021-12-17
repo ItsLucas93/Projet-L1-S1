@@ -1,4 +1,4 @@
-from manage_system.manage_files import read_file, write_file, assemble_liste
+from manage_system.manage_files import read_file, write_file
 from manage_system.manage_bookreaders import remove_bookread
 
 def add_book(new_book):
@@ -75,8 +75,19 @@ def del_indice(books):
 	return books
 
 
-def review_book():
+def show_books():
 	"""
-	Donner une note au livre
+	Show books in data/books
 	"""
-	pass
+
+	try:
+		data = read_file("books")
+
+		print("------------BOOKS LIST------------")
+		for i in range(0, len(data)):
+			print(data[i])
+		print("------------BOOKS LIST------------")
+
+		return True
+	except:
+		return False

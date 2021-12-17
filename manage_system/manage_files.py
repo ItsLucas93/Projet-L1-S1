@@ -68,8 +68,9 @@ def write_file(path, liste):
 		path = path_books
 
 		with open(path,'w', encoding="UTF-8") as f:
-			for i in range(0, len(liste)):
+			for i in range(0, len(liste) - 1):
 				f.write(str(i+1) + " - " + liste[i] + "\n")
+			f.write(str(i+1) + " - " + liste[-1])
 
 
 	elif path == "booksreader_add":
@@ -82,29 +83,42 @@ def write_file(path, liste):
 	elif path == "booksread":
 		path = path_booksread
 
-		liste = assemble_liste(liste)
+		liste = assemble_liste_2d(liste)
 		with open(path,'w', encoding="UTF-8") as f:
-			for i in range(0, len(liste)):
+			for i in range(0, len(liste) - 1):
 				f.write(liste[i] + "\n")
+			f.write(liste[-1])
 
 
 	elif path == "readers_add":
 		path = path_readers
 
 		with open(path,'a', encoding="UTF-8") as f:
-			f.write("\n" + liste)
+			f.write("\n" + assemble_liste_1d(liste))
 
 
 	elif path == "readers":
 		path = path_readers
 
 		with open(path,'w', encoding="UTF-8") as f:
-			liste = assemble_liste(liste)
-			for i in range(0, len(liste)):
+			liste = assemble_liste_2d(liste)
+			for i in range(0, len(liste) - 1):
 				f.write(liste[i] + "\n")
+			f.write(liste[-1])
 
 
-def assemble_liste(liste):
+def assemble_liste_1d(liste):
+	"""
+	Assemble list in char before write_file
+	"""
+	char = ""
+	for i in range(0, len(liste) - 1):
+		char += str(liste[i]) + ','
+	char += str(liste[-1])
+	return char
+
+
+def assemble_liste_2d(liste):
 	"""
 	Assemble lists in list before write_file
 	"""
@@ -112,8 +126,8 @@ def assemble_liste(liste):
 	for i in range(0, len(liste)):
 		char = ""
 		for j in range(0, len(liste[i])-1):
-			char += liste[i][j] + ','
-		char += liste[i][-1]
+			char += str(liste[i][j]) + ','
+		char += str(liste[i][-1])
 		temp.append(char)
 	return temp
 

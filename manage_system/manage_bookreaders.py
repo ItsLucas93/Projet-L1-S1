@@ -1,5 +1,5 @@
 from manage_system.manage_files import write_file, read_file
-
+from suggestions.suggestsystem import *
 
 def add_bookreader(username):
 	"""
@@ -24,3 +24,45 @@ def remove_bookread(marque):
 			if (j > 0) and (marque < int(bookread[i][j])):
 				bookread[i][j] = int(bookread[i][j]) - 1
 	write_file("booksread", bookread)
+
+
+def has_read(username, marque):
+	data = read_file("booksread")
+
+	for i in data:
+		if i[0] == username:
+			for k in i:
+				if k == str(marque):
+					return True
+	return False
+
+def add_bookreaded(username, marque=-1):
+
+
+	data_book = read_file("books")
+
+	print("------------BOOKS LIST------------")
+	for i in range(0, len(data_book)):
+		print(data_book[i])
+	print("------------BOOKS LIST------------")
+	while marque != 0:
+		print("Please enter the id of the book you want to add to your profile.")
+		print("If you want to exit, please enter 0")
+		try:
+			marque = int(input("Your input : "))
+		except ValueError:
+			marque = -1
+
+		if marque == 0:
+			return True
+		elif (marque >= 1) and (marque <= len(data_book)):
+			if has_read(username, marque) == True:
+				print("You're already readed the book ! Please try another book")
+			else:
+				data_bookreaders = read_file("booksread")
+				for i in range(0, len(data_bookreaders)):
+					if data_bookreaders[i][0] == username:
+						data_bookreaders[i].append(str(marque))
+						write_file("booksread", data_bookreaders)
+						break
+	return True

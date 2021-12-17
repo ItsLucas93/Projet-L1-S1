@@ -16,6 +16,7 @@ def add_user():
 
     username, gender, age, preferences = ask_username(), ask_gender(), ask_age(), ask_preferences()
     temp = [username, gender, age, preferences]
+    print(username)
     add_bookreader(username)
 
     # Implémenter
@@ -217,7 +218,7 @@ def ask_username(username=""):
     """
     Ask user to set an username
     """
-    while ((len(username) <= 0 or len(username) > 16) and (user_exist(username) is True)):
+    while ((len(username) < 1 or len(username) > 16) and (user_exist(username) is True)):
         username = str(input("Saisir votre pseudonyme \nMinimum 3 caractères \nMaximum 16 caractères \nVotre saisie : "))
     return username
 
