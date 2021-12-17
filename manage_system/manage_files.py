@@ -99,7 +99,7 @@ def write_file(path, liste):
 		path = path_readers
 
 		with open(path,'w', encoding="UTF-8") as f:
-			liste = assemble_list(liste)
+			liste = assemble_liste(liste)
 			for i in range(0, len(liste)):
 				f.write(liste[i] + "\n")
 
