@@ -15,7 +15,7 @@ def rating_matrix_init():
 	write_file("rating_matrix", M)
 
 
-def update_rating_matrix(reason, indice=0):
+def update_rating_matrix(reason, indice):
 
 	data_rating_matrix = read_file("rating_matrix")
 
@@ -24,9 +24,11 @@ def update_rating_matrix(reason, indice=0):
 		for i in range(0, len(read_file("books"))):
 			temp.append('0')
 		data_rating_matrix.append(temp)
+		write_file("rating_matrix", data_rating_matrix)
 	elif reason == "remove_user":
-		del data_rating_matrix[i]
-	if reason == "add_book":
+		del data_rating_matrix[indice]
+		write_file("rating_matrix", data_rating_matrix)
+	elif reason == "add_book":
 		for j in range(0, len(data_rating_matrix)):
 			data_rating_matrix[j].append('0')
 	elif reason == "remove_book":

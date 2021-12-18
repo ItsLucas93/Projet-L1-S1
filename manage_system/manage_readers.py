@@ -1,6 +1,7 @@
 from manage_system.manage_files import read_file, write_file
 from manage_system.manage_bookreaders import add_bookreader, remove_bookreader
 from manage_system.manage_book import del_indice
+from suggestions.suggestsystem import update_rating_matrix
 from suggestions.suggestsystem import get_review_book
 
 """
@@ -23,7 +24,7 @@ def add_user():
 
     # Implémenter
     write_file("readers_add", temp)
-
+    update_rating_matrix("add_user")
     return True
 
 
@@ -57,6 +58,7 @@ def remove_user(username=""):
             data.pop(i) # or del data[i]
             write_file("readers", data)
             remove_bookreader(username)
+            update_rating_matrix("remove_user", i)
             quit()  # Built-in function to exit the program
     elif confirm in ["No", "no", "n", "N"]:
         print("Command aborted. Back to Manage Reader")
