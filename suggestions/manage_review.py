@@ -1,10 +1,6 @@
 from manage_system.manage_files import read_file, write_file
 from manage_system.manage_book import book_exist, show_books
 from manage_system.manage_bookreaders import has_read
-# from manage_system.manage_readers import position
-
-# Implémenter la matrice de notation à stocker
-
 
 
 def review_book(username, position_user, id_book_review=-1):
@@ -49,5 +45,4 @@ def get_review_book(username, position_user, id_book_review=-1):
 		notation = "NE"
 	return notation
 
-def suggested_book():
-	return True
+

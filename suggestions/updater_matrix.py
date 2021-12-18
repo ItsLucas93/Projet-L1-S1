@@ -37,3 +37,15 @@ def update_rating_matrix(reason, indice):
 
 
 	write_file("rating_matrix", data_rating_matrix)
+
+
+def suggest_matrix_init():
+	M = []
+	for i in range(0, len(read_file("readers"))):
+		temp = []
+		for j in range(0, len(read_file("readers"))):
+			temp.append('0')
+		M.append(temp)
+	write_file("suggest_matrix", M)
+
+

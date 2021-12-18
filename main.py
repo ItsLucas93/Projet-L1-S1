@@ -14,7 +14,7 @@ from manage_system.manage_files import *
 from manage_system.manage_bookreaders import *
 from manage_system.manage_readers import *
 from manage_system.manage_book import *
-from suggestions.suggestsystem import *
+from suggestions.manage_review import *
 
 import os
 from time import sleep

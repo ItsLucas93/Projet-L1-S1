@@ -2,6 +2,7 @@ path_books = "data/books.txt"
 path_booksread = "data/booksread.txt"
 path_readers = "data/readers.txt"
 path_rating_matrix = "suggestions/rating_matrix.txt"
+path_suggest_matrix = "suggestions/suggest_matrix.txt"
 
 
 # Implémenter une fonction qui permet de modifier le path depuis la console
@@ -130,6 +131,14 @@ def write_file(path, liste):
                 f.write(liste[i] + "\n")
             f.write(liste[-1])
 
+    elif path == "suggest_matrix":
+        path = path_suggest_matrix
+
+        with open(path, 'w', encoding="UTF-8") as f:
+            liste = assemble_liste_2d(liste, " ")
+            for i in range(0, len(liste) - 1):
+                f.write(liste[i] + "\n")
+            f.write(liste[-1])
 
 def assemble_liste_1d(liste):
     """
