@@ -254,7 +254,7 @@ def show_user(username=""):
                             temp.append(j)
                 data_book = del_indice(data_book)
                 for i in temp:
-                    print(data_book[int(i)-1], end=" ; ")
+                    print(data_book[int(i)-1] + " (Note : " + str(get_review_book(username, position(data_readers, username), int(i))) + "/5)", end=" ; ")
                 print("\n------------YOUR PROFILE------------")
                 return True
     return False

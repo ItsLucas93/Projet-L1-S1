@@ -224,7 +224,7 @@ def command_manage_bookreaders(command=0):
 			if add_bookreaded(logged_username):
 				command = 0
 		elif command == 2:
-			if review_book(logged_username):
+			if review_book(username=logged_username, position_user=position(read_file("readers"), logged_username)):
 				command = 0
 		elif command == 3:
 			if suggested_book():

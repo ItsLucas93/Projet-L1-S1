@@ -1,7 +1,7 @@
 from manage_system.manage_files import read_file, write_file
 from manage_system.manage_book import book_exist, show_books
 from manage_system.manage_bookreaders import has_read
-from manage_system.manage_readers import position
+# from manage_system.manage_readers import position
 
 # Implémenter la matrice de notation à stocker
 def rating_matrix_init():
@@ -38,7 +38,7 @@ def update_rating_matrix(reason, indice):
 	write_file("rating_matrix", data_rating_matrix)
 
 
-def review_book(username, id_book_review=-1):
+def review_book(username, position_user, id_book_review=-1):
 	"""
 	Username: str
 	id_book_review; index_user: int
@@ -64,17 +64,20 @@ def review_book(username, id_book_review=-1):
 	while (notation <= 0) or (notation > 5):
 		notation = int(input('Please give a grade from 1 to 5 : '))
 
-	index_user = position(read_file("readers"), username)
+	index_user = position_user # position(read_file("readers"), username)
 
 	data_rating_matrix = read_file("rating_matrix")
 	data_rating_matrix[index_user][id_book_review-1] = str(notation)
 	write_file("rating_matrix", data_rating_matrix)
 
 
-def get_review_book(username, id_book_review=-1):
+def get_review_book(username, position_user, id_book_review=-1):
 	data_rating_matrix = read_file("rating_matrix")
-	index_user = position(read_file("readers"), username)
+	index_user = position_user # position(read_file("readers"), username)
 	notation = data_rating_matrix[index_user][id_book_review-1]
+
+	if notation == '0':
+		notation = "NE"
 	return notation
 
 def suggested_book():
