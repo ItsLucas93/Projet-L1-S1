@@ -96,14 +96,13 @@ def show_books():
 	Show books in data/books
 	"""
 
-	try:
-		data = read_file("books")
+	data = read_file("books")
 
-		print("------------BOOKS LIST------------")
-		for i in range(0, len(data)):
-			print(data[i])
-		print("------------BOOKS LIST------------")
+	print("------------BOOKS LIST------------")
+	for i in range(0, len(data)):
+		print(data[i])
+	print("------------BOOKS LIST------------")
 
-		return True
-	except:
-		return False
+	return True
+
+

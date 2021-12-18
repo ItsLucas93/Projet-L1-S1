@@ -1,3 +1,5 @@
+######### MODULES / IMPORT #############
+
 from manage_system.manage_files import read_file, write_file
 from manage_system.manage_bookreaders import add_bookreader, remove_bookreader
 from manage_system.manage_book import del_indice
@@ -5,6 +7,18 @@ from manage_system.utilites_func import *
 
 from suggestions.updater_matrix import update_rating_matrix
 from suggestions.manage_review import get_review_book
+
+######### MODULES / IMPORT #############
+
+######### SETTINGS #############
+
+from config import language
+if language == "fr":
+    from languages.language_fr import *
+elif language == "en":
+    from languages.language_en import *
+
+######### SETTINGS #############
 
 """
 Les fonctions retournent des bool pour déclarer si les opérations se sont déroulés avec succès.
@@ -17,14 +31,15 @@ def add_user():
     Ajoute un utilisateur dans le fichier ./data/readers.txt
     """
 
+    print(text_add_user_separator)
+
     # Entrée utilisateur
 
     username, gender, age, preferences = ask_username(), ask_gender(), ask_age(), ask_preferences()
     temp = [username, gender, age, preferences]
 
+    # Auto-update function : reader, bookreader, rating_matrix
     add_bookreader(username)
-
-    # Implémenter
     write_file("readers_add", temp)
     update_rating_matrix("add_user", None)
     return True
@@ -39,35 +54,30 @@ def remove_user(username=""):
     data = read_file("readers")
 
     while user_exist(username) is False:
-        username = str(input("Enter a username : (enter exit to exit)"))
-
-    if username == ["exit", "Exit", "EXIT", "exit()", "Exit()"]:
-        return False
-
-    print("-=-=-=-=-=- WARNING -=-=-=-=-=-"
-         "\nYou're gonna delete a profile in data"
-         "\nDo you want to proceed ?"
-         "\n If yes, you will have to relaunch the program")        
-
-    confirm = str(input("Your input (Yes/No): "))
-    if confirm in ["Yes", "yes", "y", "Y"]:
-        i = 0
-        while (i < len(data)) and (data[i][0] != username):
-            i += 1
-
-        # Cas où l'utilisateur ne figure pas dans la base car i > len(data)
-        if i > len(data):
+        username = str(input(text_remove_user_input))
+        if username in ["exit", "Exit", "EXIT", "exit()", "Exit()"]:
             return False
-        # Cas où l'utilisateur figure dans la base
-        else:
-            data.pop(i) # or del data[i]
-            write_file("readers", data)
-            remove_bookreader(username)
-            update_rating_matrix("remove_user", i)
-            quit()  # Built-in function to exit the program
-    elif confirm in ["No", "no", "n", "N"]:
-        print("Command aborted. Back to Manage Reader")
-    return False
+
+    print(text_remove_user_warning)        
+    while True:
+        confirm = str(input(text_remove_user_warning_confirm))
+        if confirm in ["Yes", "yes", "y", "Y", "oui", "Oui", "OUI"]:
+            i = 0
+            while (i < len(data)) and (data[i][0] != username):
+                i += 1
+
+            # Cas où l'utilisateur ne figure pas dans la base car i > len(data)
+            if i > len(data):
+                return False
+            # Cas où l'utilisateur figure dans la base
+            else:
+                data.pop(i) # or del data[i]
+                write_file("readers", data)
+                remove_bookreader(username)
+                update_rating_matrix("remove_user", i)
+                quit()  # Built-in function to exit the program
+        elif confirm in ["No", "no", "n", "N", "Non", "non", "NON"]:
+            return False
 
 
 def user_exist(username):
@@ -93,10 +103,10 @@ def show_users(command=0):
     nbdanspages = 15
 
     if len(data) <= nbdanspages:
-        print("------------USERS LIST (" + str(len(data)) + " users)------------")
+        print(text_show_users_separator_1 + str(len(data)) + " " + text_show_users_separator_2)
         for i in range(len(data)):
             print(data[i][0])
-        print("------------USERS LIST------------")
+        print(text_show_users_separator)
     else:
         pages = len(data) // nbdanspages
         page = 0
@@ -108,33 +118,20 @@ def show_users(command=0):
             else:
                 borne_a, borne_b = page * nbdanspages, (page + 1) * nbdanspages
 
-            print("------------USERS LIST (Page " + str(page + 1) + "/" + str(pages + 1) + ")------------")
+            print(text_show_users_separator_3 + " " + str(page + 1) + "/" + str(pages + 1) + text_show_users_separator_4)
             for i in range(borne_a, borne_b):  # vérifier la relation entre page actuel et
                 print(data[i][0])
-            print("------------USERS LIST (Page " + str(page + 1) + "/" + str(pages + 1) + ")------------")
+            print(text_show_users_separator_3 + " " + str(page + 1) + "/" + str(pages + 1) + text_show_users_separator_4)
 
             if page == 0:
                 commandes = {2: "Page suivante", 3: "Exit"}
-                print("------------COMMANDS------------"
-                      "\nPlease select your choice : "
-                      "\n2. Page suivante"
-                      "\n3. Exit")
-                print("------------COMMANDS------------")
+                print(text_show_users_commands_1)
             elif page == pages:
                 commandes = {1: "Page précédente", 3: "Exit"}
-                print("------------COMMANDS------------"
-                      "\nPlease select your choice : "
-                      "\n1. Page précédente"
-                      "\n3. Exit")
-                print("------------COMMANDS------------")
+                print(text_show_users_commands_2)
             else:
                 commandes = {1: "Page précédente", 2: "Page suivante", 3: "Exit"}
-                print("------------COMMANDS------------"
-                      "\nPlease select your choice : "
-                      "\n1. Page précédente"
-                      "\n2. Page suivante"
-                      "\n3. Exit")
-                print("------------COMMANDS------------")
+                print(text_show_users_commands_3)
             try:
                 command = int(input("Your input : "))
             except ValueError:
@@ -147,7 +144,7 @@ def show_users(command=0):
             elif command == 2:
                 page += 1
             elif command == 3:
-                print("Exiting user lists...")
+                return True
 
     return True
 
@@ -155,11 +152,6 @@ def show_users(command=0):
 def modify_user(username="", command=0):
     """
     Modifier un utlisateur dans le fichier ./data/readers.txt
-    """
-
-    data = read_file("readers")
-
-    """
     Commandes : 
     1. Pseudo 
     2. gender
@@ -168,9 +160,12 @@ def modify_user(username="", command=0):
     5. Livres que vous avez lu ?
     6. Exit
     """
-    print(username, user_exist(username))
+    data = read_file("readers")
+
+    print(text_modify_user_separator)
+    print(text_modify_user_input_request)
     while user_exist(username) is False:
-        username = str(input("Enter a username : "))
+        username = str(input(text_modify_user_input))
 
     # Index user in data
 
@@ -178,28 +173,28 @@ def modify_user(username="", command=0):
 
     commandes = {1: "gender", 2: "age", 3: "preferences", 4: "back to main menu"}
 
+    print(text_modify_user_command)
     while command != 4:
-        print("------------COMMAND MODIFY USER------------"
-              "\nPlease select your choice : "
-              "\nYou can't change the username, please delete the account to proceed."
-              "\n1. Modify Gender"
-              "\n2. Modify Age"
-              "\n3. Modify Preferences"
-              "\n4. Back to main menu")
-        print("------------COMMAND MODIFY USER------------")
         try:
-            command = int(input("Votre entrée : "))
+            command = int(input(text_modify_user_input))
         except ValueError:
             pass
 
         if command not in commandes:
             pass
+
         elif command == 1:
             data[index][1] = ask_gender()
+            print(text_modify_user_command)
+
         elif command == 2:
             data[index][2] = ask_age()
+            print(text_modify_user_command)
+
         elif command == 3:
             data[index][3] = ask_preferences()
+            print(text_modify_user_command)
+
         elif command == 4:
             pass
 
@@ -218,49 +213,52 @@ def show_user(username=""):
     data_book = read_file("books")
 
     while user_exist(username) is False:
-        username = str(input("Enter a username : "))
+        username = str(input(text_show_user_input))
 
     for i in data_readers:
         for j in i:
             if username == j:
-                print("------------YOUR PROFILE------------")
-                print("Username : " + str(i[0]))
+                print(text_show_user_separator)
+                print(text_show_user_username + str(i[0]))
                 if i[1] == '1':
-                    print("Gender : H")
+                    print(text_show_user_gender_1)
                 elif i[1] == '2':
-                    print("Gender : F")
+                    print(text_show_user_gender_2)
                 elif i[1] == '3':
-                    print("Gender : Peu importe")
+                    print(text_show_user_gender_3)
                 if i[2] == '1':
-                    print("Age : < 18")
+                    print(text_show_user_age_1)
                 elif i[2] == '2':
-                    print("Age : 18-25")
+                    print(text_show_user_age_2)
                 elif i[2] == '3':
-                    print("Age : > 25")
+                    print(text_show_user_age_3)
                 if i[3] == '1':
-                    print("Preferences : Sciences Fiction")
+                    print(text_show_user_preference_1)
                 elif i[3] == '2':
-                    print("Preferences : Biographie")
+                    print(text_show_user_preference_2)
                 elif i[3] == '3':
-                    print("Preferences : Horreur")
+                    print(text_show_user_preference_3)
                 elif i[3] == '4':
-                    print("Preferences : Romance")
+                    print(text_show_user_preference_4)
                 elif i[3] == '5':
-                    print("Preferences : Fable")
+                    print(text_show_user_preference_5)
                 elif i[3] == '6':
-                    print("Preferences : Histoire")
+                    print(text_show_user_preference_6)
                 elif i[3] == '7':
-                    print("Preferences : Comédie")
-                print("Books readed : \n»»» ", end="")
+                    print(text_show_user_preference_7)
+                print(text_show_user_books_readed, end="")
                 temp = []
                 for i in data_bookreaders:
                     if i[0] == username:
                         for j in i[1:]:
                             temp.append(j)
                 data_book = del_indice(data_book)
-                for i in temp:
-                    print(data_book[int(i)-1] + " (Note : " + str(get_review_book(username, position(data_readers, username), int(i))) + "/5)", end=" ; ")
-                print("\n------------YOUR PROFILE------------")
+                if temp == []:
+                    print(text_show_user_books_no_book_readed_yet)
+                else:
+                    for i in temp:
+                        print(data_book[int(i)-1] + " ( " + text_show_user_books_note + " : " + str(get_review_book(username, position(data_readers, username), int(i))) + "/5)", end=" ; ")
+                    print("\n" + text_show_user_separator)
                 return True
     return False
 

@@ -1,5 +1,20 @@
+######### MODULES / IMPORT #############
+
 from manage_system.manage_files import write_file, read_file
 from manage_system.utilites_func import position
+
+######### MODULES / IMPORT #############
+
+######### SETTINGS #############
+
+from config import language
+if language == "fr":
+    from languages.language_fr import *
+elif language == "en":
+    from languages.language_en import *
+
+######### SETTINGS #############
+
 
 def add_bookreader(username):
 	"""

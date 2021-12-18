@@ -1,12 +1,28 @@
+######### MODULES / IMPORT #############
+
+from manage_system.manage_files import read_file
+
+######### MODULES / IMPORT #############
+
+######### SETTINGS #############
+
+from config import language
+if language == "fr":
+    from languages.language_fr import *
+elif language == "en":
+    from languages.language_en import *
+
+######### SETTINGS #############
+
 def ask_username():
     """
     Ask user to set an username
     """
     username = ""
-    while len(username) < 1 or len(username) > 16:
-        username = str(input("Saisir votre pseudonyme \nMinimum 3 caractères \nMaximum 16 caractères \nVotre saisie : "))
+    while len(username) < 3 or len(username) > 16:
+        username = str(input(text_ask_username_input))
         if user_exist(username):
-            print("User with the username " + username + " already exist ! Please try another username.")
+            print(text_ask_username_input_failed_1 + " " + username + " " + text_ask_username_input_failed_2)
             username = ""
     return username
 
@@ -16,9 +32,9 @@ def ask_gender():
     Ask the gender of the user
     """
     gender = 0
-    while ((gender <= 0) or (gender > 3)):
+    while (gender <= 0) or (gender > 3):
         try:
-            gender = int(input("Saisir votre gender : \n1. HOMME\n2. FEMME\n3.PEU IMPORTE\nVotre saisie : "))
+            gender = int(input(text_ask_gender_input))
         except ValueError:
             pass
     return gender
@@ -29,9 +45,9 @@ def ask_age():
     Ask the age of the user
     """
     age = 0
-    while ((age <= 0) or (age > 3)):
+    while (age <= 0) or (age > 3):
         try:
-            age = int(input("Saisir votre âge : \n1. <= 18 ans\n2. Entre 18 et 25 ans\n3. > 25 ans\nVotre saisie : "))
+            age = int(input(text_ask_age_input))
         except ValueError:
             pass
     return age
@@ -42,15 +58,21 @@ def ask_preferences():
     Ask the type of book the user wants to read
     """
     preferences = 0
-    while ((preferences <= 0) or (preferences > 7)):
+    while (preferences <= 0) or (preferences > 7):
         try:
-            preferences = int(input("Saisir votre style de lecture : \n1. Sciences fiction\n2. Biographie\n3. Horreur\n4. Romance\n5. Fable \n6. Histoire \n7. Comédie \nVotre saisie : "))
+            preferences = int(input(text_ask_preferences))
         except ValueError:
             pass
     return preferences
 
 
 def position(data, username):
+    """
+    Give the position of the user in the data
+    data: list
+    username: str
+    i: int
+    """
     i = 0
     while (i < len(data)) and (username not in data[i]):
         i += 1
@@ -59,3 +81,17 @@ def position(data, username):
         pass
     else:
         return i
+
+
+def user_exist(username):
+    """
+    Verify if user exist
+    """
+
+    # Import de la liste data
+    data = read_file("readers")
+
+    for i in data:
+        if i[0] == username:
+            return True
+    return False

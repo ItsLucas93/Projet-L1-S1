@@ -22,7 +22,6 @@ from suggestions.manage_suggest import *
 ######### SETTINGS #############
 
 from config import language
-print(language)
 if language == "fr":
 	from languages.language_fr import *
 elif language == "en":
@@ -45,7 +44,7 @@ def welcome():
 	print("# ██╔══██╗██║░░██║██║░░██║██╔═██╗░░░░░██║╚██╔╝██║██╔══██║██║╚████║██╔══██║██║░░╚██╗██╔══╝░░██╔══██╗ #")
 	print("# ██████╦╝╚█████╔╝╚█████╔╝██║░╚██╗░░░░██║░╚═╝░██║██║░░██║██║░╚███║██║░░██║╚██████╔╝███████╗██║░░██║ #")
 	print("# ╚═════╝░░╚════╝░░╚════╝░╚═╝░░╚═╝░░░░╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝░╚═════╝░╚══════╝╚═╝░░╚═╝ #")
-	print("#######################################################################################.from 1991####")
+	print("#########" + text_bookmanager_language + language + "##################################################################" + text_bookmanager_from + " 1991#####")
 
 
 def command_center(command=0):
@@ -64,27 +63,36 @@ def command_center(command=0):
 
 	while command != 4:
 		try:
-			command = int(input("Your input : "))
+			command = int(input(text_command_center_input))
 		except ValueError:
 			command = 0
 		# Commands to implant
 
 		if command not in commandes:
 			command = 0  # Does nothing, just relaunch the command_center()
+
 		elif command == 1:
 			if command_manage_reader():
 				command = 0
+				print(text_command_center)
+
 		elif command == 2:
 			if command_manage_book():
 				command = 0
+				print(text_command_center)
+
 		elif command == 3:
 			if command_manage_bookreaders():
 				command = 0
+				print(text_command_center)
+
 		elif command == 4:
-			print("Exiting command center...")
+			print(text_command_center_exit)
+
 		elif command == 5:
 			if command_settings():
 				command = 0
+				print(text_command_center)
 
 	return True
 
@@ -108,43 +116,51 @@ def command_manage_reader(command=0):
 	6. Back to main menu
 	"""
 
-	commandes = {1: "Add user", 2: "Show user list", 3: "Delete user", 4: "Modify your profile", 5: "Show your profile", 6: "Back to main menu"}
-	print("------------COMMAND MANAGE READER------------"
-		  "\nPlease select your choice : "
-		  "\n1. Add User"
-		  "\n2. Show User list"
-		  "\n3. Delete User"
-		  "\n4. Modify your profile"
-		  "\n5. Show your profile"
-		  "\n6. Back to main menu")
-	print("------------COMMAND MANAGE READER------------")
+	commandes = {1: "Add user", 2: "Modify your profile", 3: "Remove user", 4: "Show your profile", 5: "Show user list", 6: "Back to main menu"}
+
+	print(text_command_manage_reader)
 
 	while command != 6:
 		try:
-			command = int(input("Your input : "))
+			command = int(input(text_command_manage_reader_input))
 		except ValueError:
 			command = 0
 		# Commands to implant
 
 		if command not in commandes:
 			command = 0  # Does nothing, just relaunch the command_center()
+
 		elif command == 1:
 			if add_user():
 				command = 0
+				print(text_command_manage_reader_exiting_1)
+				print(text_command_manage_reader)
+
 		elif command == 2:
-			if show_users():
-				command = 0
-		elif command == 3:
-			if remove_user() is False:
-				print("Something went wrong or the command has been aborted. Please try again later.")
-		elif command == 4:
 			if modify_user():
 				command = 0
-		elif command == 5:
+				print(text_command_manage_reader_exiting_2)
+				print(text_command_manage_reader)
+
+		elif command == 3:
+			if remove_user() is False:
+				print(text_command_manage_reader_exiting_3)
+				print(text_command_manage_reader)
+
+		elif command == 4:
 			if show_user():
 				command = 0
+				print(text_command_manage_reader)
+
+		elif command == 5:
+			if show_users():
+				command = 0
+				print("")
+				print(text_command_manage_reader)
+				print("")
+
 		elif command == 6:
-			print("Exiting manage reader...")
+			print(text_command_manage_reader_exit)
 
 	return True
 
@@ -158,12 +174,12 @@ def command_manage_book(command=0):
 	5. Back to main menu
 	"""
 
-	commandes = {1: "Add Book", 2: "Delete book", 3: "Rename book", 4: "List books", 5: "Back to main menu"}
+	commandes = {1: "Add Book", 2: "Rename book", 3: "Delete book", 4: "List books", 5: "Back to main menu"}
 	print(text_command_manage_book)
 
 	while command != 5:
 		try:
-			command = int(input("Your input : "))
+			command = int(input(text_command_manage_book_input))
 		except ValueError:
 			command = 0
 		# Commands to implant
@@ -172,24 +188,34 @@ def command_manage_book(command=0):
 			command = 0  # Does nothing, just relaunch the command
 		elif command == 1:
 			if add_book():
-				print("Book added !")
 				command = 0
+				print(text_command_manage_book_exiting_1)
+				print(text_command_manage_book)
+
 		elif command == 2:
-			if delete_book():
-				print("Book removed.")
-				command = 0
-		elif command == 3:
 			if modify_book():
-				print("Book modified.")
 				command = 0
+				print(text_command_manage_book_exiting_2)
+				print(text_command_manage_book)
+
+		elif command == 3:
+			if delete_book():
+				command = 0
+				print(text_command_manage_book_exiting_3)
+				print(text_command_manage_book)
+
 		elif command == 4:
 			if show_books():
 				command = 0
+				print(text_command_manage_reader_exiting_4)
+				print(text_command_manage_book)
 			else:
-				print("Something went wrong...")
 				command = 0
+				print(text_command_manage_book_exiting_4)
+				print(text_command_manage_book)
+
 		elif command == 5:
-			print("Exiting manage book menu...")
+			print(text_command_manage_book_exit)
 
 	return True
 
@@ -203,34 +229,36 @@ def command_manage_bookreaders(command=0):
 	"""
 
 	commandes = {1: "Add Readedbook", 2: "Add note review", 3: "Suggested book", 4: "Back to main menu"}
-	print("------------COMMAND MANAGE BOOKREADER------------"
-		  "\nPlease select your choice : "
-		  "\n1. Add Readedbook"
-		  "\n2. Add note review"
-		  "\n3. Suggested book"
-		  "\n4. Back to main menu")
-	print("------------COMMAND MANAGE BOOKREADER------------")
+	print(text_command_manage_bookreaders)
 
 	while command != 4:
 		try:
-			command = int(input("Your input : "))
+			command = int(input(text_command_manage_bookreaders_input))
 		except ValueError:
 			command = 0
 		# Commands to implant
 
 		if command not in commandes:
 			command = 0  # Does nothing, just relaunch the command
+
 		elif command == 1:
 			if add_bookreaded(logged_username):
 				command = 0
+				print(text_command_manage_bookreaders)
+
 		elif command == 2:
-			if review_book(username=logged_username, position_user=position(read_file("readers"), logged_username)):
+			if review_book(logged_username, position(read_file("readers"), logged_username)):
 				command = 0
+				print(text_command_manage_bookreaders)
+
 		elif command == 3:
 			if suggest_book(user1=logged_username):
 				command = 0
+				print(text_command_manage_bookreaders)
+
 		elif command == 4:
-			print("Exiting program...")
+			print(text_command_manage_bookreaders_exit)
+
 	return True
 
 
@@ -242,22 +270,21 @@ def login():
 	"""
 	global logged_username
 	logged_username = ""
-	print("------------LOGIN PHASE------------"
-		"\nIf you want to exit, enter exit."
-		"\nIf you want to create an account, please type new.")
-	print("------------LOGIN PHASE------------")
+
+	print(text_login_phase)
 
 	while True:
-		while (user_exist(logged_username) is False) and (logged_username != 'new'):
-			logged_username = str(input("Username : "))
+		while (user_exist(logged_username) is False) and (logged_username != text_login_phase_new):
+			logged_username = str(input(text_login_phase_input))
 			if logged_username in ["exit()", "Exit()", "exit", "Exit"]:
 				quit()
 
-		if logged_username == "new":
+		if logged_username == text_login_phase_new:
 			add_user()
 			logged_username = ""
+			print(text_login_phase)
 		else:
-			print("------------LOGIN PHASE------------")
+			print(text_login_phase_separator)
 			return True
 
 
@@ -266,13 +293,15 @@ def login():
 
 if __name__ == '__main__':
 	# Load calc similar matrix, welcome, login
-	calc_suggest_matrix(read_file("suggest_matrix"))
+	# calc_suggest_matrix(read_file("suggest_matrix"))
 	welcome()
+
 	if login():
+
 		print("\n")
-		print("Welcome " + str(logged_username) + "! \nI'm the librarian and i'm happy to see you there !")
+		print(text_welcome + " " + str(logged_username) + " ! " + text_welcome_librarian)
 		print("\n")
+
 		if command_center():
-			print("Exiting program...")
-	print("Good bye !")
+			print(text_exit_1 + " " + str(logged_username) + " ! " + text_exit_2)
 	quit()
