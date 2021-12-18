@@ -85,7 +85,7 @@ def show_users(command=0):
     nbdanspages = 15
 
     if len(data) <= nbdanspages:
-        print("------------USERS LIST------------")
+        print("------------USERS LIST (" + str(len(data)) + " users)------------")
         for i in range(len(data)):
             print(data[i][0])
         print("------------USERS LIST------------")
