@@ -60,13 +60,7 @@ def command_center(command=0):
 	4. Exit program
 	"""
 	commandes = {1: "Manage Users", 2: "Manage Books", 3: "Manage Books Readers", 4: "Exit Program", 5: "Settings"}
-	print("------------COMMAND CENTER------------"
-		  "\nPlease select your choice : "
-		  "\n1. Manage Users"
-		  "\n2. Manage Books"
-		  "\n3. Manage Books Readers / Suggested books"
-		  "\n4. Exit program")
-	print("------------COMMAND CENTER------------")
+	print(text_command_center)
 
 	while command != 4:
 		try:
