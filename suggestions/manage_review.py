@@ -44,5 +44,3 @@ def get_review_book(username, position_user, id_book_review=-1):
 	if notation == '0':
 		notation = "NE"
 	return notation
-
-

@@ -64,6 +64,16 @@ def read_file(path):
             for i in range(0, len(data)):
                 data[i] = data[i].split(' ')
 
+    elif path == "suggest_matrix":
+        path = path_suggest_matrix
+
+        with open(path, 'r', encoding="UTF-8") as f:
+            data = f.readlines()
+            for i in range(0, len(data)):
+                data[i] = remove_antislashn(data[i])
+            for i in range(0, len(data)):
+                data[i] = data[i].split(' ')
+
     return data
 
 

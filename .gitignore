@@ -6,3 +6,5 @@ manage_system/__pycache__/
 manage_system/untitled.py
 suggestions/__pycache__/suggestsystem.cpython-310.pyc
 suggestions/__pycache__/updater_matrix.cpython-310.pyc
+suggestions/__pycache__/manage_review.cpython-310.pyc
+suggestions/__pycache__/manage_suggest.cpython-310.pyc
