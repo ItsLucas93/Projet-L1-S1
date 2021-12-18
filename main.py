@@ -14,6 +14,7 @@ from manage_system.manage_files import *
 from manage_system.manage_bookreaders import *
 from manage_system.manage_readers import *
 from manage_system.manage_book import *
+from suggestions.suggestsystem import *
 
 import os
 from time import sleep
@@ -220,10 +221,10 @@ def command_manage_bookreaders(command=0):
 		if command not in commandes:
 			command = 0  # Does nothing, just relaunch the command
 		elif command == 1:
-			if add_bookreaded():
+			if add_bookreaded(logged_username):
 				command = 0
 		elif command == 2:
-			if review_book():
+			if review_book(logged_username):
 				command = 0
 		elif command == 3:
 			if suggested_book():

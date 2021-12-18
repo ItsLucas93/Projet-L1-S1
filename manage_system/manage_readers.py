@@ -1,6 +1,7 @@
 from manage_system.manage_files import read_file, write_file
 from manage_system.manage_bookreaders import add_bookreader, remove_bookreader
 from manage_system.manage_book import del_indice
+from suggestions.suggestsystem import get_review_book
 
 """
 Les fonctions retournent des bool pour déclarer si les opérations se sont déroulés avec succès.

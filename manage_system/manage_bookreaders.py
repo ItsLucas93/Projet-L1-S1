@@ -1,5 +1,4 @@
 from manage_system.manage_files import write_file, read_file
-from suggestions.suggestsystem import *
 
 def add_bookreader(username):
 	"""
@@ -80,8 +79,19 @@ def add_bookreaded(username, marque=-1):
 				data_bookreaders = read_file("booksread")
 				for i in range(0, len(data_bookreaders)):
 					if data_bookreaders[i][0] == username:
-						data_bookreaders[i].append(str(marque))
-						write_file("booksread", data_bookreaders)
-						break
-						# Implant review_book(username, marque)
+				        data_bookreaders[i].append(str(marque))
+				        for j in range(1, len(data_bookreaders[i])):
+				            if str(marque) > data_bookreaders[i][j]:
+				                for l in range(len(data_bookreaders[i]) - j):
+				                    data_bookreaders[i][len(data_bookreaders[i]) - l] = data_bookreaders[i][l + 1]
+				                data_bookreaders[i][j-1] = str(marque)
+				                break
+				        write_file("booksread", data_bookreaders)
+				        break
+						# data_bookreaders[i].append(str(marque))
+						# write_file("booksread", data_bookreaders)
+						# print("Book added in your profile !")
+						# break
 	return True
+
+

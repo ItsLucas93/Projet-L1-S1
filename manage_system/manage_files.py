@@ -52,6 +52,17 @@ def read_file(path):
             for i in range(0, len(data)):
                 data[i] = data[i].split(',')
 
+
+    elif path == "rating_matrix":
+        path = path_rating_matrix
+
+        with open(path, 'r', encoding="UTF-8") as f:
+            data = f.readlines()
+            for i in range(0, len(data)):
+                data[i] = remove_antislashn(data[i])
+            for i in range(0, len(data)):
+                data[i] = data[i].split(' ')
+
     return data
 
 
@@ -112,7 +123,7 @@ def write_file(path, liste):
 
     elif path == "rating_matrix":
         path = path_rating_matrix
-
+        print(liste)
         with open(path, 'w', encoding="UTF-8") as f:
             liste = assemble_liste_2d(liste, " ")
             for i in range(0, len(liste) - 1):
