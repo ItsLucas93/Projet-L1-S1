@@ -3,8 +3,6 @@
 from manage_system.manage_files import write_file, read_file
 from manage_system.utilities_func import position, has_read
 
-from suggestions.manage_review import review_book
-
 ######### MODULES / IMPORT #############
 
 ######### SETTINGS #############
@@ -94,7 +92,7 @@ def add_bookreaded(username, marque=-1):
 			marque = -1
 
 		if marque == 0:
-			return True
+			return 'Ok'
 		elif (marque >= 1) and (marque <= len(data_book)):
 			if has_read(username, marque) == True:
 				print(text_add_bookreaded_already_readed_book)
@@ -113,14 +111,13 @@ def add_bookreaded(username, marque=-1):
 						print(text_add_bookreaded_book_added)
 						break
 
-		review_request = ""
-		print(text_add_bookreaded_input_request_3)
-		while review_request not in ["Yes", "yes", "Y", "y", "YES", "oui", "Oui", "o", "OUI", "O"]:
-			review_request = str(input(text_add_bookreaded_input_2))
-			if review_request in ["No", "no", "n", "N", "NO", "Non", "non", "NON"]:
-				return True
+				review_request = ""
+				print(text_add_bookreaded_input_request_3)
+				while review_request not in ["Yes", "yes", "Y", "y", "YES", "oui", "Oui", "o", "OUI", "O"]:
+					review_request = str(input(text_add_bookreaded_input_2))
+					if review_request in ["No", "no", "n", "N", "NO", "Non", "non", "NON"]:
+						return 'Ok'
 
-		if review_book(username, position(username), marque):
-			print(text_add_bookreaded_end_review_book)
+				return marque
 
-	return True
+	return 'Ok'

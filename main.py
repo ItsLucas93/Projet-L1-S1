@@ -242,9 +242,12 @@ def command_manage_bookreaders(command=0):
 			command = 0  # Does nothing, just relaunch the command
 
 		elif command == 1:
-			if add_bookreaded(logged_username):
+			fake_boolean = add_bookreaded(logged_username)
+			if fake_boolean == 'Ok':
 				command = 0
-				print(text_command_manage_bookreaders)
+			else:
+				review_book(logged_username, position(read_file("readers"), logged_username), fake_boolean)
+			print(text_command_manage_bookreaders)
 
 		elif command == 2:
 			if review_book(logged_username, position(read_file("readers"), logged_username)):
@@ -289,11 +292,12 @@ def login():
 
 
 ######### FONCTIONS #############
+
 ######### MAIN #############
 
 if __name__ == '__main__':
 	# Load calc similar matrix, welcome, login
-	# calc_suggest_matrix(read_file("suggest_matrix"))
+	calc_suggest_matrix(read_file("suggest_matrix"))
 	welcome()
 
 	if login():
@@ -305,3 +309,5 @@ if __name__ == '__main__':
 		if command_center():
 			print(text_exit_1 + " " + str(logged_username) + " ! " + text_exit_2)
 	quit()
+
+######### MAIN #############
