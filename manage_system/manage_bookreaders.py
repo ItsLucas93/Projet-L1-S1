@@ -61,17 +61,6 @@ def remove_bookread(marque):
 	write_file("booksread", bookread)
 
 
-def has_read(username, marque):
-	data = read_file("booksread")
-
-	for i in data:
-		if i[0] == username:
-			for k in i:
-				if k == str(marque):
-					return True
-	return False
-
-
 def show_books_readed(username):
 	data_book = read_file("books")
 	data_bookreaders = read_file("booksread")
