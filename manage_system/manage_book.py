@@ -104,5 +104,3 @@ def show_books():
 	print("------------BOOKS LIST------------")
 
 	return True
-
-

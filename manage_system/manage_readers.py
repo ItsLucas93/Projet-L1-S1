@@ -3,7 +3,7 @@
 from manage_system.manage_files import read_file, write_file
 from manage_system.manage_bookreaders import add_bookreader, remove_bookreader
 from manage_system.manage_book import del_indice
-from manage_system.utilites_func import *
+from manage_system.utilities_func import *
 
 from suggestions.updater_matrix import update_rating_matrix
 from suggestions.manage_review import get_review_book
@@ -61,7 +61,7 @@ def remove_user(username=""):
     print(text_remove_user_warning)        
     while True:
         confirm = str(input(text_remove_user_warning_confirm))
-        if confirm in ["Yes", "yes", "y", "Y", "oui", "Oui", "OUI"]:
+        if confirm in ["Yes", "yes", "y", "Y", "YES", "oui", "Oui", "o", "OUI", "O"]:
             i = 0
             while (i < len(data)) and (data[i][0] != username):
                 i += 1
@@ -76,7 +76,7 @@ def remove_user(username=""):
                 remove_bookreader(username)
                 update_rating_matrix("remove_user", i)
                 quit()  # Built-in function to exit the program
-        elif confirm in ["No", "no", "n", "N", "Non", "non", "NON"]:
+        elif confirm in ["No", "no", "n", "N", "NO", "Non", "non", "NON"]:
             return False
 
 
@@ -257,7 +257,7 @@ def show_user(username=""):
                     print(text_show_user_books_no_book_readed_yet)
                 else:
                     for i in temp:
-                        print(data_book[int(i)-1] + " ( " + text_show_user_books_note + " : " + str(get_review_book(username, position(data_readers, username), int(i))) + "/5)", end=" ; ")
+                        print(data_book[int(i)-1] + " (" + text_show_user_books_note + " : " + str(get_review_book(username, position(data_readers, username), int(i))) + "/5)", end=" ; ")
                     print("\n" + text_show_user_separator)
                 return True
     return False

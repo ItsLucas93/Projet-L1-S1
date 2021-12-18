@@ -1,7 +1,9 @@
 ######### MODULES / IMPORT #############
 
 from manage_system.manage_files import write_file, read_file
-from manage_system.utilites_func import position
+from manage_system.utilities_func import position, has_read
+
+from suggestions.manage_review import review_book
 
 ######### MODULES / IMPORT #############
 
@@ -78,22 +80,27 @@ def show_books_readed(username):
 	readed_book = data_bookreaders[index][1:]
 	readed_book_name = [data_book[int(j)-1] for j in readed_book]
 
-	return readed_book_name
+	print(text_show_book_readed_separator)
+	for i in range(0, len(readed_book_name)):
+		print(readed_book_name[i])
+	print(text_show_book_readed_separator)
+
+	return True
 
 
 def add_bookreaded(username, marque=-1):
 
 	data_book = read_file("books")
 
-	print("------------BOOKS LIST------------")
+	print(text_add_bookreaded_separator)
 	for i in range(0, len(data_book)):
 		print(data_book[i])
-	print("------------BOOKS LIST------------")
+	print(text_add_bookreaded_separator)
 	while marque != 0:
-		print("Please enter the id of the book you want to add to your profile.")
-		print("If you want to exit, please enter 0")
+		print(text_add_bookreaded_input_request_1)
+		print(text_add_bookreaded_input_request_2)
 		try:
-			marque = int(input("Your input : "))
+			marque = int(input(text_add_bookreaded_input_1))
 		except ValueError:
 			marque = -1
 
@@ -101,7 +108,7 @@ def add_bookreaded(username, marque=-1):
 			return True
 		elif (marque >= 1) and (marque <= len(data_book)):
 			if has_read(username, marque) == True:
-				print("You're already readed the book ! Please try another book")
+				print(text_add_bookreaded_already_readed_book)
 			else:
 				data_bookreaders = read_file("booksread")
 				for i in range(0, len(data_bookreaders)):
@@ -114,6 +121,17 @@ def add_bookreaded(username, marque=-1):
 								data_bookreaders[i][j] = str(marque)
 								break
 						write_file("booksread", data_bookreaders)
-						print("Book added to your profile !")
+						print(text_add_bookreaded_book_added)
 						break
+
+		review_request = ""
+		print(text_add_bookreaded_input_request_3)
+		while review_request not in ["Yes", "yes", "Y", "y", "YES", "oui", "Oui", "o", "OUI", "O"]:
+			review_request = str(input(text_add_bookreaded_input_2))
+			if review_request in ["No", "no", "n", "N", "NO", "Non", "non", "NON"]:
+				return True
+
+		if review_book(username, position(username), marque):
+			print(text_add_bookreaded_end_review_book)
+
 	return True

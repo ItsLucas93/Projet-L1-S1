@@ -1,7 +1,19 @@
+######### MODULES / IMPORT #############
+
 from manage_system.manage_files import read_file, write_file
 from manage_system.manage_book import book_exist, show_books
-from manage_system.manage_bookreaders import has_read
 
+######### MODULES / IMPORT #############
+
+######### SETTINGS #############
+
+from config import language
+if language == "fr":
+    from languages.language_fr import *
+elif language == "en":
+    from languages.language_en import *
+
+######### SETTINGS #############
 
 def review_book(username, position_user, id_book_review=-1):
 	"""
@@ -35,6 +47,8 @@ def review_book(username, position_user, id_book_review=-1):
 	data_rating_matrix[index_user][id_book_review-1] = str(notation)
 	write_file("rating_matrix", data_rating_matrix)
 
+	return True
+
 
 def get_review_book(username, position_user, id_book_review=-1):
 	data_rating_matrix = read_file("rating_matrix")
@@ -44,3 +58,14 @@ def get_review_book(username, position_user, id_book_review=-1):
 	if notation == '0':
 		notation = "NE"
 	return notation
+
+
+def has_read(username, marque):
+    data = read_file("booksread")
+
+    for i in data:
+        if i[0] == username:
+            for k in i:
+                if k == str(marque):
+                    return True
+    return False

@@ -95,6 +95,22 @@ text_show_user_books_no_book_readed_yet = "Not any book readed yet."
 
 # manage_system/manage_bookreaders.py
 
+text_show_book_readed_separator = "------------BOOKS READED------------"
+
+text_add_bookreaded_separator = "------------BOOKS LIST------------"
+text_add_bookreaded_input_request_1 = "Please enter the id of the book you want to add to your profile."
+text_add_bookreaded_input_request_2 = "If you want to exit, please enter 0"
+text_add_bookreaded_input_1 = "Your input : "
+text_add_bookreaded_already_readed_book = "You're already readed the book ! Please try another book"
+text_add_bookreaded_book_added = "Book added to your profile !"
+
+text_add_bookreaded_input_request_3 = "Do you want to review the book ? (Yes/No)"
+text_add_bookreaded_input_2 = "Your input : "
+text_add_bookreaded_end_review_book = "End of review process. Back to add book on profile."
+
+
+
+
 
 
 

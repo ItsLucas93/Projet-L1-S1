@@ -95,3 +95,17 @@ def user_exist(username):
         if i[0] == username:
             return True
     return False
+
+####################### book
+
+def has_read(username, marque):
+    data = read_file("booksread")
+
+    for i in data:
+        if i[0] == username:
+            for k in i:
+                if k == str(marque):
+                    return True
+    return False
+
+

@@ -1,5 +1,5 @@
 from manage_system.manage_files import read_file, write_file
-from manage_system.utilites_func import position
+from manage_system.utilities_func import position
 
 from suggestions.updater_matrix import suggest_matrix_init
 
