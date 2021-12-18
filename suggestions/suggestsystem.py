@@ -4,38 +4,7 @@ from manage_system.manage_bookreaders import has_read
 # from manage_system.manage_readers import position
 
 # Implémenter la matrice de notation à stocker
-def rating_matrix_init():
-	M = []
-	for i in range(0, len(read_file("readers"))):
-		temp = []
-		for j in range(0, len(read_file("books"))):
-			temp.append('0')
-		M.append(temp)
 
-	write_file("rating_matrix", M)
-
-
-def update_rating_matrix(reason, indice):
-
-	data_rating_matrix = read_file("rating_matrix")
-
-	if reason == "add_user":
-		temp = []
-		for i in range(0, len(read_file("books"))):
-			temp.append('0')
-		data_rating_matrix.append(temp)
-		write_file("rating_matrix", data_rating_matrix)
-	elif reason == "remove_user":
-		del data_rating_matrix[indice]
-		write_file("rating_matrix", data_rating_matrix)
-	elif reason == "add_book":
-		for j in range(0, len(data_rating_matrix)):
-			data_rating_matrix[j].append('0')
-	elif reason == "remove_book":
-		for j in range(0, len(data_rating_matrix)):
-			del data_rating_matrix[j][indice-1] # -1 bc of id_book is from 1-n and list 0-(n-1)
-
-	write_file("rating_matrix", data_rating_matrix)
 
 
 def review_book(username, position_user, id_book_review=-1):

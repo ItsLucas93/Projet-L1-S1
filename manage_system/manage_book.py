@@ -1,5 +1,6 @@
 from manage_system.manage_files import read_file, write_file
 from manage_system.manage_bookreaders import remove_bookread
+from suggestions.updater_matrix import update_rating_matrix
 
 
 def add_book(new_book=""):
@@ -10,6 +11,7 @@ def add_book(new_book=""):
 	while book_exist(new_book):
 		new_book = str(input("Enter the name of the book : "))
 	write_file("books_add", new_book)
+	update_rating_matrix("add_book", None)
 	return True
 
 
@@ -17,6 +19,9 @@ def delete_book(less_book=""):
 	"""
 	Supprimer un livre dans /data/books.txt
 	"""
+
+	show_books()
+
 	less_book = str(input("Enter the name of the book : "))
 	while book_exist(less_book) == False:
 		less_book = str(input("Enter the name of the book : "))
@@ -29,6 +34,7 @@ def delete_book(less_book=""):
 	del book_liste[marque]
 	write_file("books", book_liste)
 	remove_bookread(marque)
+	update_rating_matrix("remove_book", marque)
 	return True
 
 

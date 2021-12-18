@@ -87,9 +87,6 @@ def add_bookreaded(username, marque=-1):
 								data_bookreaders[i][j] = str(marque)
 								break
 						write_file("booksread", data_bookreaders)
+						print("Book added to your profile !")
 						break
-						# data_bookreaders[i].append(str(marque))
-						# write_file("booksread", data_bookreaders)
-						# print("Book added in your profile !")
-						# break
 	return True

@@ -1,7 +1,7 @@
 from manage_system.manage_files import read_file, write_file
 from manage_system.manage_bookreaders import add_bookreader, remove_bookreader
 from manage_system.manage_book import del_indice
-from suggestions.suggestsystem import update_rating_matrix
+from suggestions.updater_matrix import update_rating_matrix
 from suggestions.suggestsystem import get_review_book
 
 """
@@ -24,7 +24,7 @@ def add_user():
 
     # Implémenter
     write_file("readers_add", temp)
-    update_rating_matrix("add_user")
+    update_rating_matrix("add_user", None)
     return True
 
 
@@ -37,7 +37,10 @@ def remove_user(username=""):
     data = read_file("readers")
 
     while user_exist(username) is False:
-        username = str(input("Enter a username : "))
+        username = str(input("Enter a username : (enter exit to exit)"))
+
+    if username == ["exit", "Exit", "EXIT", "exit()", "Exit()"]:
+        return False
 
     print("-=-=-=-=-=- WARNING -=-=-=-=-=-"
          "\nYou're gonna delete a profile in data"
