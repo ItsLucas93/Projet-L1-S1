@@ -1,16 +1,28 @@
+######### MODULES / IMPORT #############
 from manage_system.manage_files import read_file, write_file
 from manage_system.manage_bookreaders import remove_bookread
 
 from suggestions.updater_matrix import update_rating_matrix
 
+######### MODULES / IMPORT #############
+
+######### SETTINGS #############
+
+from config import language
+if language == "fr":
+    from languages.language_fr import *
+elif language == "en":
+    from languages.language_en import *
+
+######### SETTINGS #############
 
 def add_book(new_book=""):
 	"""
 	Ajouter un livre dans /data/books.txt
 	"""
-	new_book = str(input("Enter the name of the book : "))
+	new_book = str(input(text_add_book_input_request))
 	while book_exist(new_book):
-		new_book = str(input("Enter the name of the book : "))
+		new_book = str(input(text_add_book_input_request))
 	write_file("books_add", new_book)
 	update_rating_matrix("add_book", None)
 	return True
@@ -23,9 +35,9 @@ def delete_book(less_book=""):
 
 	show_books()
 
-	less_book = str(input("Enter the name of the book : "))
+	less_book = str(input(text_delete_book_input_request))
 	while book_exist(less_book) == False:
-		less_book = str(input("Enter the name of the book : "))
+		less_book = str(input(text_delete_book_input_request))
 
 	book_liste = read_file("books")
 	book_liste = del_indice(book_liste)
@@ -58,10 +70,10 @@ def modify_book(old_book="", update_book=""):
 	"""
 
 	while book_exist(old_book) == False:
-		old_book = str(input("Enter the name of the book : "))
-	update_book = str(input("Enter the new name of the book : "))
+		old_book = str(input(text_modify_book_input_request))
+	update_book = str(input(text_modify_book_input_request_2))
 	while book_exist(update_book):
-		update_book = str(input("Enter the new name of the book : "))
+		update_book = str(input(text_modify_book_input_request_2))
 	books = read_file("books")
 	books = del_indice(books)
 	for i in range(len(books)):

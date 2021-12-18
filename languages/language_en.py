@@ -108,8 +108,14 @@ text_add_bookreaded_input_request_3 = "Do you want to review the book ? (Yes/No)
 text_add_bookreaded_input_2 = "Your input : "
 text_add_bookreaded_end_review_book = "End of review process. Back to add book on profile."
 
+# manage_system/manage_book.py
 
+text_add_book_input_request = "Enter the name of the book : "
 
+text_delete_book_input_request = "Enter the name of the book : "
+
+text_modify_book_input_request_1 = "Enter the name of the book : "
+text_modify_book_input_request_2 = "Enter the new name of the book : "
 
 
 

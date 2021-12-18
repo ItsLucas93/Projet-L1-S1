@@ -1,9 +1,21 @@
+######### MODULES / IMPORT #############
 from manage_system.manage_files import read_file, write_file
 from manage_system.utilities_func import position
 
 from suggestions.updater_matrix import suggest_matrix_init
 
 from math import sqrt
+######### MODULES / IMPORT #############
+
+######### SETTINGS #############
+
+from config import language
+if language == "fr":
+    from languages.language_fr import *
+elif language == "en":
+    from languages.language_en import *
+
+######### SETTINGS #############
 
 def common_review(user1, user2):
     """
@@ -107,5 +119,7 @@ def suggest_book(user1):
     print("Recommanded books : ")
     for i in data_booksread_user2:
         print(data_book[int(i)-1])
+
+    print("You will be redirected to the Manage Bookreaders menu. If you want to add these book, go to the add readed book center. After that if you want to review the book, go to the review book center")
 
     return True
