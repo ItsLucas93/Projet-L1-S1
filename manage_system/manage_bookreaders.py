@@ -81,10 +81,10 @@ def add_bookreaded(username, marque=-1):
 					if data_bookreaders[i][0] == username:
 						data_bookreaders[i].append(str(marque))
 						for j in range(1, len(data_bookreaders[i])):
-							if str(marque) > data_bookreaders[i][j]:
-								for l in range(len(data_bookreaders[i]) - j):
-									data_bookreaders[i][len(data_bookreaders[i]) - l] = data_bookreaders[i][l + 1]
-								data_bookreaders[i][j-1] = str(marque)
+							if marque < int(data_bookreaders[i][j]):
+								for l in range((len(data_bookreaders[i]) - j)-1):
+									data_bookreaders[i][(len(data_bookreaders[i])-1) - l] = data_bookreaders[i][(len(data_bookreaders[i])-2) - l]
+								data_bookreaders[i][j] = str(marque)
 								break
 						write_file("booksread", data_bookreaders)
 						break
@@ -93,5 +93,3 @@ def add_bookreaded(username, marque=-1):
 						# print("Book added in your profile !")
 						# break
 	return True
-
-
