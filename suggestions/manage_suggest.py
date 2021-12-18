@@ -70,10 +70,39 @@ def similar_user(user1):
 			index_user2 = i
 			break
 
-	if index <= i:
-		i +=1
+	if index <= index_user2:
+		index_user2 +=1
 	else:
 		pass
 
-	user2 = data_readers[i][0]
+	user2 = data_readers[index_user2][0]
 	return user2
+
+
+def suggest_book(user1):
+    calc_suggest_matrix(read_file("suggest_matrix"))
+    user2 = similar_user(user1)
+
+    data_booksread = read_file("booksread")
+    data_readers = read_file("readers")
+    data_book = read_file("books")
+    index_user1 = position(data_readers, user1)
+    index_user2 = position(data_readers, user2)
+    data_booksread_user1 = data_booksread[index_user1][1:]
+    data_booksread_user2 = data_booksread[index_user2][1:]
+
+    similar_books = [i for i in data_booksread_user1 for j in data_booksread_user2 if i == j]
+
+    i = 0
+    while (i < len(data_booksread_user2)):
+        if data_booksread_user2[i] in similar_books:
+            del data_booksread_user2[i]
+            i = 0
+        else:
+            i += 1
+
+    print("Recommanded books : ")
+    for i in data_booksread_user2:
+        print(data_book[int(i)-1])
+
+    return True

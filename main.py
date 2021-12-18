@@ -15,6 +15,7 @@ from manage_system.manage_bookreaders import *
 from manage_system.manage_readers import *
 from manage_system.manage_book import *
 from suggestions.manage_review import *
+from suggestions.manage_suggest import *
 
 import os
 from time import sleep
@@ -227,7 +228,7 @@ def command_manage_bookreaders(command=0):
 			if review_book(username=logged_username, position_user=position(read_file("readers"), logged_username)):
 				command = 0
 		elif command == 3:
-			if suggested_book():
+			if suggest_book(user1=logged_username):
 				command = 0
 		elif command == 4:
 			print("Exiting program...")
