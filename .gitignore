@@ -8,3 +8,6 @@ suggestions/__pycache__/suggestsystem.cpython-310.pyc
 suggestions/__pycache__/updater_matrix.cpython-310.pyc
 suggestions/__pycache__/manage_review.cpython-310.pyc
 suggestions/__pycache__/manage_suggest.cpython-310.pyc
+__pycache__/config.cpython-310.pyc
+languages/__pycache__/language_en.cpython-310.pyc
+languages/__pycache__/language_fr.cpython-310.pyc

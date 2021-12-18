@@ -1,4 +1,5 @@
 from manage_system.manage_files import write_file, read_file
+from manage_system.utilites_func import position
 
 def add_bookreader(username):
 	"""
@@ -53,8 +54,19 @@ def has_read(username, marque):
 					return True
 	return False
 
-def add_bookreaded(username, marque=-1):
 
+def show_books_readed(username):
+	data_book = read_file("books")
+	data_bookreaders = read_file("booksread")
+
+	index = position(read_file("readers"), username)
+	readed_book = data_bookreaders[index][1:]
+	readed_book_name = [data_book[int(j)-1] for j in readed_book]
+
+	return readed_book_name
+
+
+def add_bookreaded(username, marque=-1):
 
 	data_book = read_file("books")
 

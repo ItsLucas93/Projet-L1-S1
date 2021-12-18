@@ -1,0 +1,1 @@
+text_command_manage_book =  "------------COMMAND MANAGE BOOK------------\nPlease select your choice :\n1. Add Book\n2. Delete book\n3. Rename book\n4. Lists books\n5. Back to main menu\n------------COMMAND MANAGE BOOK------------"

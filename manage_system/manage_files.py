@@ -64,6 +64,7 @@ def read_file(path):
             for i in range(0, len(data)):
                 data[i] = data[i].split(' ')
 
+
     elif path == "suggest_matrix":
         path = path_suggest_matrix
 

@@ -1,6 +1,8 @@
 from manage_system.manage_files import read_file, write_file
-from manage_system.manage_readers import position
+from manage_system.utilites_func import position
+
 from suggestions.updater_matrix import suggest_matrix_init
+
 from math import sqrt
 
 def common_review(user1, user2):
@@ -80,6 +82,7 @@ def similar_user(user1):
 
 
 def suggest_book(user1):
+
     calc_suggest_matrix(read_file("suggest_matrix"))
     user2 = similar_user(user1)
 

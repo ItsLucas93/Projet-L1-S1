@@ -1,0 +1,1 @@
+text_command_manage_book = "------------CENTRE GESTION LIVRES------------\nVeuillez indiquer un choix :\n1. Ajouter un livre\n2. Supprimer un livre\n3. Renommer un livre\n4. Liste des livres\n5. Retour au menu principal\n------------CENTRE GESTION LIVRES------------"
