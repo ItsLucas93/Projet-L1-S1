@@ -7,6 +7,7 @@ text_login_phase = "------------LOGIN PHASE------------\nIf you want to exit, en
 text_login_phase_input = "Username : "
 text_login_phase_new = "new"
 text_login_phase_separator = "------------LOGIN PHASE------------"
+text_login_rdv = "To add book on your profile, please go to the Manage Bookreader (after login enter 3) and go to Add Readedbook (enter 1) "
 
 text_welcome = "Welcome"
 text_welcome_librarian = "\nI'm the librarian and I'm happy to see you there !"

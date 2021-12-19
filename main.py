@@ -1,3 +1,13 @@
+"""
+Project name:
+Author:
+
+
+
+"""
+
+
+
 ###########################################################################
 # ██████╗░██╗███████╗███╗░░██╗██╗░░░██╗███████╗███╗░░██╗██╗░░░██╗███████╗ #
 # ██╔══██╗██║██╔════╝████╗░██║██║░░░██║██╔════╝████╗░██║██║░░░██║██╔════╝ #
@@ -335,6 +345,7 @@ def login():
 		if logged_username == text_login_phase_new:
 			add_user()
 			logged_username = ""
+			print(text_login_rdv)
 			print(text_login_phase)
 		else:
 			print(text_login_phase_separator)

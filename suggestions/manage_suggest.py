@@ -5,6 +5,9 @@ from manage_system.utilities_func import position
 from suggestions.updater_matrix import suggest_matrix_init
 
 from math import sqrt
+
+import time
+from datetime import datetime
 ######### MODULES / IMPORT #############
 
 ######### SETTINGS #############
@@ -60,6 +63,10 @@ def func_sim_cos(user1, user2):
 
 def calc_suggest_matrix(suggest_matrix):
 
+
+    timer_start = time.time() # For logs purposes
+
+
     data_readers = read_file("readers")
     temp = [data_readers[i][0] for i in range(0, len(data_readers))]
 
@@ -68,6 +75,15 @@ def calc_suggest_matrix(suggest_matrix):
             suggest_matrix[i][j] = round(func_sim_cos(user1=temp[i], user2=temp[j]), 2)
 
     write_file("suggest_matrix", suggest_matrix)
+
+    # Logs
+
+    timer_end = time.time()
+
+    now = datetime.now()
+
+    current_time = now.strftime("%d/%m/%Y %H:%M:%S")
+    write_file("logs_suggest_matrix", suggest_matrix, str(current_time) + " - Matrice calc time : " +  str(round((timer_end - timer_start), 4)) + " sec")
 
 
 def similar_user(user1):
@@ -121,5 +137,6 @@ def suggest_book(user1):
         print(data_book[int(i)-1])
 
     print(text_suggestion_recommend_exit)
+
 
     return True

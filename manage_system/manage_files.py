@@ -3,6 +3,7 @@ path_booksread = "data/booksread.txt"
 path_readers = "data/readers.txt"
 path_rating_matrix = "data/rating_matrix.txt"
 path_suggest_matrix = "data/suggest_matrix.txt"
+path_suggest_matrix_log = "logs/logs_suggest_matrix.txt"
 
 
 # Implémenter une fonction qui permet de modifier le path depuis la console
@@ -78,7 +79,7 @@ def read_file(path):
     return data
 
 
-def write_file(path, liste):
+def write_file(path, liste, comment=""):
     """
     Ecriture du fichier
     """
@@ -150,6 +151,19 @@ def write_file(path, liste):
             for i in range(0, len(liste) - 1):
                 f.write(liste[i] + "\n")
             f.write(liste[-1])
+
+    elif path == "logs_suggest_matrix":
+        path = path_suggest_matrix_log
+
+        with open(path, 'a', encoding="UTF-8") as f:
+            f.write("--------------------------------\n")
+            liste = assemble_liste_2d(liste, " ")
+            for i in range(0, len(liste) - 1):
+                f.write(liste[i] + "\n")
+            f.write(liste[-1])
+            f.write("\n\n" + str(comment))
+            f.write("\n--------------------------------\n\n")
+
 
 def assemble_liste_1d(liste):
     """

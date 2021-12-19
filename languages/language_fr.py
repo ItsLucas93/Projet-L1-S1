@@ -7,6 +7,7 @@ text_login_phase = "------------PHASE DE CONNEXION------------\nSi vous voulez q
 text_login_phase_input = "Nom d'utilisateur : "
 text_login_phase_new = "new"
 text_login_phase_separator = "------------PHASE DE CONNEXION------------"
+text_login_rdv = "Pour ajouter un livre sur votre profil, veuillez vous diriger vers le menu de gestion lecteurs de livre (entrez 3 dans le menu principal, après la connexion), ensuite ajouter une lecture à votre profil (entrez 1 dans le menu de gestion des lecteurs)"
 
 text_welcome = "Bienvenue"
 text_welcome_librarian = "\nJe suis le bibliothécaire et je suis heureux de vous voir ici !"

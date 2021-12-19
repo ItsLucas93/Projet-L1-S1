@@ -6,5 +6,4 @@ Lecteur_assidu,1,2,3,5,6,8,9,10
 Haripoteur,3,5,8,9,10
 Lili,1,2,4,6,8,10
 ArchiBald_fx,7,9,10
-aaa,9,21
-bbb,1,5,9
+aaa,3,19
