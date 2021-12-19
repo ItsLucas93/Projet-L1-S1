@@ -9,4 +9,4 @@ Pour lancer le programme :
 
 Vous pouvez vous enregistrer en tappant "new"
 
-Vous avez la possibilité de changer la langue. Pour cela, après la connexion, tappez 5, puis tappez 1 (cela va vous dirriger vers un menu secret), puis entrez 'fr' ou 'en'. Le programme va s'arrêter et vous lors du démarrage, il sera dans la langue choisie.
+Vous avez la possibilité de changer la langue. Pour cela, après la connexion, tappez 5, puis tappez 1 (cela va vous dirriger vers un menu secret), puis entrez 'fr' ou 'en'. Le programme va s'arrêter et lors du prochain démarrage, il sera dans la langue choisie.
