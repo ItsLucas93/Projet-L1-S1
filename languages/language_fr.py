@@ -1,7 +1,7 @@
 # main.py
 
 text_bookmanager_language = "langue:"
-text_bookmanager_from = ".depuis 1991###"
+text_bookmanager_from = ".depuis 1991#####"
 
 text_login_phase = "------------PHASE DE CONNEXION------------\nSi vous voulez quitter, entrez exit.\nSi vous voulez créer un compte, veuillez taper 'new'.\n------------PHASE DE CONNEXION ------------"
 text_login_phase_input = "Nom d'utilisateur : "
