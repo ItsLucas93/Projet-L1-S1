@@ -69,7 +69,7 @@ def command_center(command=0):
 		# Commands to implant
 
 		if command not in commandes:
-			command = 0  # Does nothing, just relaunch the command_center()
+			command = 0
 
 		elif command == 1:
 			if command_manage_reader():
@@ -97,12 +97,62 @@ def command_center(command=0):
 	return True
 
 
-def command_settings(command=0):
+def command_settings(command=0, confirm=""):
 	"""
 	1. Language
 	2. Factory Reset (*secret implement*)
 	3. Back to main menu
+
+	this is a secret menu
 	"""
+	commandes = {1: "Language", 2: "Factory Reset", 3: "Back to main menu"}
+
+	print(text_command_manage_settings)
+
+	while command != 3:
+		try:
+			command = int(input(text_command_manage_settings_input))
+		except ValueError:
+			command = 0
+
+		if command not in commandes:
+			command = 0	
+
+		elif command == 1:
+			print("Language available : fr | en")
+			print("Please enter the language you want to change : ")
+			while confirm not in ['en', 'En', 'EN', 'Anglais', 'anglais', 'English', 'english'] or ['fr', 'Fr', 'FR', 'Français', 'Francais', 'francais', 'france', 'french', 'French', 'FRENCH']:
+				confirm = str(input('Your input : '))
+				if confirm in ['en', 'En', 'EN', 'Anglais', 'anglais', 'English', 'english']:
+					with open("config.py", 'w') as f:
+						f.write("# Languages available / Langues disponibles :\n# fr = Français / en = Anglais\nlanguage = 'en'")
+					quit()
+				elif confirm in ['fr', 'Fr', 'FR', 'Français', 'Francais', 'francais', 'france', 'french', 'French', 'FRENCH']:
+					with open("config.py", 'w') as f:
+						f.write("# Languages available / Langues disponibles :\n# fr = Français / en = Anglais\nlanguage = 'fr'")
+					quit()
+				else:
+					print('Something went wrong. exiting...')
+				break
+			command = 0
+			print(text_command_manage_settings)
+
+		elif command == 2:
+			print("-=-=-=-=-=- WARNING -=-=-=-=-=-")
+			print("The function will reset ALL data. Do you want to proceed ? (Yes/No)")
+			while confirm not in ["Yes", "yes", "y", "Y", "YES", "oui", "Oui", "o", "OUI", "O"] or ["No", "no", "n", "N", "NO", "Non", "non", "NON"]:
+				confirm = str(input('Your input : '))
+				if confirm in ["No", "no", "n", "N", "NO", "Non", "non", "NON"]:
+					break
+				elif confirm in ["Yes", "yes", "y", "Y", "YES", "oui", "Oui", "o", "OUI", "O"]:
+					regenerate_file()
+					quit()
+			command = 0
+			print(text_command_manage_settings)
+
+		elif command == 3:
+			return True
+
 	return True
 
 
@@ -128,7 +178,7 @@ def command_manage_reader(command=0):
 		# Commands to implant
 
 		if command not in commandes:
-			command = 0  # Does nothing, just relaunch the command_center()
+			command = 0
 
 		elif command == 1:
 			if add_user():
@@ -148,7 +198,7 @@ def command_manage_reader(command=0):
 				print(text_command_manage_reader)
 
 		elif command == 4:
-			if show_user():
+			if show_profile():
 				command = 0
 				print(text_command_manage_reader)
 

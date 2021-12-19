@@ -202,7 +202,7 @@ def modify_user(username="", command=0):
     return True
 
 
-def show_user(username=""):
+def show_profile(username=""):
     """
     Show profil of logged user # à modifier en username donné en input
     # Ajouter la liste des livres lu

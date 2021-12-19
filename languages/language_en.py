@@ -16,7 +16,7 @@ text_command_center = "------------COMMAND CENTER------------\nPlease select you
 text_command_center_input = "Your input : "
 text_command_center_exit = "Exiting command center..."
 
-text_command_manage_reader = "------------COMMAND MANAGE READER------------\nPlease select your choice : \n1. Add User\n2. Modify your profile\n3. Delete User\n4. Show your profile\n5. Show User list\n6. Back to main menu\n------------COMMAND MANAGE READER------------"
+text_command_manage_reader = "------------COMMAND MANAGE READER------------\nPlease select your choice : \n1. Add user\n2. Modify a profile\n3. Delete  an user\n4. Show a profile\n5. Show all users\n6. Back to main menu\n------------COMMAND MANAGE READER------------"
 text_command_manage_reader_input = "Your input : "
 text_command_manage_reader_exiting_1 = "User added !"
 text_command_manage_reader_exiting_2 = "User profile modified !"
@@ -35,6 +35,9 @@ text_command_manage_book_exit = "Exiting manage book menu..."
 text_command_manage_bookreaders = "------------COMMAND MANAGE BOOKREADER------------\nPlease select your choice : \n1. Add Readedbook\n2. Add note review\n3. Suggested book\n4. Back to main menu\n------------COMMAND MANAGE BOOKREADER------------"
 text_command_manage_bookreaders_input = "Your input : "
 text_command_manage_bookreaders_exit = "Exiting program..."
+
+text_command_manage_settings = "------------COMMAND SETTINGS (secret menu)------------\nPlease note that at the end of process 1 & 2, the program will shutdown.\nPlease select your choice : \n1. Change Language\n2. Reset factory\n3. Back to main menu\n------------COMMAND SETTINGS------------"
+text_command_manage_settings_input = "Your input : "
 
 text_exit_1 = "Goodbye"
 text_exit_2 = "See you soon !"
@@ -116,6 +119,20 @@ text_delete_book_input_request = "Enter the name of the book : "
 
 text_modify_book_input_request_1 = "Enter the name of the book : "
 text_modify_book_input_request_2 = "Enter the new name of the book : "
+
+text_show_book_separator = "------------BOOKS LIST------------"
+
+# suggestion/manage_review.py
+
+text_review_book_show_user_books_readed_separator = "------------BOOKS READED------------"
+text_review_book_show_user_books_readed = "Books readed : \n»»» "
+text_review_book_show_user_books_note = "Note"
+text_review_book_input_request_1 = "Enter the id of the book you want to review (that you readed), enter 0 to exit : "
+text_review_book_input_request_not_readed = "Please enter a book you readed ! "
+text_review_book_input_request_2 = "Please give a grade from 1 to 5 : "
+
+
+
 
 
 

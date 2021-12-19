@@ -110,9 +110,9 @@ def show_books():
 
 	data = read_file("books")
 
-	print("------------BOOKS LIST------------")
+	print(text_show_book_separator)
 	for i in range(0, len(data)):
 		print(data[i])
-	print("------------BOOKS LIST------------")
+	print(text_show_book_separator)
 
 	return True
