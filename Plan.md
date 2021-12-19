@@ -3,22 +3,39 @@
 ## Structure du projet
 
 ```
-├── Plan.md
+./
 ├── README.txt
 ├── _Ressources\ (Sujet)
-│		├── Sujet\ Projet.pdf
-│		└── books.txt
+│   ├── Critere_notation.pdf
+│   ├── Sujet\ Projet.pdf
+│   ├── books.txt
+│   ├── books_old.txt
+│   ├── booksread.txt
+│   ├── rating_matrix.txt
+│   └── readers.txt
+├── config.py
 ├── data
-│		├── books.txt
-│		├── booksread.txt
-│		└── readers.txt
+│   ├── books.txt
+│   ├── booksread.txt
+│   ├── rating_matrix.txt
+│   ├── readers.txt
+│   └── suggest_matrix.txt
+├── languages
+│   ├── language_en.py
+│   └── language_fr.py
+├── logs
+│   └── logs_suggest_matrix.txt
 ├── main.py
 ├── manage_system
-│		├── manage_book.py
-│		├── manage_files.py
-│		└── manage_readers.py
+│   ├── manage_book.py
+│   ├── manage_bookreaders.py
+│   ├── manage_files.py
+│   ├── manage_readers.py
+│   └── utilities_func.py
 └── suggestions
-    	└── suggestsystem.py
+    ├── manage_review.py
+    ├── manage_suggest.py
+    └── updater_matrix.py
 ```
 
 ## Calendrier / Deadlines
