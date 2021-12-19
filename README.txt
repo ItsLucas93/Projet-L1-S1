@@ -1,32 +1,12 @@
-├── Plan.md
-├── README.txt
-├── _Ressources\ (Sujet)
-│   ├── Critere_notation.pdf
-│   ├── Sujet\ Projet.pdf
-│   ├── books.txt
-│   ├── books_old.txt
-│   ├── booksread.txt
-│   ├── rating_matrix.txt
-│   └── readers.txt
-├── config.py
-├── data
-│   ├── books.txt
-│   ├── booksread.txt
-│   └── readers.txt
-├── languages
-│   ├── language_en.py
-│   └── language_fr.py
-├── main.py
-├── manage_system
-│   ├── manage_book.py
-│   ├── manage_bookreaders.py
-│   ├── manage_files.py
-│   ├── manage_readers.py
-│   └── utilites_func.py
-└── suggestions
-    ├── manage_review.py
-    ├── manage_suggest.py
-    ├── rating_matrix.txt
-    ├── suggest_matrix.txt
-    └── updater_matrix.py
+Projet : Book manager
+Auteurs : KOCOGLU Lucas & MENIN Tibaut (Grp. F - Promo 2026)
+Version Python développé sur : 3.10.1
+Version Python compatible : 3.8.x - 3.10.1
 
+Pour lancer le programme :
+
+1. Lancer : main.py
+
+Vous pouvez vous enregistrer en tappant "new"
+
+Vous avez la possibilité de changer la langue. Pour cela, après la connexion, tappez 5, puis tappez 1 (cela va vous dirriger vers un menu secret), puis entrez 'fr' ou 'en'. Le programme va s'arrêter et vous lors du démarrage, il sera dans la langue choisie.

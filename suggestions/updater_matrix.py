@@ -49,3 +49,19 @@ def suggest_matrix_init():
 	write_file("suggest_matrix", M)
 
 
+def update_suggest_matrix(reason, indice):
+
+	data_suggest_matrix = read_file("suggest_matrix")
+
+	if reason == "add_user":
+		temp = []
+		for i in range(0, len(read_file("readers"))):
+			temp.append('0')
+		data_rating_matrix.append(temp)
+
+
+	elif reason == "remove_user":
+		del data_rating_matrix[indice]
+
+
+	write_file("suggest_matrix", data_suggest_matrix)

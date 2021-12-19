@@ -42,6 +42,7 @@ def add_user():
     add_bookreader(username)
     write_file("readers_add", temp)
     update_rating_matrix("add_user", None)
+    update_suggest_matrix("add_user", None)
     return True
 
 
@@ -75,6 +76,7 @@ def remove_user(username=""):
                 write_file("readers", data)
                 remove_bookreader(username)
                 update_rating_matrix("remove_user", i)
+                update_suggest_matrix("remove_user", i)
                 quit()  # Built-in function to exit the program
         elif confirm in ["No", "no", "n", "N", "NO", "Non", "non", "NON"]:
             return False

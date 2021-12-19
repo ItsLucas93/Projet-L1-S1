@@ -116,10 +116,10 @@ def suggest_book(user1):
         else:
             i += 1
 
-    print("Recommanded books : ")
+    print(text_suggestion_recommend)
     for i in data_booksread_user2:
         print(data_book[int(i)-1])
 
-    print("You will be redirected to the Manage Bookreaders menu. If you want to add these book, go to the add readed book center. After that if you want to review the book, go to the review book center")
+    print(text_suggestion_recommend_exit)
 
     return True

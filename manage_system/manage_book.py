@@ -21,8 +21,12 @@ def add_book(new_book=""):
 	Ajouter un livre dans /data/books.txt
 	"""
 	new_book = str(input(text_add_book_input_request))
+	if book_exist(new_book):
+		print(text_add_book_input_fail)
 	while book_exist(new_book):
 		new_book = str(input(text_add_book_input_request))
+		if book_exist(new_book):
+			print(text_add_book_input_fail)
 	write_file("books_add", new_book)
 	update_rating_matrix("add_book", None)
 	return True
@@ -69,8 +73,10 @@ def modify_book(old_book="", update_book=""):
 	Modifier un livre dans /data/books.txt
 	"""
 
+	show_books()
+
 	while book_exist(old_book) == False:
-		old_book = str(input(text_modify_book_input_request))
+		old_book = str(input(text_modify_book_input_request_1))
 	update_book = str(input(text_modify_book_input_request_2))
 	while book_exist(update_book):
 		update_book = str(input(text_modify_book_input_request_2))

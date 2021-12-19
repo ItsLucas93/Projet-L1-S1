@@ -1,8 +1,7 @@
-
 # main.py
 
 text_bookmanager_language = "language:"
-text_bookmanager_from = ".from"
+text_bookmanager_from = ".from 1991####"
 
 text_login_phase = "------------LOGIN PHASE------------\nIf you want to exit, enter exit.\nIf you want to create an account, please type new.\n------------LOGIN PHASE------------"
 text_login_phase_input = "Username : "
@@ -16,7 +15,7 @@ text_command_center = "------------COMMAND CENTER------------\nPlease select you
 text_command_center_input = "Your input : "
 text_command_center_exit = "Exiting command center..."
 
-text_command_manage_reader = "------------COMMAND MANAGE READER------------\nPlease select your choice : \n1. Add user\n2. Modify a profile\n3. Delete  an user\n4. Show a profile\n5. Show all users\n6. Back to main menu\n------------COMMAND MANAGE READER------------"
+text_command_manage_reader = "------------COMMAND MANAGE READER------------\nPlease select your choice : \n1. Add user\n2. Modify a profile\n3. Delete an user\n4. Show a profile\n5. Show all users\n6. Back to main menu\n------------COMMAND MANAGE READER------------"
 text_command_manage_reader_input = "Your input : "
 text_command_manage_reader_exiting_1 = "User added !"
 text_command_manage_reader_exiting_2 = "User profile modified !"
@@ -24,7 +23,7 @@ text_command_manage_reader_exiting_3 = "Something went wrong or the command has 
 text_command_manage_reader_exiting_4 = "Exiting user lists center..."
 text_command_manage_reader_exit = "Exiting manage reader..."
 
-text_command_manage_book =  "------------COMMAND MANAGE BOOK------------\nPlease select your choice :\n1. Add Book\n2. Delete book\n3. Rename book\n4. Lists books\n5. Back to main menu\n------------COMMAND MANAGE BOOK------------"
+text_command_manage_book =  "------------COMMAND MANAGE BOOK------------\nPlease select your choice :\n1. Add Book\n2. Rename book\n3. Delete book\n4. Lists books\n5. Back to main menu\n------------COMMAND MANAGE BOOK------------"
 text_command_manage_book_input = "Your input : "
 text_command_manage_book_exiting_1 = "Book added !"
 text_command_manage_book_exiting_2 = "Book modified."
@@ -83,7 +82,7 @@ text_show_user_gender_1 = "Gender : Man"
 text_show_user_gender_2 = "Gender : Woman"
 text_show_user_gender_3 = "Gender : Doesn't care"
 text_show_user_age_1 = "Age : < 18 yo"
-text_show_user_age_2 = "Age : 18 - 25 yo"
+text_show_user_age_2 = "Age : 18-25 yo"
 text_show_user_age_3 = "Age : > 25 yo"
 text_show_user_preference_1 = "Preferences : Sciences Fiction"
 text_show_user_preference_2 = "Preferences : Biography"
@@ -114,6 +113,7 @@ text_add_bookreaded_end_review_book = "End of review process. Back to add book o
 # manage_system/manage_book.py
 
 text_add_book_input_request = "Enter the name of the book : "
+text_add_book_input_fail = "The book already exist !"
 
 text_delete_book_input_request = "Enter the name of the book : "
 
@@ -131,9 +131,8 @@ text_review_book_input_request_1 = "Enter the id of the book you want to review 
 text_review_book_input_request_not_readed = "Please enter a book you readed ! "
 text_review_book_input_request_2 = "Please give a grade from 1 to 5 : "
 
+# suggestion/manage_suggest.py
 
-
-
-
-
+text_suggestion_recommend = "Recommanded books : "
+text_suggestion_recommend_exit = "You will be redirected to the Manage Bookreaders menu. If you want to add these book, go to the add readed book center. After that if you want to review the book, go to the review book center."
 
