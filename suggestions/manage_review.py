@@ -2,6 +2,7 @@
 
 from manage_system.manage_files import read_file, write_file
 from manage_system.manage_book import book_exist, show_books
+from manage_system.utilities_func import position
 
 ######### MODULES / IMPORT #############
 
@@ -9,9 +10,9 @@ from manage_system.manage_book import book_exist, show_books
 
 from config import language
 if language == "fr":
-    from languages.language_fr import *
+	from languages.language_fr import *
 elif language == "en":
-    from languages.language_en import *
+	from languages.language_en import *
 
 ######### SETTINGS #############
 
@@ -23,11 +24,23 @@ def review_book(username, position_user, id_book_review=-1):
 	# print(id_book_review < 0, id_book_review > len(read_file("books")), has_read(username, id_book_review))
 
 	if id_book_review == -1:
-		show_books()
+		data_book = read_file("books")
+		data_bookreaders = read_file("booksread")
+		print("\n" + text_review_book_show_user_books_readed_separator)
+		print(text_review_book_show_user_books_readed, end="")
+		temp = []
+		for i in data_bookreaders:
+			if i[0] == username:
+				for j in i[1:]:
+					temp.append(j)
+
+		for i in temp:
+			print(data_book[int(i)-1] + " (" + text_review_book_show_user_books_note + " : " + str(get_review_book(username, position(read_file("readers"), username), int(i))) + "/5)", end="\n")
+		print(text_review_book_show_user_books_readed_separator)
 
 	while id_book_review < 0 or id_book_review > len(read_file("books")):
 		try:
-			id_book_review = int(input("Enter the id of the book you want to review (that you readed), enter 0 to exit : "))
+			id_book_review = int(input(text_review_book_input_request_1))
 		except ValueError:
 			id_book_review = -1
 
@@ -35,11 +48,11 @@ def review_book(username, position_user, id_book_review=-1):
 			return True
 		elif has_read(username, id_book_review) is False:
 			id_book_review = -1
-			print("Please enter a book you readed ! ")
+			print(text_review_book_input_request_not_readed)
 
 	notation = -1
 	while (notation <= 0) or (notation > 5):
-		notation = int(input('Please give a grade from 1 to 5 : '))
+		notation = int(input(text_review_book_input_request_2))
 
 	index_user = position_user # position(read_file("readers"), username)
 
@@ -61,11 +74,11 @@ def get_review_book(username, position_user, id_book_review=-1):
 
 
 def has_read(username, marque):
-    data = read_file("booksread")
+	data = read_file("booksread")
 
-    for i in data:
-        if i[0] == username:
-            for k in i:
-                if k == str(marque):
-                    return True
-    return False
+	for i in data:
+		if i[0] == username:
+			for k in i:
+				if k == str(marque):
+					return True
+	return False
