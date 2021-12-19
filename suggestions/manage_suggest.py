@@ -99,26 +99,26 @@ def similar_user(user1):
     """
     see who is the most similar from suggest_matrix
     """
-	data_suggest_matrix = read_file("suggest_matrix")
-	data_readers = read_file("readers")
+    data_suggest_matrix = read_file("suggest_matrix")
+    data_readers = read_file("readers")
 
-	index = position(data_readers, user1)
+    index = position(data_readers, user1)
 
-	temp = data_suggest_matrix[index]
-	temp.pop(index)
+    temp = data_suggest_matrix[index]
+    temp.pop(index)
 
-	for i in range(0, len(temp)):
-		if temp[i] == max(temp):
-			index_user2 = i
-			break
+    for i in range(0, len(temp)):
+        if temp[i] == max(temp):
+            index_user2 = i
+            break
 
-	if index <= index_user2:
-		index_user2 +=1
-	else:
-		pass
+    if index <= index_user2:
+        index_user2 +=1
+    else:
+        pass
 
-	user2 = data_readers[index_user2][0]
-	return user2
+    user2 = data_readers[index_user2][0]
+    return user2
 
 
 def suggest_book(user1):
@@ -139,7 +139,7 @@ def suggest_book(user1):
     similar_books = [i for i in data_booksread_user1 for j in data_booksread_user2 if i == j]
 
     i = 0
-    while (i < len(data_booksread_user2)):
+    while i < len(data_booksread_user2):
         if data_booksread_user2[i] in similar_books:
             del data_booksread_user2[i]
             i = 0
