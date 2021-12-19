@@ -5,7 +5,7 @@ Version Python compatible : 3.8.x - 3.10.1
 
 Pour lancer le programme :
 
-1. Lancer : main.py
+1. Lancer : main.py ('python3 main.py')
 
 Vous pouvez vous enregistrer en tappant "new"
 
