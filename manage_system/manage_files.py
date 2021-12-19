@@ -222,7 +222,7 @@ def regenerate_file():
     path = path_readers
     with open(path, 'w', encoding="UTF-8") as f:
         f.write(
-            "Gilbert,1,2,1\nWilliam,3,3,7\nAlienRoXoR17,2,1,3\nanonyme,3,3,2\nLecteur_assidu,1,1,3\nHaripoteur,3,2,5\nLili,2,2,2\nArchiBald_fx,1,3,4")
+            "Gilbert,1,2,1\nWilliam,3,3,7\nAlienRoXoR17,2,1,3\nAnonyme,3,3,2\nLecteur_assidu,1,1,3\nHaripoteur,3,2,5\nLili,2,2,2\nArchiBald_fx,1,3,4")
 
     path = path_books
     with open(path, 'w', encoding="UTF-8") as f:
