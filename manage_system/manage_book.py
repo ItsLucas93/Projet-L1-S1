@@ -114,7 +114,7 @@ def modify_book(old_book="", update_book=""):
 
 def del_indice(books):
 	"""
-	Permet d'avoir que les titres des livres sans les indices
+	Allows you to have the titles of the books without the id
 	"""
 	k = 0
 	for i in books:
