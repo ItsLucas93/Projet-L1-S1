@@ -190,17 +190,27 @@ def regenerate_file():
     à utiliser seulement en cas de reset, très explosif
     écrase tt
     """
+    from suggestions.updater_matrix import rating_matrix_init, suggest_matrix_init
+
     path = path_readers
     with open(path, 'w', encoding="UTF-8") as f:
         f.write(
-            "Gilbert,1,2,1\nWilliam,3,3,7\nAlienRoXoR17,2,1,3\nanonyme,3,3,2\nLecteur_assidu,1,1,3\nharipoteur,3,2,5\nLili,2,2,2\nArchiBald_fx,1,3,4\n")
+            "Gilbert,1,2,1\nWilliam,3,3,7\nAlienRoXoR17,2,1,3\nanonyme,3,3,2\nLecteur_assidu,1,1,3\nharipoteur,3,2,5\nLili,2,2,2\nArchiBald_fx,1,3,4")
 
     path = path_books
     with open(path, 'w', encoding="UTF-8") as f:
         f.write(
-            "Long Walk to Freedom\nThings I Did and Things I Think I Did\nThe Bloody Chamber\nThe Memoirs of an Amnesiac\nThe Silence of the Lambs\nThe Hunger\nWild Eyes\nWhite Teeth\nThe Resisters\nThe Power\n")
+            "1 - Débuter la programmation Java\n2 - Apprendre Python\n3 - Les Citations du Président Mao Tse-Toung\n4 - Don Quichotte de la Manche\n5 - Un conte de deux villes\n6 - Le Seigneur des Anneaux\n7 - Le Petit Prince\n8 - Harry Potter à l’école des sorciers\n9 - Le Hobbit\n10 - Dix Petits Nègres\n11 - Le rêve dans le Pavillon rouge\n12 - Le Lion, la Sorcière blanche et l’Armoire magique\n13 - Elle – She : a history of Adventure\n14 - The Da Vinci Code\n15 - Réfléchissez et devenez riche\n16 - Harry Potter et le Prince de Sang mêlé\n17 - L’Alchimiste\n18 - Harry Potter et la Chambre des Secrets\n19 - L’attrape-cœurs, The Catcher in the Rye")
+
+    path = path_booksread
+    with open(path, 'w', encoding="UTF-8") as f:
+        f.write(
+            "Gilbert,5,7,8,9\nWilliam,1,8,9,10\nAlienRoXoR17,3,4,5,6,10\nAnonyme,1,2,4,7\nLecteur_assidu,1,2,3,5,6,8,9,10\nHaripoteur,3,5,8,9,10\nLili,1,2,4,6,8,10\nArchiBald_fx,7,9,10")
 
     path = path_readers
     with open(path, 'w', encoding="UTF-8") as f:
         f.write(
-            "Gilbert,5,7,8,9\nWilliam,1,8,9,10\nAlienRoXoR17,3,4,5,6,10\nAnonyme,1,2,4,7\nLecteur_assidu,1,2,3,5,6,8,9,10\nHaripoteur,3,5,8,9,10\nLili,1,2,4,6,8,10\nArchiBald_fx,7,9,10\n")
+            "Gilbert,5,7,8,9\nWilliam,1,8,9,10\nAlienRoXoR17,3,4,5,6,10\nAnonyme,1,2,4,7\nLecteur_assidu,1,2,3,5,6,8,9,10\nHaripoteur,3,5,8,9,10\nLili,1,2,4,6,8,10\nArchiBald_fx,7,9,10")
+
+    rating_matrix_init()
+    suggest_matrix_init()
