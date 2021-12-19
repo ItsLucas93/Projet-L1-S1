@@ -1,6 +1,21 @@
+"""
+Project name: BOOK MANAGER
+Author: MENIN THIBAUT & KOCOGLU LUCAS
+Desc: This file update matrix
+"""
+
+######### MODULES / IMPORT #############
+
 from manage_system.manage_files import read_file, write_file
 
+######### MODULES / IMPORT #############
+
+######### FUNCTIONS #############
+
 def rating_matrix_init():
+	"""
+	reset to factory data the rating matrix
+	"""
 	# M = []
 	# for i in range(0, len(read_file("readers"))):
 	# 	temp = []
@@ -23,6 +38,9 @@ def rating_matrix_init():
 
 
 def update_rating_matrix(reason, indice):
+	"""
+	add or delete user/book in the rating matrix
+	"""
 
 	data_rating_matrix = read_file("rating_matrix")
 
@@ -51,6 +69,9 @@ def update_rating_matrix(reason, indice):
 
 
 def suggest_matrix_init():
+	"""
+	reset suggest matrix
+	"""
 	M = []
 	for i in range(0, len(read_file("readers"))):
 		temp = []
@@ -61,6 +82,9 @@ def suggest_matrix_init():
 
 
 def update_suggest_matrix(reason, indice):
+	"""
+	add or delete user in the suggest matrix
+	"""
 
 	data_suggest_matrix = read_file("suggest_matrix")
 
@@ -79,3 +103,5 @@ def update_suggest_matrix(reason, indice):
 			del data_suggest_matrix[i][indice]
 
 	write_file("suggest_matrix", data_suggest_matrix)
+
+######### FUNCTIONS #############

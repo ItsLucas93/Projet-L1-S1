@@ -1,6 +1,6 @@
 """
 Project name: BOOK MANAGER
-Author: MENIN TIBAUT & KOCOGLU LUCAS
+Author: MENIN THIBAUT & KOCOGLU LUCAS
 Desc: This file manage write and read file.
 """
 

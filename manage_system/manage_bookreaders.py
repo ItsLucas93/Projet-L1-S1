@@ -1,6 +1,6 @@
 """
 Project name: BOOK MANAGER
-Author: MENIN TIBAUT & KOCOGLU LUCAS
+Author: MENIN THIBAUT & KOCOGLU LUCAS
 Desc: This file manage bookreaders.
 """
 
@@ -21,6 +21,7 @@ elif language == "en":
 
 ######### SETTINGS #############
 
+######### FUNCTIONS #############
 
 def add_bookreader(username):
 	"""
@@ -135,3 +136,5 @@ def add_bookreaded(username, marque=-1):
 				return marque
 
 	return 'Ok'
+
+######### FUNCTIONS #############

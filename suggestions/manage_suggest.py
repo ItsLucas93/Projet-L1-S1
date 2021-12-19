@@ -1,3 +1,9 @@
+"""
+Project name: BOOK MANAGER
+Author: MENIN THIBAUT & KOCOGLU LUCAS
+Desc: This file manage suggestions
+"""
+
 ######### MODULES / IMPORT #############
 from manage_system.manage_files import read_file, write_file
 from manage_system.utilities_func import position
@@ -19,6 +25,8 @@ elif language == "en":
     from languages.language_en import *
 
 ######### SETTINGS #############
+
+######### FUNCTIONS #############
 
 def common_review(user1, user2):
     """
@@ -52,7 +60,9 @@ def note_user(user):
 
 
 def func_sim_cos(user1, user2):
-
+    """
+    function sim cos
+    """
     if sqrt(note_user(user1)) * sqrt(note_user(user2)) == 0:
         result = 0
     else:
@@ -62,6 +72,9 @@ def func_sim_cos(user1, user2):
 
 
 def calc_suggest_matrix(suggest_matrix):
+    """
+    calc the suggested matrix
+    """
     timer_start = time.time() # For logs purposes
 
     data_readers = read_file("readers")
@@ -74,7 +87,6 @@ def calc_suggest_matrix(suggest_matrix):
     write_file("suggest_matrix", suggest_matrix)
 
     # Logs
-
     timer_end = time.time()
 
     now = datetime.now()
@@ -84,6 +96,9 @@ def calc_suggest_matrix(suggest_matrix):
 
 
 def similar_user(user1):
+    """
+    see who is the most similar from suggest_matrix
+    """
 	data_suggest_matrix = read_file("suggest_matrix")
 	data_readers = read_file("readers")
 
@@ -107,7 +122,9 @@ def similar_user(user1):
 
 
 def suggest_book(user1):
-
+    """
+    give to the user book he hasn't read and is similar to his most similar user profile
+    """
     calc_suggest_matrix(read_file("suggest_matrix"))
     user2 = similar_user(user1)
 
@@ -137,3 +154,5 @@ def suggest_book(user1):
 
 
     return True
+
+######### FUNCTIONS #############

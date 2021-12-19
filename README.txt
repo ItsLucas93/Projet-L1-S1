@@ -1,5 +1,5 @@
 Projet : Book manager
-Auteurs : KOCOGLU Lucas & MENIN Tibaut (Grp. F - Promo 2026)
+Auteurs : KOCOGLU Lucas & MENIN Thibaut (Grp. F - Promo 2026)
 Version Python développé sur : 3.10.1
 Version Python compatible : 3.8.x - 3.10.1
 

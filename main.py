@@ -1,6 +1,6 @@
 """
 Project name: BOOK MANAGER
-Author: MENIN TIBAUT & KOCOGLU LUCAS
+Author: MENIN THIBAUT & KOCOGLU LUCAS
 Desc: This file is the main project file. It makes it possible to make the link between all the functions distributed in the sub-folders (manager / suggest) which contain the functions.
 At the begining of each file, there is the modules/import part, settings for the language and the functions.
 All UI messages (except of settings because it's an secret menu) is stored into /languages/language_en.py or /languages/language_fr.py

@@ -1,3 +1,9 @@
+"""
+Project name: BOOK MANAGER
+Author: MENIN THIBAUT & KOCOGLU LUCAS
+Desc: This file manage reviews
+"""
+
 ######### MODULES / IMPORT #############
 
 from manage_system.manage_files import read_file, write_file
@@ -16,18 +22,30 @@ elif language == "en":
 
 ######### SETTINGS #############
 
+######### FUNCTIONS #############
+
 def review_book(username, position_user, id_book_review=-1):
 	"""
-	Username: str
-	id_book_review; index_user: int
+	This func is used to give a grade a book and is stocked into /data/rating_matrix.txt
+	with:
+		i : index user
+		j : index book
+	example:
+		0 0 0 0 0 0
+		0 0 0 0 0 0
+		0 0 0 3 0 0
+		0 0 0 0 0 0
+		0 0 0 0 0 0
+	user with index 2 gived 3/5 to book 4
 	"""
-	# print(id_book_review < 0, id_book_review > len(read_file("books")), has_read(username, id_book_review))
 
 	if id_book_review == -1:
 		data_book = read_file("books")
 		data_bookreaders = read_file("booksread")
+
 		print("\n" + text_review_book_show_user_books_readed_separator)
 		print(text_review_book_show_user_books_readed, end="")
+
 		temp = []
 		for i in data_bookreaders:
 			if i[0] == username:
@@ -64,6 +82,10 @@ def review_book(username, position_user, id_book_review=-1):
 
 
 def get_review_book(username, position_user, id_book_review=-1):
+	"""
+	Get the grade of the book by user
+	NE is Not Evaluated (en) / Non évalué (fr)
+	"""
 	data_rating_matrix = read_file("rating_matrix")
 	index_user = position_user # position(read_file("readers"), username)
 	notation = data_rating_matrix[index_user][id_book_review-1]
@@ -74,6 +96,9 @@ def get_review_book(username, position_user, id_book_review=-1):
 
 
 def has_read(username, marque):
+	"""
+	Verify if the user has read the book
+	"""
 	data = read_file("booksread")
 
 	for i in data:
@@ -82,3 +107,5 @@ def has_read(username, marque):
 				if k == str(marque):
 					return True
 	return False
+
+######### FUNCTIONS #############
