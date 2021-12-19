@@ -5,7 +5,7 @@ from manage_system.manage_bookreaders import add_bookreader, remove_bookreader
 from manage_system.manage_book import del_indice
 from manage_system.utilities_func import *
 
-from suggestions.updater_matrix import update_rating_matrix
+from suggestions.updater_matrix import update_rating_matrix, update_suggest_matrix
 from suggestions.manage_review import get_review_book
 
 ######### MODULES / IMPORT #############

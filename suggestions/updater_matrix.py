@@ -58,6 +58,8 @@ def update_suggest_matrix(reason, indice):
 		for i in range(0, len(read_file("readers"))):
 			temp.append('0')
 		data_suggest_matrix.append(temp)
+		for i in range(0, len(read_file("readers"))-1):
+			data_suggest_matrix[i].append('0')
 
 
 	elif reason == "remove_user":
