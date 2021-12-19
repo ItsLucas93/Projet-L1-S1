@@ -70,7 +70,10 @@ def review_book(username, position_user, id_book_review=-1):
 
 	notation = -1
 	while (notation <= 0) or (notation > 5):
-		notation = int(input(text_review_book_input_request_2))
+		try:
+			notation = int(input(text_review_book_input_request_2))
+		except ValueError:
+			notation = -1
 
 	index_user = position_user # position(read_file("readers"), username)
 
