@@ -75,6 +75,7 @@ def update_suggest_matrix(reason, indice):
 
 	elif reason == "remove_user":
 		del data_suggest_matrix[indice]
-
+		for i in range(0, len(data_suggest_matrix)):
+			del data_suggest_matrix[i][indice]
 
 	write_file("suggest_matrix", data_suggest_matrix)

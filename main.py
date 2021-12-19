@@ -1,13 +1,11 @@
 """
-Project name:
-Author:
-
-
-
+Project name: BOOK MANAGER
+Author: MENIN TIBAUT & KOCOGLU LUCAS
+Desc: This file is the main project file. It makes it possible to make the link between all the functions distributed in the sub-folders (manager / suggest) which contain the functions.
+At the begining of each file, there is the modules/import part, settings for the language and the functions.
+All UI messages (except of settings because it's an secret menu) is stored into /languages/language_en.py or /languages/language_fr.py
+For the input, if the input is an int, there is the func try/except to catch potential crash because of str input instead of int input (ValueError)
 """
-
-
-
 ###########################################################################
 # ██████╗░██╗███████╗███╗░░██╗██╗░░░██╗███████╗███╗░░██╗██╗░░░██╗███████╗ #
 # ██╔══██╗██║██╔════╝████╗░██║██║░░░██║██╔════╝████╗░██║██║░░░██║██╔════╝ #
@@ -24,6 +22,7 @@ from manage_system.manage_files import *
 from manage_system.manage_bookreaders import *
 from manage_system.manage_readers import *
 from manage_system.manage_book import *
+
 from suggestions.manage_review import *
 from suggestions.manage_suggest import *
 
@@ -39,7 +38,7 @@ elif language == "en":
 
 ######### SETTINGS #############
 
-######### FONCTIONS #############
+######### FUNCTIONS #############
 
 def welcome():
 	"""
@@ -62,11 +61,14 @@ def command_center(command=0):
 	+-------------------+
 	|---- Main Menu ----|
 	+-------------------+
-
+	
+	This is the main menu.
+	Choices available
 	1. Manage Users
 	2. Manage Books
 	3. Manage Books Readers
 	4. Exit program
+	5. Manage settings (user can't see that menu)
 	"""
 	commandes = {1: "Manage Users", 2: "Manage Books", 3: "Manage Books Readers", 4: "Exit Program", 5: "Settings"}
 	print(text_command_center)
@@ -109,11 +111,12 @@ def command_center(command=0):
 
 def command_settings(command=0, confirm=""):
 	"""
-	1. Language
-	2. Factory Reset (*secret implement*)
-	3. Back to main menu
-
 	this is a secret menu
+	choice available:
+
+	1. Language
+	2. Factory Reset
+	3. Back to main menu
 	"""
 	commandes = {1: "Language", 2: "Factory Reset", 3: "Back to main menu"}
 
@@ -168,6 +171,9 @@ def command_settings(command=0, confirm=""):
 
 def command_manage_reader(command=0):
 	"""
+	Menu for manage the reader
+	Choices available:
+
 	1. Add User
 	2. Show User list
 	3. Delete User
@@ -227,6 +233,9 @@ def command_manage_reader(command=0):
 
 def command_manage_book(command=0):
 	"""
+	Manage center of books
+	Choices available:
+
 	1. Add book
 	2. Delete book
 	3. Rename book
@@ -282,6 +291,9 @@ def command_manage_book(command=0):
 
 def command_manage_bookreaders(command=0):
 	"""
+	Manage center of booksreaders
+	Choices available:
+
 	1. Add readed book
 	2. Add note review
 	3. Suggested book
@@ -328,7 +340,7 @@ def command_manage_bookreaders(command=0):
 def login():
 	"""
 	Username: logged_username <- global var
-	If new user : Type "new"
+	If new user : Type "new", and proceed creation account by add_user(), if they want to add book and review, do it later
 	If want to exit the login phase (close the program): Type "exit"
 	"""
 	global logged_username
@@ -352,12 +364,12 @@ def login():
 			return True
 
 
-######### FONCTIONS #############
+######### FUNCTIONS #############
 
 ######### MAIN #############
 
 if __name__ == '__main__':
-	# Load calc similar matrix, welcome, login
+	# Load calc similar matrix (store in logs too), welcome, login
 	calc_suggest_matrix(read_file("suggest_matrix"))
 	welcome()
 
@@ -371,4 +383,4 @@ if __name__ == '__main__':
 			print(text_exit_1 + " " + str(logged_username) + " ! " + text_exit_2)
 	quit()
 
-######### MAIN #############
+######### MAIN ############# (end of file)

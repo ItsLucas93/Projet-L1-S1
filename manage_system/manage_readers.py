@@ -1,3 +1,9 @@
+"""
+Project name: BOOK MANAGER
+Author: MENIN TIBAUT & KOCOGLU LUCAS
+Desc: This file is store functions of manage readers.
+"""
+
 ######### MODULES / IMPORT #############
 
 from manage_system.manage_files import read_file, write_file
@@ -20,15 +26,11 @@ elif language == "en":
 
 ######### SETTINGS #############
 
-"""
-Les fonctions retournent des bool pour déclarer si les opérations se sont déroulés avec succès.
-En cas de False: Message d'erreur.
-"""
-
+######### FUNCTIONS #############
 
 def add_user():
     """
-    Ajoute un utilisateur dans le fichier ./data/readers.txt
+    Add user in the file ./data/readers.txt and updates others data file
     """
 
     print(text_add_user_separator)
@@ -43,12 +45,13 @@ def add_user():
     write_file("readers_add", temp)
     update_rating_matrix("add_user", None)
     update_suggest_matrix("add_user", None)
+
     return True
 
 
 def remove_user(username=""):
     """
-    Supprime un utilisateur dans le fichier ./data/readers.txt
+    Delete user in the file ./data/readers.txt and updates others data file
     """
 
     # Import de la liste data
@@ -84,7 +87,7 @@ def remove_user(username=""):
 
 def user_exist(username):
     """
-    Vérifie si l'utilisateur existe dans le fichier ./data/readers.txt
+    Verify if user exist in ./data/readers.txt
     """
 
     # Import de la liste data
@@ -98,7 +101,8 @@ def user_exist(username):
 
 def show_users(command=0):
     """
-    Affiche la liste des utilisateurs présents dans ./data/users
+    Show all user by their username ./data/readers.txt
+    If the len exceed 15, divide into pages.
     """
     data = read_file("readers")
 
@@ -153,14 +157,13 @@ def show_users(command=0):
 
 def modify_user(username="", command=0):
     """
-    Modifier un utlisateur dans le fichier ./data/readers.txt
+    Menu manage user data in ./data/readers.txt
+    
     Commandes : 
-    1. Pseudo 
-    2. gender
-    3. Âge
-    4. Préférences
-    5. Livres que vous avez lu ?
-    6. Exit
+    1. Gender
+    2. Age
+    3. Preferences
+    4. Back to parent menu
     """
     data = read_file("readers")
 
@@ -207,7 +210,16 @@ def modify_user(username="", command=0):
 def show_profile(username=""):
     """
     Show profil of logged user # à modifier en username donné en input
-    # Ajouter la liste des livres lu
+    Show:
+        username
+        gender
+        age
+        preference
+        list of books
+            if user has no book readed:
+                show: no books readed yet
+            else:
+                name of book (grade/5) + ...
     """
 
     data_readers = read_file("readers")
@@ -263,4 +275,6 @@ def show_profile(username=""):
                     print("\n" + text_show_user_separator)
                 return True
     return False
+
+######### FUNCTIONS #############
 

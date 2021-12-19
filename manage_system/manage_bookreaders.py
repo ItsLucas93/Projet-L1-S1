@@ -1,3 +1,9 @@
+"""
+Project name: BOOK MANAGER
+Author: MENIN TIBAUT & KOCOGLU LUCAS
+Desc: This file manage bookreaders.
+"""
+
 ######### MODULES / IMPORT #############
 
 from manage_system.manage_files import write_file, read_file
@@ -43,8 +49,10 @@ def remove_bookreader(username):
 
 def remove_bookread(marque):
 	"""
-	Remove book id in data/bookread.txt
-	Et baisse l'indice de tous les autres livres car un livre supprimé (indice mobile)
+	Remove book id in data/bookreaders.txt
+	And drop the index of all the other books because a deleted book (moving index)
+	This func is used only by removing book.
+	User is not supposed to lie on readers book and will not be able to remove
 	"""
 	bookread = read_file("booksread")
 	marque += 1
@@ -60,6 +68,9 @@ def remove_bookread(marque):
 
 
 def show_books_readed(username):
+	"""
+	Show books readed
+	"""
 	data_book = read_file("books")
 	data_bookreaders = read_file("booksread")
 
@@ -76,7 +87,10 @@ def show_books_readed(username):
 
 
 def add_bookreaded(username, marque=-1):
-
+	"""
+	Add readed book at the end of the line of user profile in data/booksread.txt
+	"""
+	
 	data_book = read_file("books")
 
 	print(text_add_bookreaded_separator)

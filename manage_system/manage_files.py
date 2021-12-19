@@ -1,3 +1,11 @@
+"""
+Project name: BOOK MANAGER
+Author: MENIN TIBAUT & KOCOGLU LUCAS
+Desc: This file manage write and read file.
+"""
+
+######### PATH VAR #############
+
 path_books = "data/books.txt"
 path_booksread = "data/booksread.txt"
 path_readers = "data/readers.txt"
@@ -5,13 +13,15 @@ path_rating_matrix = "data/rating_matrix.txt"
 path_suggest_matrix = "data/suggest_matrix.txt"
 path_suggest_matrix_log = "logs/logs_suggest_matrix.txt"
 
+######### PATH VAR #############
 
-# Implémenter une fonction qui permet de modifier le path depuis la console
-
+######### FUNCTIONS #############
 
 def read_file(path):
     """
-    Lecture du fichier readers.txt
+    Read files
+    parameters:
+        path (str) - modes : books / booksread / readers / rating_matrix / suggest_matrix
     """
 
     # Python 3.10 case/match instead of if/else
@@ -81,7 +91,11 @@ def read_file(path):
 
 def write_file(path, liste, comment=""):
     """
-    Ecriture du fichier
+    Write file
+    parameters:
+        path (str) - modes : books / books_add / booksread / booksreader_add / readers / readers_add / rating_matrix / suggest_matrix / logs_suggest_matrix
+        liste (list)
+        comment (str) - for logs_suggest_matrix
     """
 
     if path == "books_add":
@@ -192,7 +206,7 @@ def assemble_liste_2d(liste, separateur=','):
 
 def remove_antislashn(charactere):
     """
-    Retire l'antislash n de la chaîne de caractère
+    Remove backslash n from char
     """
     if charactere[-1] == "\n":
         charactere = charactere[:-1]
@@ -201,8 +215,7 @@ def remove_antislashn(charactere):
 
 def regenerate_file():
     """
-    à utiliser seulement en cas de reset, très explosif
-    écrase tt
+    reset factory of all data in /data/*
     """
     from suggestions.updater_matrix import rating_matrix_init, suggest_matrix_init
 
@@ -228,3 +241,5 @@ def regenerate_file():
 
     rating_matrix_init()
     suggest_matrix_init()
+
+######### FUNCTIONS #############

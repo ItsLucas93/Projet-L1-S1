@@ -62,10 +62,7 @@ def func_sim_cos(user1, user2):
 
 
 def calc_suggest_matrix(suggest_matrix):
-
-
     timer_start = time.time() # For logs purposes
-
 
     data_readers = read_file("readers")
     temp = [data_readers[i][0] for i in range(0, len(data_readers))]
