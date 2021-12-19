@@ -1,8 +1,8 @@
 path_books = "data/books.txt"
 path_booksread = "data/booksread.txt"
 path_readers = "data/readers.txt"
-path_rating_matrix = "suggestions/rating_matrix.txt"
-path_suggest_matrix = "suggestions/suggest_matrix.txt"
+path_rating_matrix = "data/rating_matrix.txt"
+path_suggest_matrix = "data/suggest_matrix.txt"
 
 
 # Implémenter une fonction qui permet de modifier le path depuis la console
