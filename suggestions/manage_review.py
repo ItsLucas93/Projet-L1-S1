@@ -7,7 +7,7 @@ Desc: This file manage reviews
 ######### MODULES / IMPORT #############
 
 from manage_system.manage_files import read_file, write_file
-from manage_system.manage_book import book_exist, show_books
+
 from manage_system.utilities_func import position
 
 ######### MODULES / IMPORT #############

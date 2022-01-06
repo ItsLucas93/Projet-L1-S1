@@ -1,0 +1,37 @@
+Consigne : Affichez le profil (show_profile()) correspondant à chaque exercices.
+
+Exercice 1 : Ajouter un nouvel utilisateur
+
+Pseudo : dutravailencoredutravail
+Âge : 23 ans
+Genre : Homme
+Préférences : Sciences Fiction
+
+Exercice 2 : Ajouter les livres suivants dans le storage
+
+EFREI Paris - Brochure PGE 2021
+EFREI Paris - Brochure PEX 2021
+
+Exercice 3 : Ajoutez les deux livres aux lectures de 'dutravailencoredutravail'
+
+Exercice 4 : Supprimer le livre suivants du storage : 'EFREI Paris - Brochure PEX 2021'
+
+Exercice 5 : Modifiez le nom du livre 'EFREI Paris - Brochure PGE 2021' en  'EFREI Paris - Brochure PGE 2022'
+
+Exercice 6 : Ajoutez au lecture de 'dutravailencoredutravail' :
+
+Harry Potter à l’école des sorciers
+Le Hobbit
+Le Lion, la Sorcière blanche et l’Armoire magique
+
+Exercice 7 : Notez les livres de 'dutravailencoredutravail' (consultez l'évolution dans ./data/rating_matrix.txt) puis affichez le profil
+
+Exercice 8 : Ajoutez 3 profil et afficher la liste de tous les users (show_users())
+
+Exercice 9 : Supprimer 'Gilbert' des utilisateurs
+
+Exercice 10 : Cherchez les recommendations de livres pour 'dutravailencoredutravail'
+
+Exercice 11 : Change the language pls
+
+Exercice 12 : Reset factory and end the exercices
